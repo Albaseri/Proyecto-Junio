@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+[x-guest-layout] {
+    background: linear-gradient(to bottom right, #000000, #38387b, #a83271, rgb(255, 192, 74));
+    height: 100vh;
+}  
+/* [x-nav-link]{
+    color:white
+} */
