@@ -1,5 +1,5 @@
 {{-- ! He quitado border-b border-gray-100 --}}
-<nav x-data="{ open: false }" class="bg-violet-950  ">
+<nav x-data="{ open: false }" class="bg-violet-950   ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -29,6 +29,9 @@
                             </x-nav-link>
                             <x-nav-link href="{{route('postsLiv.index')}}" :active="request()->routeIs('postsLiv')">
                                 {{ __('Gestionar Post del Blog') }}
+                            </x-nav-link>
+                            <x-nav-link href="{{route('usersLiv.index')}}" :active="request()->routeIs('usersLiv')">
+                                {{ __('Gestionar Usuarios') }}
                             </x-nav-link>
                         @endif
                     @endauth
@@ -62,7 +65,7 @@
                                 <x-slot name="content">
                                     <div class="w-60">
                                         <!-- Team Management -->
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                        <div class="block px-4 py-2 text-xs text-white-400">
                                             {{ __('Manage Team') }}
                                         </div>
 
@@ -81,7 +84,7 @@
                                         @if (Auth::user()->allTeams()->count() > 1)
                                             <div class="border-t border-gray-200"></div>
 
-                                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                            <div class="block px-4 py-2 text-xs text-white-400">
                                                 {{ __('Switch Teams') }}
                                             </div>
 
@@ -156,15 +159,15 @@
                     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                         @auth
                             <a href="{{ url('/dashboard') }}"
-                                class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                class="font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                         @else
                             <a href="{{ route('login') }}"
-                                class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                                class="font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
                                 in</a>
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}"
-                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                    class="ml-4 font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                             @endif
                         @endauth
                     </div>

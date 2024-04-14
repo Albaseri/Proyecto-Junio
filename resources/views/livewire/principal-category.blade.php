@@ -28,6 +28,9 @@
                         <th scope="col" class="px-6 py-3">
                             DESCRIPCIÓN
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Acciones
+                        </th>
 
                     </tr>
                 </thead>
@@ -41,7 +44,17 @@
 
                             <td class="px-6 py-4">
                                 {{ $item->descripcion }}
-
+                            </td>
+                            <td class="px-6 py-4">
+                                <form action="{{ route('categories.destroy', $item->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button>
+                                        <i class="fas fa-trash text-pink-500 hover:text-2xl mr-2"></i>
+                                    </button>
+                                    <a href="{{ route('categories.edit', $item->id) }}">
+                                        <i class="fas fa-edit text-teal-400 hover:text-2xl"></i>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

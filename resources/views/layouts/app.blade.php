@@ -46,7 +46,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="w-full">
             {{ $slot }}
         </main>
     </div>
@@ -76,6 +76,43 @@
                 timer: 1500
             });
         })
+
+
+        Livewire.on('pedir-permiso', id => {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatchTo('principal-training-card', 'deleteConfirmado', id)
+                }
+            });
+        });
+        Livewire.on('pedir-permiso', id => {
+            Swal.fire({
+                title: "¿Está seguro?",
+                text: "¡No podrá revertir esto!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#10B981",
+                cancelButtonColor: "#EF4444",
+                confirmButtonText: "ELIMINAR",
+                cancelButtonText: "CANCELAR",
+                customClass: {
+                    confirmButton: 'btn-confirm',
+                    cancelButton: 'btn-cancel'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatchTo('principal-post', 'deleteConfirmado', id)
+                }
+            });
+        });
     </script>
 
 </body>

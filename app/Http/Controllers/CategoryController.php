@@ -51,7 +51,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categorias.update', compact('category'));
+
     }
 
     /**
@@ -59,7 +60,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'nombre' => ['required', 'string', 'min:3', 'unique:categories,nombre,' . $category->id],
+            'descripcion' => ['required', 'string', 'min:10']
+        ]);
+        
+        $category->update($request->all());
+        return redirect()->route('categoriesLiv.index')->with('mensaje', 'Categoría actualizada con éxito');
     }
 
     /**
@@ -67,6 +74,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categoriesLiv.index')->with("mensaje","Categoría eliminada con éxito");
     }
 }

@@ -1,7 +1,14 @@
     <x-propios.principal>
         <h1 class="text-white font-bold text-center text-lg mb-5">GESTIONAR POSTS DEL BLOG</h1>
 
-        <div class="flex flex-row-reverse mb-2">
+        <div class="flex w-full mb-2 items-center justify-between">
+            <div class="flex-1 w-3/4">
+                <input
+                    class="border-gray-300  bg-slate-800 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-60 mr-1"
+                    type="search" placeholder="Buscar por título o contenido..." wire:model.live="buscar">
+                <i class="fas fa-search text-white  text-lg"></i>
+            </div>
+
             <a href="{{ route('posts.create') }}"
                 class="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-violet-700 rounded-full shadow-md group">
                 <span
@@ -33,6 +40,9 @@
                         <th scope="col" class="px-6 py-3">
                             CONTENIDO
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Acciones
+                        </th>
 
                     </tr>
                 </thead>
@@ -51,6 +61,14 @@
                             <td class="px-6 py-4 text-justify">
                                 {{ $item->contenido }}
 
+                            </td>
+                            <td class="p-4">
+                                <button wire:click="edit(102)">
+                                    <i class="fas fa-edit text-yellow-500 hover:text-xl mr-2"></i>
+                                </button>
+                                <button wire:click="confirmarDelete({{ $item->id }})">
+                                    <i class="fas fa-trash text-pink-500 hover:text-xl"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach

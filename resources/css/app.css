@@ -12,3 +12,28 @@
 /* [x-nav-link]{
     color:white
 } */
+.btn-confirm {
+    background-color:rgb(1, 186, 218) !important; /* Color de fondo para el botón de confirmación */
+    border: none; /* Elimina el borde */
+    font-size: 1rem; /* Tamaño de fuente */
+    padding: 0.625rem 1.25rem; /* Relleno */
+    border-radius: 0.375rem; /* Radio de borde */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-cancel {
+    background-color: #e15353 !important; /* Color de fondo para el botón de cancelación */
+    border: none; /* Elimina el borde */
+    font-size: 1rem; /* Tamaño de fuente */
+    padding: 0.625rem 1.25rem; /* Relleno */
+    border-radius: 0.375rem; /* Radio de borde */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-confirm:hover,
+.btn-cancel:hover {
+    filter: brightness(90%); /* Cambia el brillo al pasar por encima */
+}
+

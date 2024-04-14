@@ -10,10 +10,11 @@ use App\Livewire\PrincipalBlog;
 use App\Livewire\PrincipalCategory;
 use App\Livewire\PrincipalPost;
 use App\Livewire\PrincipalTrainingCard;
+use App\Livewire\PrincipalUsers;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::middleware([
@@ -38,6 +39,7 @@ Route::get('categoriesLiv', PrincipalCategory::class)->name('categoriesLiv.index
 Route::get('trainingCardsLiv', PrincipalTrainingCard::class)->name('trainingCardsLiv.index');
 Route::get('postsLiv', PrincipalPost::class)->name('postsLiv.index');
 Route::get('blogLiv', PrincipalBlog::class)->name('blogLiv.index');
+Route::get('usersLiv', PrincipalUsers::class)->name('usersLiv.index');
 
 // Rutas GitHub
 Route::get('/auth/github/redirect',[GithubController::class,'redirect'])->name('github.redirect');
