@@ -16,7 +16,7 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link href="" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{route('blogLiv.index')}}" :active="request()->routeIs('blogLiv')">
                         {{ __('Blog') }}
                     </x-nav-link>
                     @auth
@@ -32,7 +32,7 @@
                             </x-nav-link>
                         @endif
                     @endauth
-                    <x-nav-link href="" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{route('email.pintar') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Contáctanos') }}
                     </x-nav-link>
                 </div>

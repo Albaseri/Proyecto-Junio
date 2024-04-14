@@ -12,9 +12,9 @@ class Category extends Model
     protected $fillable = ['nombre', 'descripcion'];
 
     //? Relación 1:N con Post
-    public function post()
+    public function posts()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Post::class);
     }
 
     //? Accesors and muttators

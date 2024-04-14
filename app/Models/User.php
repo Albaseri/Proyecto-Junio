@@ -67,4 +67,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+       //! Método para verificar si el usuario es un administrador
+       public function isAdmin()
+       {
+           return $this->roles === 'ADMIN';
+       }
 }

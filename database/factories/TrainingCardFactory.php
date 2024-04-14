@@ -17,6 +17,8 @@ class TrainingCardFactory extends Factory
      */
     public function definition(): array
     {
+        fake()->addProvider(new \Mmo\Faker\PicsumProvider(fake()));
+
         return [
             'titulo'=>fake()->words(3,true),
             'descripcion'=>fake()->text(),

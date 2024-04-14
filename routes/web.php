@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Socialite\GithubController;
 use App\Http\Controllers\Socialite\GoogleController;
 use App\Http\Controllers\TrainingCardController;
+use App\Livewire\PrincipalBlog;
 use App\Livewire\PrincipalCategory;
 use App\Livewire\PrincipalPost;
 use App\Livewire\PrincipalTrainingCard;
@@ -35,6 +37,7 @@ Route::middleware([
 Route::get('categoriesLiv', PrincipalCategory::class)->name('categoriesLiv.index');
 Route::get('trainingCardsLiv', PrincipalTrainingCard::class)->name('trainingCardsLiv.index');
 Route::get('postsLiv', PrincipalPost::class)->name('postsLiv.index');
+Route::get('blogLiv', PrincipalBlog::class)->name('blogLiv.index');
 
 // Rutas GitHub
 Route::get('/auth/github/redirect',[GithubController::class,'redirect'])->name('github.redirect');
@@ -44,3 +47,6 @@ Route::get('/auth/github/callback',[GitHubController::class,'callback'])->name('
 Route::get('/auth/google/redirect',[GoogleController::class,'redirect'])->name('google.redirect');
 Route::get('/auth/google/callback',[GoogleController::class,'callback'])->name('google.callback');
  
+// Rutas Contacto
+Route::get('contacto', [ContactoController::class, 'pintarFormulario'])->name('email.pintar');
+Route::post('contacto', [ContactoController::class, 'procesarFormulario'])->name('email.procesar');

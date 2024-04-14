@@ -9,7 +9,7 @@
                     <label for="titulo"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Título: </label>
                     <input type="text" id="titulo" value="{{ @old('titulo') }}"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-purple-500 dark:focus:border-blue-500"
                         placeholder="Titulo..." name="titulo">
                         <x-input-error for="titulo"></x-input-error>
                 </div>
@@ -19,19 +19,19 @@
                     <label for="contenido"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Contenido: </label>
                         <input type="contenido" id="contenido" value="{{ @old('contenido') }}"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-purple-500 dark:focus:border-blue-500"
                         placeholder="Contenido..." name="contenido">
                         <x-input-error for="contenido"></x-input-error>
                 </div>
 
                 <div class="mb-5">
-                    <label for="categoria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Seleccione una
+                    <label for="categoria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Seleccione una
                         categoría:</label>
     
                     <select id="category_id"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border text-center border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-violet-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name="category_id">
-                        <option value="">------------------Seleccione una categoría-------------</option>
+                        <option value="">Pulse para desplegar opciones</option>
                         @foreach ($categorias as $item)
                             <option value="{{ $item->id }}" @selected(old('category_id')==$item->id)>{{ $item->nombre }}</option>
                         @endforeach
@@ -43,16 +43,15 @@
 
               
                 <div class="mb-6">
-                    <label for="imagen" class="block mb-2 text-sm font-medium text-gray-900">Imagen</label>
+                    <label for="imagen" class=" rounded block mb-2 text-sm font-medium text-gray-900">Imagen:</label>
                     <input type="file" id="imagen" oninput="img.src=window.URL.createObjectURL(this.files[0])"
                     name="imagen" accept="image/*"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    class="bg-white-50 border-lg border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-violet-400 dark:border-purple-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
 
 
-
-                    <div class="w-full mt-2 px-2 md:w-3/8" id="contenedorImagenDefecto">
+                    <div class="w-full mt-2 px-2 md:w-3/8" id="imagen">
                         <img src="{{ Storage::url('defecto.jpg') }}"
-                            class="w-full h-auto md:h-72 rounded object-cover border-4 border-black" id="img">
+                            class="w-full h-auto md:h-72 rounded-lg object-cover border-2 border-purple-600" id="img">
                     </div>
 
                 </div>

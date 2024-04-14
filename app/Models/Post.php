@@ -14,9 +14,9 @@ class Post extends Model
 
 
     //? Relación 1:N con Category
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
     
     //? Relación 1:N con Users
