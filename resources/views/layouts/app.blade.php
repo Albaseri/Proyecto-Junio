@@ -33,7 +33,7 @@
     <x-banner />
 
     {{-- ! Consigo fondo degradado para botón NUEVA/O y gestionar categorías --}}
-    <div class="min-h-screen bg-gradient-to-r from-violet-900  to-pink-900">
+    <div class="min-h-screen">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->

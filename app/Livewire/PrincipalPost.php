@@ -43,12 +43,17 @@ class PrincipalPost extends Component
      {
        //  $this->authorize('delete', $post);
  
-         // Compruebo imagen
-         if (basename($post->imagen) != "defecto.jpg") {
-             Storage::delete('posts');
-         }
-         // Elimino post
-         $post->delete();
+      // Compruebo imagen
+      if (basename($post->imagen) != "defecto.jpg") {
+        $rutaImagen = 'public/storage/' . $post->imagen;
+        
+                
+        // Elimina la imagen
+        Storage::delete($rutaImagen);
+    }
+
+    // Elimino post
+    $post->delete();
  
          $this->dispatch('mensaje', 'Post eliminado');
      }

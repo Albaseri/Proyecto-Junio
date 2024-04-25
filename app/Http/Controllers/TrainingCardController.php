@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TrainingCard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TrainingCardController extends Controller
 {
@@ -31,7 +32,7 @@ class TrainingCardController extends Controller
         //?1. Validamos el formulario utilizando validaciones de laravel
 
         $request->validate([
-            'titulo' => ['required', 'string', 'min:3', 'unique:categories,nombre'],
+            'titulo' => ['required', 'string', 'min:3', 'unique:trainingCards,titulo'],
             'descripcion' => ['required', 'string', 'min:5'],
             'imagen' => ['nullable', 'image', 'max:2048'],
             'n_repeticiones' => ['required', 'integer', 'min:5', 'max:15'],
@@ -55,7 +56,7 @@ class TrainingCardController extends Controller
 
         ]);
 
-        //? 3. Volvemos a la página posts y nos creamos una sesión de tipo flas para mostrar mensaje
+        //? 3. Volvemos a la página cards y nos creamos una sesión de tipo flas para mostrar mensaje
         return redirect()->route('trainingCardsLiv.index')->with('mensaje', 'Card de entrenamiento creada correctamente');
     }
 
@@ -72,7 +73,7 @@ class TrainingCardController extends Controller
      */
     public function edit(TrainingCard $trainingCard)
     {
-        //
+        return view('trainingCards.editTrainingCards',compact('trainingCard'));
     }
 
     /**
@@ -80,7 +81,37 @@ class TrainingCardController extends Controller
      */
     public function update(Request $request, TrainingCard $trainingCard)
     {
-        //
+        $request->validate([
+            'titulo' => ['required', 'string', 'min:3', 'unique:trainingCards,titulo,' . $trainingCard->id],
+            'descripcion' => ['required', 'string', 'min:5'],
+            'imagen' => ['nullable', 'image', 'max:2048'],
+            'n_repeticiones' => ['required', 'integer', 'min:5', 'max:15'],
+            'n_series' => ['required', 'integer', 'min:1', 'max:10'],
+            'url_youtube' => ['required', 'string'],
+            'estado'=> ['required', 'in:VISIBLE,NO VISIBLE']
+        ]);
+
+        $ruta = $trainingCard->imagen;
+        //Si existe 
+        if ($request->imagen) {
+            if (basename($ruta) != "defecto.jpg") {
+                Storage::delete($ruta); // Borro imagen antigua
+            }
+            $ruta = $request->imagen->store('cards'); // Reescribo con la nueva ruta 
+        }
+
+        $trainingCard->update([
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'imagen' => $ruta,
+            'n_repeticiones' => $request->n_repeticiones,
+            'n_series' => $request->n_series,
+            'url_youtube' => $request->url_youtube,
+            'estado' => $request->estado,
+            'user_id' => auth()->user()->id,
+        ]);
+
+        return redirect()->route('trainingCardsLiv.index')->with('mensaje', 'Training Card actualizada correctamente');
     }
 
     /**

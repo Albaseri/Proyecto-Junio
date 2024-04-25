@@ -22,7 +22,7 @@ class TrainingCardFactory extends Factory
         return [
             'titulo'=>fake()->words(3,true),
             'descripcion'=>fake()->text(),
-            'imagen'=>"cards/". fake()->picsum('public/storage/cards',640,480,false),
+            'imagen'=>'cards/'. fake()->picsum('public/storage/cards',640,480,false),
             'n_repeticiones'=>random_int(5,15),
             'n_series'=>random_int(1,10),
             'url_youtube'=>fake()->url(),   

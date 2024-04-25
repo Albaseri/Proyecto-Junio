@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -67,7 +68,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categorias = Category::select('id' , 'nombre') -> get();        // Traigo todas las categorías
+
+        return view('posts.editPost',compact('post','categorias'));
+
     }
 
     /**
@@ -75,7 +79,30 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'titulo' => ['required', 'string', 'min:3', 'unique:posts,titulo,' . $post->id],
+            'contenido' => ['required', 'string', 'min:10'],
+            'imagen' => ['nullable', 'image', 'max:2048'],
+            'category_id' => ['required', 'exists:categories,id']
+        ]);
+
+        $ruta = $post->imagen;
+        //Si existe 
+        if ($request->imagen) {
+            if (basename($ruta) != "defecto.jpg") {
+                Storage::delete($ruta); // Borro imagen antigua
+            }
+            $ruta = $request->imagen->store('posts'); // Reescribo con la nueva ruta 
+        }
+
+        $post->update([
+            'titulo' => $request->titulo,
+            'contenido' => $request->contenido,
+            'imagen' => $ruta,
+            'category_id' => $request->category_id
+        ]);
+
+        return redirect()->route('postsLiv.index')->with('mensaje', 'Post actualizado correctamente');
     }
 
     /**

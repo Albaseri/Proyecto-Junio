@@ -1,15 +1,15 @@
 <x-app-layout>
-    <div class="h-screen bg-gradient-to-br from-blue-800 via-pink-800 to-yellow-500">
+    <div class="bg-gradient-to-br from-cyan-200 to-black">
         <x-propios.principal>
             <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-gray-100 dark:text-black ">
                 <form method="POST" action="{{ route('trainingCards.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-5">
-                        <h1 class="mb-5 text-purple-900 text-center font-bold">NUEVO POST</h1>
+                        <h1 class="mb-5 text-black text-center font-bold">NUEVA TARJETA DE ENTRENAMIENTO</h1>
                         <label for="titulo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Título:
                         </label>
                         <input type="text" id="titulo" value="{{ @old('titulo') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-purple-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="Titulo..." name="titulo">
                         <x-input-error for="titulo"></x-input-error>
                     </div>
@@ -17,9 +17,9 @@
 
                     <div class="mb-5">
                         <label for="descripcion"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Contenido: </label>
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Descripción: </label>
                         <input type="descripcion" id="descripcion" value="{{ @old('descripcion') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-purple-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="Descripción..." name="descripcion">
                         <x-input-error for="descripcion"></x-input-error>
                     </div>
@@ -29,7 +29,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Número de Repeticiones:
                         </label>
                         <input type="text" id="n_repeticiones" value="{{ @old('n_repeticiones') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-purple-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="Número de repeticiones..." name="n_repeticiones">
                         <x-input-error for="n_repeticiones"></x-input-error>
                     </div>
@@ -39,7 +39,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Número de Series:
                         </label>
                         <input type="text" id="n_series" value="{{ @old('n_series') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-purple-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="Número de series..." name="n_series">
                         <x-input-error for="n_series"></x-input-error>
                     </div>
@@ -49,7 +49,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">URL de YouTube:
                         </label>
                         <input type="url" id="url_youtube" value="{{ @old('url_youtube') }}"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:purple-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-purple-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-purple-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="URL de YouTube..." name="url_youtube">
                         <x-input-error for="url_youtube"></x-input-error>
                     </div>
@@ -77,12 +77,12 @@
                         <label for="imagen" class=" rounded block mb-2 text-sm font-medium text-gray-900">Imagen:</label>
                         <input type="file" id="imagen" oninput="img.src=window.URL.createObjectURL(this.files[0])"
                         name="imagen" accept="image/*"
-                        class="bg-white-50 border-lg border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-violet-900 dark:border-purple-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                        class="bg-white-50 border-lg border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-cyan-900 dark:border-cyan-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
 
 
                         <div class="w-full mt-2 px-2 md:w-3/8" id="imagen">
                             <img src="{{ Storage::url('defecto.jpg') }}"
-                                class="w-full h-auto md:h-72 rounded-lg object-cover border-2 border-purple-600" id="img">
+                                class="w-full h-auto md:h-72 rounded-lg object-cover border-2 border-cyan-600" id="img">
                         </div>
 
                     </div>

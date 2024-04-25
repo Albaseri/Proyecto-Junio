@@ -68,9 +68,14 @@ class User extends Authenticatable
         ];
     }
 
-       //! Método para verificar si el usuario es un administrador
-       public function isAdmin()
-       {
-           return $this->roles === 'ADMIN';
-       }
+    //! Método para verificar si el usuario es un administrador
+    public function isAdmin()
+    {
+        return $this->roles === 'ADMIN';
+    }
+
+    // public function pdfs()
+    // {
+    //     return $this->hasMany(Pdf::class);
+    // }
 }

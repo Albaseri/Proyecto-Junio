@@ -4,8 +4,8 @@
             {{ __('Hola soy dashboard') }}
         </h2>
     </x-slot> --}}
-
-    <div class="py-12 bg-gradient-to-br  from-blue-950 to-pink-800 ">
+{{-- ! Color de fondo del home --}}
+    <div class="py-12 bg-gradient-to-br  from-cyan-600 to-black ">
         <div class="w-full mx-auto sm:px-6 lg:px-8">
             <div class=" overflow-hidden sm:rounded-lg">
                 <x-welcome />

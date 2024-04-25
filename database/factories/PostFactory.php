@@ -22,7 +22,7 @@ class PostFactory extends Factory
            return [
                'titulo'=>fake()->words(3,true),
                'contenido'=>fake()->text(),
-               'imagen'=>"posts/". fake()->picsum('public/storage/posts',640,480,false),
+               'imagen'=>'posts/'. fake()->picsum('public/storage/posts',640,480,false),
                //Me traigo todas las categorías y le asigno un id aleatorio al artículo que estoy creando
                'category_id'=>Category::all()->random()->id
                //! user_id
