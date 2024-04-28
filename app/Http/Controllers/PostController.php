@@ -41,7 +41,7 @@ class PostController extends Controller
 
         //? 2. Si no hay errores, pasamos de esta línea, le guardamos los datos
 
-        $ruta = ($request->imagen) ? $request->imagen->store('posts') : "posts/defecto.jpg";
+        $ruta = ($request->imagen) ? $request->imagen->store('posts') : "defecto.jpg";
         Post::create([
             'titulo' => $request->titulo,
             'contenido' => $request->contenido,

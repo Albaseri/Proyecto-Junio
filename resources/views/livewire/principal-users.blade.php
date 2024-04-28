@@ -82,7 +82,7 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <form action="{{ route('categories.destroy', $user->id) }}" method="post">
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <a href="{{ route('users.edit', $user->id) }}"
@@ -90,6 +90,9 @@
                                                 Edit
                                                 user <i class="fas fa-pencil text-pink-500 mr-2"></i>
                                             </a>
+                                            <button>
+                                                <i class="fas fa-trash text-teal-400 hover:text-2xl mr-2"></i>
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
