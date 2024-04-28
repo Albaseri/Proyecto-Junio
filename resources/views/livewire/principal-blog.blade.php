@@ -1,6 +1,6 @@
 {{-- !Lo comento para no aplicar los estilos
      <x-propios.principal> --}}
-<div class="bg-white   min-h-screen py-24 sm:py-32 rounded-lg ">
+<div class="bg-white min-h-screen py-24 sm:py-32 rounded-lg ">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
             <h2 class="text-3xl font-bold tracking-tight text-violet-950 sm:text-4xl">Nuestro Blog</h2>
@@ -30,16 +30,17 @@
                             <time datetime="{{ $post->created_at }}"
                                 class="text-gray-500">{{ $post->created_at->format('d/m/Y') }}</time>
                             <!-- Acceder a la categoría del post -->
-                            <a href="#"
-                                class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ $post->category->nombre }}</a>
+                            <h5
+                                class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                                {{ $post->category->nombre }}</h5>
                         </div>
 
                         <div class="group relative">
                             <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                <a href="#">
-                                    <span class="absolute inset-0"></span>
-                                    {{ $post->titulo }}
-                                </a>
+
+                                <span class="absolute inset-0"></span>
+                                {{ $post->titulo }}
+
                             </h3>
                             <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{ $post->contenido }}</p>
                         </div>
@@ -47,24 +48,23 @@
                         <div class="relative mt-8 flex items-center gap-x-4">
                             <div class="text-sm leading-6">
                                 <p class="font-semibold text-gray-900">
-                                    <a href="#">
-                                        <span class="absolute inset-0"></span>
-                                        Nombre del Autor
-                                    </a>
+                                    <span class="absolute inset-0"></span>
+                                    Nombre del Autor
+
                                 </p>
                                 <p class="text-gray-600">Entrenador Personal</p>
                             </div>
                             <!--! Botón de edición donde compruebo si el user o el admin están logeados-->
                             @if (Auth::check() && Auth::user()->roles === 'ADMIN')
-                                <div class="ml-auto">
-                                    <button
+                                <div class="ml-auto relative">
+                                    <a href="{{ route('posts.edit', $post->id) }}"
                                         class="flex p-2.5 bg-yellow-500 rounded-xl hover:rounded-3xl hover:bg-yellow-600 transition-all duration-300 text-white">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                         </svg>
-                                    </button>
+                                    </a>
                                 </div>
                             @endif
                         </div>

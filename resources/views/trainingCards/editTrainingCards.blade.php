@@ -2,7 +2,7 @@
     <div class="h-screen bg-gradient-to-br from-cyan-200 to-black">
         <x-propios.principal>
             <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-gray-100 dark:text-black ">
-                <form method="POST" action="{{ route('trainingCards.edit', $trainingCard) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('trainingCards.update', $trainingCard) }}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="mb-5">
@@ -94,7 +94,7 @@
                     <div class="flex flex-row-reverse mt-5">
                         <button type="submit"
                             class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                            <i class="fas fa-save"></i> ACTUALIZAR
+                            <i class="fas fa-save"></i> EDITAR
                         </button>
 
                         <button type="reset"

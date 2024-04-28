@@ -44,7 +44,6 @@
 
                     </div>
 
-
                     <div class="mb-6">
                         <label for="imagen"
                             class=" rounded block mb-2 text-sm font-medium text-gray-900">Imagen:</label>
@@ -57,6 +56,7 @@
                                 class="w-full h-auto md:h-72 rounded-lg object-cover border-2 border-cyan-600"
                                 id="img">
                         </div>
+                        <x-input-error for="imagen"></x-input-error>
 
                     </div>
 

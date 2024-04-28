@@ -19,10 +19,10 @@ class PrincipalPost extends Component
     public function render()
     {
         $posts = Post::where('titulo', 'like', "%$this->buscar%")
-        ->orWhere('contenido', 'like', "%$this->buscar%")
-        ->orderBy('id','desc')
-        ->paginate(5);
-        return view('livewire.principal-post',compact('posts'));
+            ->orWhere('contenido', 'like', "%$this->buscar%")
+            ->orderBy('id', 'desc')
+            ->paginate(5);
+        return view('livewire.principal-post', compact('posts'));
     }
 
     public function updatingBuscar()
@@ -30,31 +30,26 @@ class PrincipalPost extends Component
         $this->resetPage();
     }
 
-     //! Funciones para delete
-     public function confirmarDelete(Post $post)
-     {
+    //! Funciones para delete
+    public function confirmarDelete(Post $post)
+    {
         // $this->authorize('delete', $post);
- 
-         $this->dispatch('pedir-permiso', $post->id);
-     }
- 
-     #[On('deleteConfirmado')]
-     public function delete(Post $post)
-     {
-       //  $this->authorize('delete', $post);
- 
-      // Compruebo imagen
-      if (basename($post->imagen) != "defecto.jpg") {
-        $rutaImagen = 'public/storage/' . $post->imagen;
-        
-                
-        // Elimina la imagen
-        Storage::delete($rutaImagen);
+
+        $this->dispatch('pedir-permiso', $post->id);
     }
 
-    // Elimino post
-    $post->delete();
- 
-         $this->dispatch('mensaje', 'Post eliminado');
-     }
+    #[On('deleteConfirmado')]
+    public function delete(Post $post)
+    {
+        //  $this->authorize('delete', $post);
+
+        // Compruebo imagen
+        if (basename($post->imagen) != "defecto.jpg") {
+            Storage::delete($post->imagen);
+        }
+        // Elimino post
+        $post->delete();
+
+        $this->dispatch('mensaje', 'Post eliminado');
+    }
 }

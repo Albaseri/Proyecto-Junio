@@ -32,13 +32,13 @@ class TrainingCardController extends Controller
         //?1. Validamos el formulario utilizando validaciones de laravel
 
         $request->validate([
-            'titulo' => ['required', 'string', 'min:3', 'unique:trainingCards,titulo'],
+            'titulo' => ['required', 'string', 'min:3', 'unique:training_cards,titulo'],
             'descripcion' => ['required', 'string', 'min:5'],
             'imagen' => ['nullable', 'image', 'max:2048'],
             'n_repeticiones' => ['required', 'integer', 'min:5', 'max:15'],
             'n_series' => ['required', 'integer', 'min:1', 'max:10'],
             'url_youtube' => ['required', 'string'],
-            'estado'=> ['required', 'in:VISIBLE,NO VISIBLE']
+            'estado' => ['required', 'in:VISIBLE,NO VISIBLE']
         ]);
 
         //? 2. Si no hay errores, pasamos de esta línea, le guardamos los datos
@@ -73,7 +73,7 @@ class TrainingCardController extends Controller
      */
     public function edit(TrainingCard $trainingCard)
     {
-        return view('trainingCards.editTrainingCards',compact('trainingCard'));
+        return view('trainingCards.editTrainingCards', compact('trainingCard'));
     }
 
     /**
@@ -82,13 +82,13 @@ class TrainingCardController extends Controller
     public function update(Request $request, TrainingCard $trainingCard)
     {
         $request->validate([
-            'titulo' => ['required', 'string', 'min:3', 'unique:trainingCards,titulo,' . $trainingCard->id],
+            'titulo' => ['required', 'string', 'min:3', 'unique:training_cards,titulo,' . $trainingCard->id],
             'descripcion' => ['required', 'string', 'min:5'],
             'imagen' => ['nullable', 'image', 'max:2048'],
             'n_repeticiones' => ['required', 'integer', 'min:5', 'max:15'],
             'n_series' => ['required', 'integer', 'min:1', 'max:10'],
             'url_youtube' => ['required', 'string'],
-            'estado'=> ['required', 'in:VISIBLE,NO VISIBLE']
+            'estado' => ['required', 'in:VISIBLE,NO VISIBLE'],
         ]);
 
         $ruta = $trainingCard->imagen;

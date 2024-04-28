@@ -19,7 +19,7 @@
             <p class="mt-2 text-sm text-gray-500">Por favor, inicie sesión en su cuenta</p>
         </div>
         <div class="flex flex-row justify-center items-center space-x-3">
-          
+
 
             <a href="{{ route('github.redirect') }}"
                 class="w-11 h-11 items-center justify-center inline-flex rounded-2xl font-bold text-lg  text-white bg-white hover:shadow-lg cursor-pointer transition ease-in duration-300"><img
@@ -68,7 +68,7 @@
                     <input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 border-gray-300 rounded">
                     <label for="remember_me" class="ml-2 block text-sm text-gray-900">{{ __('Recuérdame') }}</label>
                 </div>
-        
+
                 <div class="text-sm ">
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}"
@@ -79,11 +79,11 @@
 
             <div class="mt-5">
                 <button type="submit"
-                    class="w-full flex justify-center bg-gradient-to-r from-violet-500 to-pink-600 hover:bg-gradient-to-l hover:from-violet-500 hover:to-pink-600 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Sign in') }}</button>
+                    class="w-full flex justify-center bg-gradient-to-r from-cyan-700 to-gray-900 hover:bg-gradient-to-l hover:from-cyan-700 hover:to-gray-900 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Iniciar sesión') }}</button>
             </div>
 
             <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
-                <span>{{ __("¿No tiene una cuenta?") }}</span>
+                <span>{{ __('¿No tiene una cuenta?') }}</span>
                 <a href="#"
                     class=" text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">{{ __('Inscribirse') }}</a>
             </p>
@@ -117,7 +117,7 @@
                 <x-button class="ms-4">
                     {{ __('Log in') }}
                 </x-button> --}}
-           
+
             </div>
         </form>
     </x-authentication-card>

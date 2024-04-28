@@ -67,7 +67,7 @@
                     ¿Tiene una cuenta?
                     <a class="underline text-sm text-sky-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         href="{{ route('login') }}">
-                        {{ __('Login') }}
+                        {{ __('Iniciar sesión') }}
                     </a>
 
                 </p>
@@ -75,7 +75,7 @@
           
             <div class="my-5">
                 <button type="submit"
-                    class="w-full flex justify-center bg-gradient-to-r from-violet-500 to-pink-600 hover:bg-gradient-to-l hover:from-violet-500 hover:to-pink-600 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Registro') }}</button>
+                class="w-full flex justify-center bg-gradient-to-r from-cyan-700 to-gray-900 hover:bg-gradient-to-l hover:from-cyan-700 hover:to-gray-900 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Sign in') }}</button>
             </div>
 
             

@@ -75,10 +75,10 @@
                 showConfirmButton: false,
                 timer: 1500
             });
-        })
+        });
 
 
-        Livewire.on('pedir-permiso', id => {
+        Livewire.on('pedir-permisoCard', idCard => {
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -89,7 +89,7 @@
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.dispatchTo('principal-training-card', 'deleteConfirmado', id)
+                    Livewire.dispatchTo('principal-training-card', 'deleteConfirmadoCard', idCard)
                 }
             });
         });

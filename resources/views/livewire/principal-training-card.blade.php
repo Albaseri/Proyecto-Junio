@@ -5,14 +5,14 @@
         <label for="table-search" class="sr-only">Buscar</label>
         <div class="relative">
             <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-gray-500 dark:text-violet-600" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
             </div>
             <input type="text" id="table-search-users" wire:model.live="buscar"
-                class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-300  dark:placeholder-gray-700 dark:text-cyan-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Buscar por título, estado...">
         </div>
 
@@ -114,13 +114,12 @@
                                     <i class="fas fa-pencil text-pink-500 hover:text-xl mr-2"></i>
                                 </a>
 
-                                <button wire:click="confirmarDelete({{ $item->id }})">
+                                <button wire:click="confirmarDeleteCard({{ $item->id }})">
                                     <i class="fas fa-trash text-teal-500 hover:text-xl"></i>
                                 </button>
                             </td>
                         </tr>
                     @endforeach
-
 
                 </tbody>
             </table>
@@ -129,8 +128,8 @@
     <div class="py-12">
         {{ $trainingCards->links() }}
     </div>
-    {{-- Párrafo cuando no existe usuari-no se encuentra --}}
-    @else
+    {{-- Párrafo cuando no existe card o no se encuentra --}}
+@else
     <p class="text-red-500"><i class="fas solid fa-triangle-exclamation mr-2"></i>
         No se encontró ninguna card o no ha sido creada aún</p>
     @endif

@@ -18,39 +18,39 @@ class PrincipalTrainingCard extends Component
 
     public function render()
     {
-     
+
         $trainingCards = TrainingCard::where('titulo', 'like', "%$this->buscar%")
-        ->orWhere('estado', 'like', "%$this->buscar%")
-        ->orderBy('id','desc')
-        ->paginate(5);
-        return view('livewire.principal-training-card',compact('trainingCards'));
+            ->orWhere('estado', 'like', "%$this->buscar%")
+            ->orderBy('id', 'desc')
+            ->paginate(5);
+        return view('livewire.principal-training-card', compact('trainingCards'));
     }
-    
+
     public function updatingBuscar()
     {
         $this->resetPage();
     }
 
-     //! Funciones para delete
-     public function confirmarDelete(TrainingCard $trainingCard)
-     {
+    //! Funciones para delete
+    public function confirmarDeleteCard(TrainingCard $trainingCard)
+    {
         // $this->authorize('delete', $trainingCard);
- 
-         $this->dispatch('pedir-permiso', $trainingCard->id);
-     }
- 
-     #[On('deleteConfirmado')]
-     public function delete(TrainingCard $trainingCard)
-     {
-       //  $this->authorize('delete', $trainingCard);
- 
-         // Compruebo imagen
-         if (basename($trainingCard->imagen) != "defecto.jpg") {
-             Storage::delete('trainingCards');
-         }
-         // Elimino trainingCard
-         $trainingCard->delete();
- 
-         $this->dispatch('mensaje', 'Training Card eliminada');
-     }
+
+        $this->dispatch('pedir-permisoCard', $trainingCard->id);
+    }
+
+    #[On('deleteConfirmadoCard')]
+    public function delete(TrainingCard $trainingCard)
+    {
+        //  $this->authorize('delete', $trainingCard);
+
+        // Compruebo imagen
+        if (basename($trainingCard->imagen) != "defecto.jpg") {
+            Storage::delete($trainingCard->imagen);
+        }
+        // Elimino trainingCard
+        $trainingCard->delete();
+
+        $this->dispatch('mensaje', 'Training Card eliminada');
+    }
 }

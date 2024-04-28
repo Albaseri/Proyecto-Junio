@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-propios.principal>
         <div class="my-6">
-            <div class="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-white shadow-lg shadow-fuchsia-950 rounded-md text-[#333] font-[sans-serif]">
+            <div class="border grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-white shadow-lg shadow-cyan-900 rounded-md text-black font-[cambria]">
                 <div>
                     <h1 class="text-3xl font-extrabold">¡Hablemos!</h1>
-                    <p class="text-sm text-gray-400 mt-3 text-justify">¿Tienes alguna pregunta sobre nuestros servicios de entrenamiento personalizado? ¡Nos encantaría ayudarte! Ponte en contacto con nosotros a través de correo electrónico o nuestras redes sociales.</p>
+                    <p class="text-sm text-gray-400 mt-3 text-justify">¿Tienes alguna pregunta sobre mis servicios de entrenamiento personalizado? ¡Me encantaría ayudarte! Ponte en contacto conmigo a través de correo electrónico o redes sociales.</p>
 
                     <div class="mt-12">
                         <h2 class="text-lg font-extrabold">Email</h2>
@@ -53,12 +53,12 @@
                 <form  action="{{ route('email.procesar') }}" method="POST" class="ml-auo space-y-4">
                     @csrf
 
-                    <input type='text' placeholder='Nombre' value="{{ old('nombre') }}"" class="w-full rounded-md py-2.5 px-4 border text-sm outline-blue-300" />
+                    <input type='text' placeholder='Nombre' value="{{ old('nombre') }}" class="w-full rounded-md py-2.5 px-4 border-gray-300 border text-sm outline-blue-300" />
 
-                    <input type='email' placeholder='Email' id="email" value="{{ old('email') }}"" class="w-full rounded-md py-2.5 px-4 border text-sm outline-blue-300" />
+                    <input type='email' placeholder='Email' id="email" value="{{ old('email') }}" class="w-full border-gray-300 rounded-md py-2.5 px-4 border text-sm outline-blue-300" />
 
-                    <textarea placeholder='Mensaje' id="contenido" rows="6" class="w-full rounded-md px-4 border text-sm pt-2.5outline-blue-300">{{ old('contenido') }}</textarea>
-                    <button type='submit' class="text-white  bg-gradient-to-r from-violet-500 to-pink-600 hover:bg-gradient-to-l hover:from-violet-500 hover:to-pink-600  w-full p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"  font-semibold rounded-md text-sm px-4 py-2.5 w-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>Enviar</button>
+                    <textarea placeholder='Mensaje' id="contenido" rows="6" class="w-full rounded-md px-4 border-gray-300 border text-sm pt-2.5outline-blue-300">{{ old('contenido') }}</textarea>
+                    <button type='submit' class="text-white  bg-gradient-to-r from-cyan-500 to-cyan-950 hover:bg-gradient-to-l hover:from-cyan-500 hover:to-cyan-900  w-full p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"  font-semibold rounded-md text-sm px-4 py-2.5 w-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>Enviar</button>
                 </form>
             </div>
         </div>

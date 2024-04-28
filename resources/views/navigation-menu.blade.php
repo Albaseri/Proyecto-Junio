@@ -12,30 +12,62 @@
                 </div>
 
                 <!-- Navigation Links -->
+
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link href="{{route('blogLiv.index')}}" :active="request()->routeIs('blogLiv')">
+                    <x-nav-link href="{{ route('blogLiv.index') }}" :active="request()->routeIs('blogLiv')">
                         {{ __('Blog') }}
                     </x-nav-link>
                     @auth
                         @if (auth()->user()->roles === 'ADMIN')
-                            <x-nav-link href="{{route('categoriesLiv.index')}}" :active="request()->routeIs('categoriesLiv')">
-                                {{ __('Mostrar y crear Categorías') }}
+                            <x-nav-link href="{{ route('postsLiv.index') }}" :active="request()->routeIs('postsLiv')">
+                                <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 18 18">
+                                    <path
+                                        d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                                </svg>
+                                {{ __('Posts Blog') }}
                             </x-nav-link>
-                            <x-nav-link href="{{route('trainingCardsLiv.index')}}" :active="request()->routeIs('trainingCardsLiv')">
-                                {{ __('Gestionar Training Cards') }}
+                            <x-nav-link href="{{ route('categoriesLiv.index') }}" :active="request()->routeIs('categoriesLiv')">
+                                <svg class="mr-2 h-6 w-6 text-gray-400" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                                    <line x1="7" y1="7" x2="7.01" y2="7" />
+                                </svg>
+                                {{ __('Posts Categorías') }}
                             </x-nav-link>
-                            <x-nav-link href="{{route('postsLiv.index')}}" :active="request()->routeIs('postsLiv')">
-                                {{ __('Gestionar Post del Blog') }}
+                            <x-nav-link href="{{ route('trainingCardsLiv.index') }}" :active="request()->routeIs('trainingCardsLiv')">
+                                <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 20 18">
+                                    <path d="M18 0H6a2 2 0 0 0-2 2h14v12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Z" />
+                                    <path
+                                        d="M14 4H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM2 16v-6h12v6H2Z" />
+                                </svg>
+                                {{ __('Training Cards') }}
                             </x-nav-link>
-                            <x-nav-link href="{{route('usersLiv.index')}}" :active="request()->routeIs('usersLiv')">
-                                {{ __('Gestionar Usuarios') }}
+                            <x-nav-link href="{{ route('usersLiv.index') }}" :active="request()->routeIs('usersLiv')">
+                                <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    viewBox="0 0 20 18">
+                                    <path
+                                        d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                                </svg>
+                                {{ __('Usuarios') }}
                             </x-nav-link>
                         @endif
                     @endauth
-                    <x-nav-link href="{{route('email.pintar') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{ route('email.pintar') }}" :active="request()->routeIs('dashboard')">
+                        <svg class="mr-2 h-7 w-7 text-violet-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+
                         {{ __('Contáctanos') }}
                     </x-nav-link>
                 </div>
@@ -127,11 +159,11 @@
                             <x-slot name="content">
                                 <!-- Account Management -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
+                                    {{ __('Administrar cuenta') }}
                                 </div>
 
                                 <x-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profile') }}
+                                    {{ __('Perfil') }}
                                 </x-dropdown-link>
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -147,7 +179,7 @@
                                     @csrf
 
                                     <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                        {{ __('Log Out') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </x-dropdown-link>
                                 </form>
                             </x-slot>
@@ -162,12 +194,12 @@
                                 class="font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                         @else
                             <a href="{{ route('login') }}"
-                                class="font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                                in</a>
+                                class="font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar
+                                Sesión</a>
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}"
-                                    class="ml-4 font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                    class="ml-4 font-semibold text-white hover:text-cyan-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
                             @endif
                         @endauth
                     </div>
@@ -197,29 +229,29 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{route('blogLiv.index')}}" :active="request()->routeIs('blogLiv')">
+            <x-responsive-nav-link href="{{ route('blogLiv.index') }}" :active="request()->routeIs('blogLiv')">
                 {{ __('Blog') }}
             </x-responsive-nav-link>
             @auth
-            @if (auth()->user()->roles === 'ADMIN')
-            <x-responsive-nav-link href="{{ route('categoriesLiv.index') }}" :active="request()->routeIs('categoriesLiv')">
-                {{ __('Categorías') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('trainingCardsLiv.index') }}" :active="request()->routeIs('trainingCardsLiv')">
-                {{ __('Training Cards') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('postsLiv.index') }}" :active="request()->routeIs('postsLiv')">
-                {{ __('Posts') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('usersLiv.index') }}" :active="request()->routeIs('usersLiv')">
-                {{ __('Usuarios') }}
-            </x-responsive-nav-link>
-            @endif
+                @if (auth()->user()->roles === 'ADMIN')
+                    <x-responsive-nav-link href="{{ route('postsLiv.index') }}" :active="request()->routeIs('postsLiv')">
+                        {{ __('Posts') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('categoriesLiv.index') }}" :active="request()->routeIs('categoriesLiv')">
+                        {{ __('Categorías') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('trainingCardsLiv.index') }}" :active="request()->routeIs('trainingCardsLiv')">
+                        {{ __('Training Cards') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="{{ route('usersLiv.index') }}" :active="request()->routeIs('usersLiv')">
+                        {{ __('Usuarios') }}
+                    </x-responsive-nav-link>
+                @endif
             @endauth
-         
-          
-    
-            <x-responsive-nav-link href="{{route('email.pintar') }}" :active="request()->routeIs('dashboard')">
+
+
+
+            <x-responsive-nav-link href="{{ route('email.pintar') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Contáctanos') }}
             </x-responsive-nav-link>
         </div>
@@ -245,7 +277,7 @@
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
                     <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                        {{ __('Profile') }}
+                        {{ __('Perfil') }}
                     </x-responsive-nav-link>
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -259,7 +291,7 @@
                         @csrf
 
                         <x-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                            {{ __('Log Out') }}
+                            {{ __('Cerrar Sesión') }}
                         </x-responsive-nav-link>
                     </form>
 
@@ -306,12 +338,12 @@
                             class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                            in</a>
+                            class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar
+                            Sesión</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}"
-                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrarse</a>
                         @endif
                     @endauth
                 </div>
