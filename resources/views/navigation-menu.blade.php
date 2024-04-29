@@ -59,8 +59,13 @@
                                 </svg>
                                 {{ __('Usuarios') }}
                             </x-nav-link>
+                            @elseif (auth()->user()->roles === 'USER')
+                            <x-nav-link href="{{ route('entrenamientoUser.index') }}" :active="request()->routeIs('entrenamientoUser')">
+                                {{ __('Mi entrenamiento') }}
+                            </x-nav-link>
                         @endif
                     @endauth
+
                     <x-nav-link href="{{ route('email.pintar') }}" :active="request()->routeIs('dashboard')">
                         <svg class="mr-2 h-7 w-7 text-violet-400" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -247,6 +252,8 @@
                         {{ __('Usuarios') }}
                     </x-responsive-nav-link>
                 @endif
+              
+
             @endauth
 
 
