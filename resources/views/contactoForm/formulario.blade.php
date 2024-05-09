@@ -50,7 +50,7 @@
                     </div>
                 </div>
               
-                <form  action="{{ route('email.procesar') }}" method="POST" class="ml-auo space-y-4">
+                <form action="{{ route('email.procesar') }}" method="POST" class="ml-auo space-y-4">
                     @csrf
 
                     <input type='text' placeholder='Nombre' value="{{ old('nombre') }}" class="w-full rounded-md py-2.5 px-4 border-gray-300 border text-sm outline-blue-300" />

@@ -58,7 +58,7 @@ Route::get('/auth/github/callback', [GitHubController::class, 'callback'])->name
 
 // Rutas Google
 Route::get('/auth/google/redirect', [GoogleController::class, 'redirect'])->name('google.redirect');
-Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
+Route::get('/oauth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
 
 //? Rutas Contacto
 Route::get('contacto', [ContactoController::class, 'pintarFormulario'])->name('email.pintar');

@@ -59,11 +59,10 @@
                                 </svg>
                                 {{ __('Usuarios') }}
                             </x-nav-link>
-                            @elseif (auth()->user()->roles === 'USER')
+                            @endif
                             <x-nav-link href="{{ route('entrenamientoUser.index') }}" :active="request()->routeIs('entrenamientoUser')">
                                 {{ __('Mi entrenamiento') }}
                             </x-nav-link>
-                        @endif
                     @endauth
 
                     <x-nav-link href="{{ route('email.pintar') }}" :active="request()->routeIs('dashboard')">
