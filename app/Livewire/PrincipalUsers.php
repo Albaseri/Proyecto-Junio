@@ -18,7 +18,7 @@ class PrincipalUsers extends Component
         $users = User::where('name', 'like', "%$this->buscar%")
             ->orWhere('email', 'like', "%$this->buscar%")
             ->orWhere('roles', 'like', "%$this->buscar%")
-            ->orderBy($this->campo, $this->orden)
+            ->orderBy('id', 'desc')
             ->paginate(5);
 
         return view('livewire.principal-users', compact('users'));

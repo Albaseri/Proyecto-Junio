@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pdf;
 use App\Models\Post;
 use App\Models\TrainingCard;
 use App\Models\User;
@@ -38,8 +39,13 @@ class DatabaseSeeder extends Seeder
 
         Storage::deleteDirectory('posts');
         Storage::makeDirectory('posts');
+     
+        Storage::deleteDirectory('pdfs');
+        Storage::makeDirectory('pdfs');
 
         Post::factory(30)->create();
         TrainingCard::factory(30)->create();
+
+        Pdf::factory(5)->create();
     }
 }

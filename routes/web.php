@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Socialite\GithubController;
 use App\Http\Controllers\Socialite\GoogleController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Livewire\PrincipalBlog;
 use App\Livewire\PrincipalCategory;
 use App\Livewire\PrincipalEntrenamientoUser;
+use App\Livewire\PrincipalPdf;
 use App\Livewire\PrincipalPost;
 use App\Livewire\PrincipalTrainingCard;
 use App\Livewire\PrincipalUsers;
@@ -30,6 +32,7 @@ Route::middleware([
     Route::resource('categories', CategoryController::class);
     Route::resource('trainingCards', TrainingCardController::class);
     Route::resource('posts', PostController::class);
+    Route::resource('pdfs', PdfController::class);
     Route::resource('users', UserController::class);
 });
 
@@ -49,6 +52,8 @@ Route::get('blogLiv', PrincipalBlog::class)->name('blogLiv.index');
 Route::get('usersLiv', PrincipalUsers::class)->name('usersLiv.index');
 //Ruta para la vista del usuario y su entrenamiento
 Route::get('entrenamientoUser', PrincipalEntrenamientoUser::class)->name('entrenamientoUser.index');
+//Ruta para la gestión de pdfs
+Route::get('pdfsLiv', PrincipalPdf::class)->name('pdfsLiv.index');
 
 
 //? Rutas de Redes Sociales

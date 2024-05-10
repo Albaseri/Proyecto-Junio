@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('pdfs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('file_name');
+            $table->string('nombre_archivo');
+            $table->string('ruta');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
