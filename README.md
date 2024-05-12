@@ -9,11 +9,11 @@
 
 # Plataforma de Entrenamiento Personalizado
 
-## Descripción
+## 📝 Descripción
 
 Este proyecto es una aplicación web desarrollada con el framework Laravel. Proporciona una plataforma para [describir brevemente la funcionalidad principal de tu aplicación].
 
-## Características y Entorno de Desarrollo
+## 🛠️ Características y Entorno de Desarrollo
 
 El proyecto se ha realizado con las siguientes tecnologías:
 
@@ -22,16 +22,8 @@ El proyecto se ha realizado con las siguientes tecnologías:
 - **Tailwind CSS**: Framework de diseño
 - **Visual Studio Code**: Entorno de desarrollo
 
-## Requisitos Previos
 
-Antes de comenzar, asegúrate de tener instalados los siguientes requisitos en tu máquina:
-
-- PHP >= 8.2
-- Composer
-- Node.js y npm
-- Servidor de base de datos (por ejemplo, MySQL, SQLite, PostgreSQL)
-
-## Instalación
+## 🚀 Instalación
 
 Sigue estos pasos para instalar y configurar el proyecto localmente:
 
@@ -43,11 +35,13 @@ Sigue estos pasos para instalar y configurar el proyecto localmente:
 6. Genera una nueva clave de aplicación ejecutando `php artisan key:generate`.
 7. Ejecuta las migraciones de la base de datos con `php artisan migrate`.
 
-## Uso
+
+## 👩‍💻 Uso
 
 Para iniciar el servidor de desarrollo, ejecuta el siguiente comando: `php artisan serve`
 
-## Contribuciones
+
+## ✒️ Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, sigue estos pasos:
 
@@ -58,7 +52,7 @@ Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, sigue 
 5. Abre un pull request.
 
 
-## Licencia
+## 📄 Licencia
 
 Este proyecto está bajo la licencia [MIT license](https://opensource.org/licenses/MIT).
 
