@@ -6,61 +6,58 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+# Nombre del Proyecto
 
-## About Laravel
+## Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto es una aplicación web desarrollada con el framework Laravel. Proporciona una plataforma para [describir brevemente la funcionalidad principal de tu aplicación].
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características y Entorno de Desarrollo
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+El proyecto se ha realizado con las siguientes tecnologías:
 
-## Learning Laravel
+- **Laravel Framework**: v11.0
+- **PHP**: v8.2
+- **Tailwind CSS**: Framework de diseño
+- **Visual Studio Code**: Entorno de desarrollo
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Requisitos Previos
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Antes de comenzar, asegúrate de tener instalados los siguientes requisitos en tu máquina:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP >= 8.2
+- Composer
+- Node.js y npm
+- Servidor de base de datos (por ejemplo, MySQL, SQLite, PostgreSQL)
 
-## Laravel Sponsors
+## Instalación
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Sigue estos pasos para instalar y configurar el proyecto localmente:
 
-### Premium Partners
+1. Clona este repositorio en tu máquina local.
+2. Instala las dependencias del proyecto ejecutando `composer install`.
+3. Instala las dependencias de frontend ejecutando `npm install`.
+4. Compila los assets con `npm run dev`.
+5. Copia el archivo `.env.example` a `.env` y configura tu entorno local.
+6. Genera una nueva clave de aplicación ejecutando `php artisan key:generate`.
+7. Ejecuta las migraciones de la base de datos con `php artisan migrate`.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Uso
 
-## Contributing
+Para iniciar el servidor de desarrollo, ejecuta el siguiente comando: `php artisan serve`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Contribuciones
 
-## Code of Conduct
+Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, sigue estos pasos:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Haz un fork del proyecto.
+2. Crea una nueva rama (git checkout -b feature/feature-name).
+3. Realiza tus cambios y haz commit de ellos (git commit -am 'Add new feature').
+4. Haz push a la rama (git push origin feature/feature-name).
+5. Abre un pull request.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Licencia
 
-## License
+Este proyecto está bajo la licencia [MIT license](https://opensource.org/licenses/MIT).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
