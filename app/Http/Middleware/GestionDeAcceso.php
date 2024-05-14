@@ -8,11 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class GestionDeAcceso
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
+  
     public function handle(Request $request, Closure $next): Response
     {
         // ! Si no se está logeado no se puede acceder a ninguna página

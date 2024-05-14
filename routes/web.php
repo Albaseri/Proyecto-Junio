@@ -40,6 +40,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/formulario', function () {
+    return view('contactoForm.formulario');
+})->name('formulario');
+
 //? Rutas de Livewire
 // Ruta para gestión de categorías
 Route::get('categoriesLiv', PrincipalCategory::class)->name('categoriesLiv.index');
@@ -66,5 +70,8 @@ Route::get('/auth/google/redirect', [GoogleController::class, 'redirect'])->name
 Route::get('/oauth/google/callback', [GoogleController::class, 'callback'])->name('google.callback');
 
 //? Rutas Contacto
-Route::get('contacto', [ContactoController::class, 'pintarFormulario'])->name('email.pintar');
-Route::post('contacto', [ContactoController::class, 'procesarFormulario'])->name('email.procesar');
+Route::get('/contacto', [ContactoController::class, 'mostrarFormulario'])->name('contacto.mostrar');
+Route::post('/enviar-correo', [ContactoController::class, 'enviarCorreo'])->name('correo.enviar');
+
+//Route::get('contacto', [ContactoController::class, 'pintarFormulario'])->name('email.pintar');
+//Route::post('contacto', [ContactoController::class, 'procesarFormulario'])->name('email.procesar');

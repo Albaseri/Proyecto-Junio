@@ -74,15 +74,15 @@
                             </x-nav-link>
                     @endauth
 
-                    <x-nav-link href="{{ route('email.pintar') }}" :active="request()->routeIs('dashboard')">
-                        <svg class="mr-2 h-7 w-7 text-violet-400" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-
-                        {{ __('Contáctanos') }}
-                    </x-nav-link>
+                    <x-responsive-nav-link href="{{ route('formulario') }}" :active="request()->routeIs('formulario')">
+                        {{ __('Enviar Mensaje') }}
+                    </x-responsive-nav-link>
+                  
+                            <x-nav-link href="{{ route('contacto.mostrar') }}" :active="request()->routeIs('contacto.mostrar')">
+                                {{ __('Contacto') }}
+                            </x-nav-link>
+                       
+                    
                 </div>
             </div>
 
@@ -266,9 +266,7 @@
 
 
 
-            <x-responsive-nav-link href="{{ route('email.pintar') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Contáctanos') }}
-            </x-responsive-nav-link>
+          
         </div>
 
         <!-- Responsive Settings Options -->

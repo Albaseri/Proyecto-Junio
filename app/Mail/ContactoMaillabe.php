@@ -5,55 +5,28 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
-
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class ContactoMaillabe extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct(public string $nombre,public string $email,public string $contenido)
+    public $subject = 'Nuevo mensaje de un usuario';
+    public $nombre;
+    public $correo;
+    public $mensaje;
+
+    public function __construct($nombre, $correo, $mensaje)
     {
-        //
+        $this->nombre = $nombre;
+        $this->correo = $correo;
+        $this->mensaje = $mensaje;
     }
 
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
+    public function build()
     {
-        return new Envelope(
-            from: new Address($this->email, $this->nombre),
-            subject: 'Contacto Maillable',
-        );
+        return $this->from($this->correo, $this->nombre)
+                    ->view('correoHTML.correoHTML'); // Asegúrate de tener una vista llamada 'correo.contacto'
     }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'contactoHTML.contacto',
-            with:['nombre'=>$this->nombre,
-            'email'=>$this->email,
-            'contenido'=>$this->contenido]
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
-    }
+    
 }

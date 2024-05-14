@@ -3,7 +3,7 @@
 <div class="bg-white min-h-screen py-24 sm:py-32 rounded-lg ">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2 class="text-3xl font-bold tracking-tight text-violet-950 sm:text-4xl">Nuestro Blog</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-violet-950 ">Nuestro Blog</h2>
             <p class="mt-2 text-lg leading-8 text-violet-800">Descubre consejos útiles y recursos para mejorar tu
                 entrenamiento personal</p>
         </div>
@@ -19,7 +19,9 @@
             </select>
         </div>
         <div
-            class="mx-auto w-full mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-violet-400 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            class="mx-auto w-full mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 
+            border-t border-violet-400 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+
             @foreach ($posts as $post)
                 <article
                     class="flex max-w-xl flex-col items-start justify-between border border-violet-200  rounded-lg shadow-lg shadow-violet-300  hover:scale-105 hover:bg-violet-100">

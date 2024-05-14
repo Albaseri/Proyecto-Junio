@@ -8,26 +8,29 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactoController extends Controller
 {
-    public function pintarFormulario()
+
+    public function mostrarFormulario()
     {
-        return view('contactoForm.formulario');
+        return view('contacto');
     }
 
-    public function procesarFormulario(Request $request)
+    public function enviarCorreo(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'min:3'],
-            'email' => ['required', 'email'],
-            'contenido' => ['required', 'string', 'min:10']
+            'nombre' => 'required',
+            'correo' => 'required|email',
+            'mensaje' => 'required',
         ]);
 
+        // Enviar el correo electrónico
         try {
-            Mail::to('alba@example.com')->send(new ContactoMaillabe(ucfirst($request->nombre), $request->email, ucfirst($request->contenido)));
-            return redirect()->route('inicio')->with('mensaje', 'Email enviado con éxito');
-        } catch (\Exception $ex) {
-            dd("Error en procesarForm") . $ex->getMessage();
-            return redirect()->route('inicio')->with('mensaje', 'Email no enviado');
+            Mail::to('riasedal@gmail.com')->send(new ContactoMaillabe($request->input('nombre'), $request->input('correo'), $request->input('mensaje')));
+        } catch (\Exception $e) {
+            // Manejar cualquier error que ocurra al enviar el correo electrónico
+            return redirect()->back()->with('error', 'Error al enviar el correo electrónico.');
         }
 
-}
-}
+        // Redirigir de vuelta con un mensaje de éxito si el correo se envió correctamente
+        return redirect()->back()->with('mensaje', 'Correo electrónico enviado correctamente.');
+    }
+    }
