@@ -13,7 +13,7 @@
             </div>
             <input type="text" id="table-search-users" wire:model.live="buscar"
                 class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-300  dark:placeholder-gray-700 dark:text-cyan-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Buscar usuarios">
+                placeholder="Buscar categorías">
         </div>
 
         <a href="{{ route('categories.create') }}"

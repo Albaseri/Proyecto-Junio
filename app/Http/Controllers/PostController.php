@@ -60,7 +60,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $posts = Post::with('category')->get();
+        $categorias = Category::all();
+
+        return view('posts.detallePost',compact('post','categorias'));
     }
 
     /**

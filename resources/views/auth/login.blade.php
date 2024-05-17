@@ -4,7 +4,6 @@
             <x-authentication-card-logo />
         </x-slot>
 
-        <x-validation-errors class="mb-4" />
 
         @session('status')
             <div class="mb-4 font-medium text-sm text-green-600">
@@ -49,7 +48,7 @@
                     class="ml-3 text-sm font-bold text-gray-700 tracking-wide">{{ __('Email') }}</label>
                 <input id="email"
                     class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-violet-500"
-                    type="email" name="email" value="{{ old('email') }}" placeholder="mail@gmail.com" required
+                    type="email" name="email" value="{{ old('email') }}" placeholder="email@gmail.com" required
                     autofocus autocomplete="username">
 
             </div>
@@ -60,8 +59,9 @@
                 <input id="password"
                     class="mb-5 w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-violet-500"
                     type="password" name="password" placeholder="Enter your password" required
-                    autocomplete="current-password" value="*****|">
+                    autocomplete="current-password" value="password|">
             </div>
+            <x-validation-errors class="mb-4" />
 
             <div class="flex items-center justify-between my-5">
                 <div class="flex items-center">
@@ -72,7 +72,7 @@
                 <div class="text-sm ">
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}"
-                            class="text-indigo-400 hover:text-blue-500">{{ __('¿Olvidaste su contraseña?') }}</a>
+                            class="text-indigo-400 hover:text-indigo-500">{{ __('¿Olvidó su contraseña?') }}</a>
                     @endif
                 </div>
             </div>
@@ -84,7 +84,7 @@
 
             <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
                 <span>{{ __('¿No tiene una cuenta?') }}</span>
-                <a href="#"
+                <a href="{{ route('register') }}"
                     class=" text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">{{ __('Inscribirse') }}</a>
             </p>
 

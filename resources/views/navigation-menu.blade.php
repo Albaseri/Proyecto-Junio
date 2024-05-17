@@ -68,21 +68,17 @@
                                 </svg>
                                 {{ __('PDF') }}
                             </x-nav-link>
-                            @endif
-                            <x-nav-link href="{{ route('entrenamientoUser.index') }}" :active="request()->routeIs('entrenamientoUser')">
-                                {{ __('Mi entrenamiento') }}
-                            </x-nav-link>
+                        @endif
+                        <x-nav-link href="{{ route('entrenamientoUser.index') }}" :active="request()->routeIs('entrenamientoUser')">
+                            {{ __('Mi entrenamiento') }}
+                        </x-nav-link>
                     @endauth
 
-                    <x-responsive-nav-link href="{{ route('formulario') }}" :active="request()->routeIs('formulario')">
-                        {{ __('Enviar Mensaje') }}
-                    </x-responsive-nav-link>
-                  
-                            <x-nav-link href="{{ route('contacto.mostrar') }}" :active="request()->routeIs('contacto.mostrar')">
-                                {{ __('Contacto') }}
-                            </x-nav-link>
-                       
-                    
+                    <x-nav-link href="{{ route('contacto.mostrar') }}" :active="request()->routeIs('contacto.mostrar')">
+                        {{ __('Contacto') }}
+                    </x-nav-link>
+
+
                 </div>
             </div>
 
@@ -240,10 +236,13 @@
         <div class="pt-2 pb-3 space-y-1">
 
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Inicio') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('blogLiv.index') }}" :active="request()->routeIs('blogLiv')">
                 {{ __('Blog') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('contacto.mostrar') }}" :active="request()->routeIs('contacto.mostrar')">
+                {{ __('Contacto') }}
             </x-responsive-nav-link>
             @auth
                 @if (auth()->user()->roles === 'ADMIN')
@@ -260,13 +259,13 @@
                         {{ __('Usuarios') }}
                     </x-responsive-nav-link>
                 @endif
-              
+
 
             @endauth
 
 
 
-          
+
         </div>
 
         <!-- Responsive Settings Options -->
@@ -348,7 +347,7 @@
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
                         <a href="{{ url('/dashboard') }}"
-                            class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                            class="font-semibold text-white hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}"
                             class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar
