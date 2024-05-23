@@ -17,9 +17,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- SweetAlert2 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+   
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -33,7 +31,7 @@
     <x-banner />
 
     {{-- ! Consigo fondo degradado para botón NUEVA/O y gestionar categorías --}}
-    <div class="min-h-screen">
+    <div>
         @livewire('navigation-menu')
 
         <!-- Page Heading -->

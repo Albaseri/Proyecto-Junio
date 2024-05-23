@@ -1,182 +1,154 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Hola soy dashboard') }}
-        </h2>
-    </x-slot> --}}
-    {{-- ! Color de fondo del home --}}
-    <div class="py-12 bg-gradient-to-br  from-cyan-600 to-black ">
-        <div class="w-full mx-auto sm:px-6 lg:px-8">
-            <div class=" overflow-hidden sm:rounded-lg">
-                <div class="bg-opacity-10 bg-black">
-                    <div class="p-6 lg:p-8 text-left">
-                        {{-- <x-application-logo class="block h-12 w-auto mx-auto" /> --}}
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <div
+            class="bg-gradient-to-tl from-blue-500 via-cyan-700 to-blue-900 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in">
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-semibold text-white flex items-center space-x-2 px-4">
+                <svg class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <!-- Your logo SVG here -->
+                </svg>
+                <span>Panel</span>
+            </a>
 
-                        <h1 class="mt-8  text-7xl text-white font-semibold  text-white-800 ">
-                            Construya una forma corporal perfecta para una vida buena y saludable
-                        </h1>
+            <!-- Navigation Links -->
+            <nav>
+                <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <svg class="h-5 w-5 text-white mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M12 14l9-5-9-5-9 5 9 5zM12 14V3"></path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="{{ route('categoriesLiv.index') }}"
+                    class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fa-solid fa-tag text-xl me-2" style="color: #c2c2c2;"></i>
 
-                        <p class="mt-6 text-cyan-100 text-2xl  leading-relaxed">
-                            ¡Empieza tu viaje hacia una vida más saludable! Aquí encontrarás todo lo que necesitas para
-                            alcanzar tus metas
-                            de fitness de manera divertida y efectiva
-                        </p>
-                    </div>
+                    Categorías
+                </a>
+                <a href="{{ route('postsLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                        <path
+                            d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                    </svg>
+                    Posts
+                </a>
+                <a href="{{ route('trainingCardsLiv.index') }}"
+                    class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                        <path d="M18 0H6a2 2 0 0 0-2 2h14v12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Z" />
+                        <path
+                            d="M14 4H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM2 16v-6h12v6H2Z" />
+                    </svg>
+                    TrainingCards
+                </a>
+                <a href="{{ route('usersLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fa-solid fa-users  text-xl me-2" style="color: #c2c2c2;"></i>
 
-                    <div class="bg-white bg-opacity-70 relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
-                        <div class="container mx-auto px-6 lg:px-8">
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                                <div>
-                                    <h2 class="text-3xl font-bold tracking-tight text-black sm:text-4xl">¡Descarga estos
-                                        tips gratuitos ya!
-                                    </h2>
-                                    <p class="mt-5 text-lg leading-8 text-cyan-700">Obtén acceso instantáneo a nuestro
-                                        PDF gratuito con una
-                                        serie de consejos saludables para mejorar tu bienestar y calidad de vida.</p>
-                                    <div class="mt-6">
-                                        <a href="#"
-                                            class="inline-block rounded-md bg-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">¡Lo
-                                            quiero ya!
+                    Usuarios
+                </a>
+                <a href="{{ route('pdfsLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fa-regular fa-file-pdf text-xl me-2" style="color: #c2c2c2; "></i>
 
-                                        </a>
-                                    </div>
-                                </div>
-                                <img src="/storage/fotoprueba.jpeg" class="w-full h-auto" alt="">
+                    PDFs
+                </a>
+                <!-- Add more navigation links as needed -->
+            </nav>
+        </div>
 
-                            </div>
-                        </div>
-                    </div>
+        <!-- Content Area -->
+        <div class="flex-1">
+            <!-- Header -->
+            <header class="bg-white shadow-md py-4 px-6">
+                <div class="flex justify-between items-center">
+                    <!-- Mobile Menu Button -->
+                    <button class="text-gray-500 focus:outline-none md:hidden">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
 
+                    <!-- Page Title -->
+                    <h2 class="text-xl font-semibold text-gray-800">Gestión administrativa</h2>
 
-                    <h1 class="text-5xl mt-5 p-5 text-white font-bold ">Transforma tu <span
-                            class="text-cyan-200 text-4xl font-bold">estilo de vida</span>, no sólo tu cuerpo</h1>
+                    <!-- User Menu -->
+                    <div class="relative">
+                        <button class="flex items-center focus:outline-none">
+                            <span class="mr-2">Admin</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </button>
 
-                    <div class="  grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
-                        <div class="p-6 rounded-lg shadow-md bg-slate-600">
-                            <div class="flex items-center text-white">
-                                <h2 class="text-2xl font-semibold">🏋🏼‍♀️Ejercicios Personalizados</h2>
-                            </div>
-
-                            <p class="mt-4 text-white leading-relaxed">
-                                ¡Descubre una variedad de ejercicios diseñados específicamente para ti y tus objetivos
-                                de fitness! Desde
-                                ejercicios cardiovasculares hasta entrenamientos de fuerza, tenemos todo lo que
-                                necesitas para mantenerte en
-                                forma y saludable.
-                            </p>
-
-                        </div>
-
-                        <div class="p-6 rounded-lg shadow-md bg-slate-500">
-                            <div class="flex items-center text-white">
-
-                                <h2 class="text-2xl font-semibold">🥑Plan de Nutrición</h2>
-                            </div>
-
-                            <p class="mt-4 text-white leading-relaxed">
-                                ¡Descubre recetas saludables, consejos de nutrición y planes de comidas diseñados para
-                                complementar tu
-                                rutina de ejercicios y ayudarte a alcanzar tus objetivos de fitness más rápido!
-                            </p>
-
-                        </div>
-
-                        <div class="p-6 rounded-lg shadow-md bg-slate-400">
-                            <div class="flex items-center text-white">
-
-                                <h2 class="text-2xl font-semibold">💻Rutinas Personalizadas</h2>
-                            </div>
-
-                            <p class="mt-4 text-white leading-relaxed">
-                                ¡Explora nuestras rutinas de entrenamiento cuidadosamente diseñadas para todos los
-                                niveles de condición
-                                física! Ya seas principiante o avanzado, tenemos una rutina perfecta para ti.
-                            </p>
-
-                        </div>
-
-                        <div class="p-6 rounded-lg shadow-md bg-slate-700">
-                            <div class="flex items-center text-white">
-
-                                <h2 class="text-2xl font-semibold">🙌🏼Acompañamiento día a día</h2>
-                            </div>
-
-                            <p class="mt-4 text-white leading-relaxed">
-                                Esta va a ser la clave para adelantarnos a cualquier estancamiento y desmotivación ya
-                                que mantendremos un contacto directo o vía whatsapp para ir supervisando todo el proceso
-                                y resolverte cualquier duda lo antes posible.
-                            </p>
-
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md overflow-hidden z-10 hidden">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200">Perfil</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200">Configuración</a>
+                            <form method="POST" action="#">
+                                <button type="submit"
+                                    class="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 focus:outline-none">Cerrar
+                                    Sesión</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- Jumbotron -->
-                <div
-                    class="relative h-[400px] overflow-hidden rounded-lg bg-[url('https://tecdn.b-cdn.net/img/new/slides/041.webp')] bg-cover bg-no-repeat p-12 text-center text-white">
-                    <div
-                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-black/60 bg-fixed">
-                        <div class="flex h-full items-center justify-center">
-                            <div class="text-white">
-                                <h2 class="mb-4 text-4xl font-semibold">¿Todavía te lo estás pensando?</h2>
-                                <h4 class="mb-6 text-xl font-semibold">¡No esperes más!</h4>
-                                <button type="button"
-                                    class="inline-block rounded border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-300 hover:text-neutral-200 focus:border-neutral-300 focus:text-neutral-200 focus:outline-none focus:ring-0 active:border-neutral-300 active:text-neutral-200 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600"
-                                    data-twe-ripple-init data-twe-ripple-color="light">
-                                    ¡Contáctame!
-                                </button>
-                            </div>
-                        </div>
+            </header>
+
+
+            <!-- Main Content -->
+            <main class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Categorías -->
+                <a href="{{ route('categoriesLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Categorías</h3>
+                        <!-- Agrega aquí el contenido relacionado con las categorías -->
                     </div>
-                </div>
-                <!-- Jumbotron -->
-            </div>
+                </a>
+
+                <!-- Posts -->
+                <a href="{{ route('postsLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Posts</h3>
+                        <!-- Agrega aquí el contenido relacionado con los posts -->
+                    </div>
+                </a>
+
+                <!-- TrainingCards -->
+                <a href="{{ route('trainingCardsLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">TrainingCards</h3>
+                        <!-- Agrega aquí el contenido relacionado con las TrainingCards -->
+                    </div>
+                </a>
+
+                <!-- Usuarios -->
+                <a href="{{ route('usersLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Usuarios</h3>
+                        <!-- Agrega aquí el contenido relacionado con los usuarios -->
+                    </div>
+                </a>
+
+                <!-- PDFs -->
+                <a href="{{ route('pdfsLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">PDFs</h3>
+                        <!-- Agrega aquí el contenido relacionado con los PDFs -->
+                    </div>
+                </a>
+            </main>
+
         </div>
     </div>
-    <footer class="bg-white  shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-cyan-900 antialiased">
-        <p class="mb-4 text-sm text-center text-gray-500 dark:text-gray-400 sm:mb-0">
-            &copy; 2024 <a href="https://entrenadorpersonal.com/" class="hover:underline" target="_blank">entrenadorpersonal.com</a>. Todos los derechos reservados.
-        </p>
-        <div class="flex justify-center items-center space-x-1">
-          <a href="#" data-tooltip-target="tooltip-facebook" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                  <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
-              </svg>
-              <span class="sr-only">Facebook</span>
-          </a>
-          <div id="tooltip-facebook" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-              Like us on Facebook
-              <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-          <a href="#" data-tooltip-target="tooltip-twitter" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path fill="currentColor" d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z"/>
-              </svg>
-              <span class="sr-only">Twitter</span>
-          </a>
-          <div id="tooltip-twitter" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-              Follow us on Twitter
-              <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-          <a href="#" data-tooltip-target="tooltip-github" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
-              </svg>
-              <span class="sr-only">Github</span>
-          </a>
-          <div id="tooltip-github" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-              Star us on GitHub
-              <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-          <a href="#" data-tooltip-target="tooltip-dribbble" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600">
-              <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
-              </svg>
-              <span class="sr-only">Dribbble</span>
-          </a>
-          <div id="tooltip-dribbble" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-              Follow us on Dribbble
-              <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
-      </div>
-      </footer>
 </x-app-layout>

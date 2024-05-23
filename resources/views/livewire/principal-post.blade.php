@@ -38,7 +38,7 @@
 
                 <table
                     class="w-full text-sm text-left rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
-                    <thead class="text-md text-white uppercase bg-cyan-700 dark:text-white">
+                    <thead class="text-md text-white uppercase bg-cyan-600 dark:text-white">
                         <tr>
                             <th scope="col" class="px-16 py-3">
                                 <span class="sr-only">IMAGEN</span>
@@ -71,7 +71,10 @@
                                 </th>
 
                                 <td class="px-6 py-4 text-justify">
-                                    {{ $item->contenido }}
+                                    {{-- ! Limito la cantidad de caracteres que se muestran 
+                                        strip_tags para asegurarme de que no se muestren etiquetas HTML en el contenido truncado
+                                        --}}
+                                    {!! \Illuminate\Support\Str::limit(strip_tags($item->contenido), 300, '...') !!}
 
                                 </td>
                                 <td class="px-6 py-4 text-center">

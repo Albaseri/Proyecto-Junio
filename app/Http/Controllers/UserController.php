@@ -32,7 +32,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'min:3'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
-            'roles' => ['required', 'string'], // Assuming you have 'roles' in your user model
+            'roles' => ['required', 'in:ADMIN,USER'],
         ]);
     
         User::create($request->all());

@@ -20,7 +20,6 @@ class TrainingCard extends Model
     }
 
 
-
     //? Accessors y muttators para poner en mayus
 
     public function titulo()

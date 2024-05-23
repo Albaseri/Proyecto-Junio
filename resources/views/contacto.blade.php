@@ -3,7 +3,7 @@
 
         <div class="flex w-full justify-center items-center">
             <div
-                class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-cyan-800 w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg shadow text-white overflow-hidden">
+                class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-gradient-to-r from-cyan-700 to-blue-900 w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg shadow text-white overflow-hidden">
                 <div class="flex flex-col space-y-8 justify-between">
                     <div>
                         <h1 class="font-bold text-4xl tracking-wide">¡Hablemos!</h1>

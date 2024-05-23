@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="bg-gradient-to-br from-cyan-200 to-black min-h-screen">
+    <div class="bg-gradient-to-br from-cyan-200 to-blue-600 min-h-screen">
         <x-propios.principal>
-            <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-gray-100 dark:text-black ">
+            <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-white bg-opacity-60 dark:text-black ">
                 <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-5">

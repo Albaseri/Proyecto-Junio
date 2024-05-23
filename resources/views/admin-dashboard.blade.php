@@ -1,77 +1,154 @@
-<!-- resources/views/admin-dashboard.blade.php -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
-</head>
-<body class="flex h-screen bg-gray-100">
-    <!-- Sidebar -->
-    <aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-        <a href="#">
-            <img class="w-auto h-7" src="https://merakiui.com/images/logo.svg" alt="Logo">
-        </a>
+<x-app-layout>
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <div
+            class="bg-gradient-to-tl from-blue-500 via-cyan-700 to-blue-900 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in">
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-semibold text-white flex items-center space-x-2 px-4">
+                <svg class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <!-- Your logo SVG here -->
+                </svg>
+                <span>Panel</span>
+            </a>
 
-        <div class="flex flex-col justify-between flex-1 mt-6">
-            <nav class="flex-1 -mx-3 space-y-3">
-                <div class="relative mx-3">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </span>
-                    <input type="text" class="w-full py-1.5 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" placeholder="Search" />
-                </div>
-
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="{{ route('blogLiv.index') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            <!-- Navigation Links -->
+            <nav>
+                <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <svg class="h-5 w-5 text-white mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M12 14l9-5-9-5-9 5 9 5zM12 14V3"></path>
                     </svg>
-                    <span class="mx-2 text-sm font-medium">Blog</span>
+                    Dashboard
                 </a>
+                <a href="{{ route('categoriesLiv.index') }}"
+                    class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fa-solid fa-tag text-xl me-2" style="color: #c2c2c2;"></i>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="{{ route('postsLiv.index') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
-                    </svg>
-                    <span class="mx-2 text-sm font-medium">Posts</span>
+                    Categorías
                 </a>
+                <a href="{{ route('postsLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                        <path
+                            d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                    </svg>
+                    Posts
+                </a>
+                <a href="{{ route('trainingCardsLiv.index') }}"
+                    class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                        <path d="M18 0H6a2 2 0 0 0-2 2h14v12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Z" />
+                        <path
+                            d="M14 4H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM2 16v-6h12v6H2Z" />
+                    </svg>
+                    TrainingCards
+                </a>
+                <a href="{{ route('usersLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fa-solid fa-users  text-xl me-2" style="color: #c2c2c2;"></i>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="{{ route('categoriesLiv.index') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
-                    </svg>
-                    <span class="mx-2 text-sm font-medium">Categorías</span>
+                    Usuarios
                 </a>
+                <a href="{{ route('pdfsLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    <i class="fa-regular fa-file-pdf text-xl me-2" style="color: #c2c2c2; "></i>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="{{ route('trainingCardsLiv.index') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
-                    </svg>
-                    <span class="mx-2 text-sm font-medium">Training Cards</span>
+                    PDFs
                 </a>
-
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="{{ route('usersLiv.index') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.021m1.205-6.853a6.75 6.75 0 11-13.5 0 6.75 6.75 0 0113.5 0z" />
-                    </svg>
-                    <span class="mx-2 text-sm font-medium">Usuarios</span>
-                </a>
+                <!-- Add more navigation links as needed -->
             </nav>
         </div>
-    </aside>
 
-    <!-- Main content -->
-    <main class="flex-1 p-6 bg-gray-100">
-        <div class="container mx-auto">
-            <!-- Place the content of each section here -->
-            @yield('content')
+        <!-- Content Area -->
+        <div class="flex-1">
+            <!-- Header -->
+            <header class="bg-white shadow-md py-4 px-6">
+                <div class="flex justify-between items-center">
+                    <!-- Mobile Menu Button -->
+                    <button class="text-gray-500 focus:outline-none md:hidden">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Page Title -->
+                    <h2 class="text-xl font-semibold text-gray-800">Gestión administrativa</h2>
+
+                    <!-- User Menu -->
+                    <div class="relative">
+                        <button class="flex items-center focus:outline-none">
+                            <span class="mr-2">Admin</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md overflow-hidden z-10 hidden">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200">Perfil</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200">Configuración</a>
+                            <form method="POST" action="#">
+                                <button type="submit"
+                                    class="block w-full text-left px-4 py-2 text-sm text-gray-800 hover:bg-gray-200 focus:outline-none">Cerrar
+                                    Sesión</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- Main Content -->
+            <main class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Categorías -->
+                <a href="{{ route('categoriesLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Categorías</h3>
+                        <!-- Agrega aquí el contenido relacionado con las categorías -->
+                    </div>
+                </a>
+
+                <!-- Posts -->
+                <a href="{{ route('postsLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Posts</h3>
+                        <!-- Agrega aquí el contenido relacionado con los posts -->
+                    </div>
+                </a>
+
+                <!-- TrainingCards -->
+                <a href="{{ route('trainingCardsLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">TrainingCards</h3>
+                        <!-- Agrega aquí el contenido relacionado con las TrainingCards -->
+                    </div>
+                </a>
+
+                <!-- Usuarios -->
+                <a href="{{ route('usersLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Usuarios</h3>
+                        <!-- Agrega aquí el contenido relacionado con los usuarios -->
+                    </div>
+                </a>
+
+                <!-- PDFs -->
+                <a href="{{ route('pdfsLiv.index') }}"
+                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">PDFs</h3>
+                        <!-- Agrega aquí el contenido relacionado con los PDFs -->
+                    </div>
+                </a>
+            </main>
+
         </div>
-    </main>
-    
-    @livewireScripts
-</body>
-</html>
+    </div>
+</x-app-layout>

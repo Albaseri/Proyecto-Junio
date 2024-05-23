@@ -35,7 +35,7 @@
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table
             class="w-full text-sm text-left rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
-            <thead class="text-md text-white uppercase bg-cyan-700 dark:text-white">
+            <thead class="text-md text-white uppercase bg-cyan-600 dark:text-white">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         NOMBRE

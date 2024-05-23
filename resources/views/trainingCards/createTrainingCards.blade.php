@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="bg-gradient-to-br from-cyan-200 to-black">
+    <div class="bg-gradient-to-br from-cyan-200 to-blue-600 ">
         <x-propios.principal>
-            <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-gray-100 dark:text-black ">
+            <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-white bg-opacity-60 dark:text-black ">
                 <form method="POST" action="{{ route('trainingCards.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-5">
@@ -77,8 +77,7 @@
                             class=" rounded block mb-2 text-sm font-medium text-gray-900">Imagen:</label>
                         <input type="file" id="imagen" oninput="img.src=window.URL.createObjectURL(this.files[0])"
                             name="imagen" accept="image/*"
-                            class="bg-white-50 border-lg border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-cyan-900 dark:border-cyan-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-
+                            class="bg-white-50 border-lg border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-400 block w-full p-2.5 dark:bg-blue-900 dark:bg-opacity-90 dark:border-cyan-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
 
                         <div class="w-full mt-2 px-2 md:w-3/8" id="imagen">
                             <img src="{{ Storage::url('defecto.jpg') }}"

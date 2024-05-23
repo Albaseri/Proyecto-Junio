@@ -8,12 +8,26 @@ use Livewire\Component;
 
 class PrincipalBlog extends Component
 {
-    public function render()
-  
-    {
-        $posts = Post::with('category')->get();
+    public $selectedCategory;
 
+    public function render()
+    {
+        $query = Post::query();
+
+        if ($this->selectedCategory) {
+            $query->whereHas('category', function ($query) {
+                $query->where('id', $this->selectedCategory);
+            });
+        }
+
+        $posts = $query->with('category')->get();
         $categorias = Category::all();
-        return view('livewire.principal-blog', compact('categorias','posts'));
+
+        return view('livewire.principal-blog', compact('categorias', 'posts'));
+    }
+
+    public function filterByCategory()
+    {
+        $this->render();
     }
 }
