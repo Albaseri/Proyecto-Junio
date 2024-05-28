@@ -8,6 +8,18 @@ use Illuminate\Support\Facades\Storage;
 
 class PdfController extends Controller
 {
+    public function download($id)
+    {
+        $pdf = Pdf::findOrFail($id);
+        return $pdf->download();
+    }
+
+    public function showWelcomePage()
+    {
+        // Obtener el PDF disponible para descargar
+        $pdf = Pdf::find(1); // Esto es solo un ejemplo, deberías implementar la lógica adecuada aquí
+        return view('welcome', ['pdf' => $pdf]); // Pasar la variable $pdf a la vista
+    }
     /**
      * Display a listing of the resource.
      */
@@ -20,7 +32,6 @@ class PdfController extends Controller
      */
     public function create()
     {
-
         return view('pdfs.createPdf');
     }
 
@@ -31,20 +42,20 @@ class PdfController extends Controller
     {
         $request->validate([
             'nombre_archivo' => ['required', 'string', 'min:5', 'unique:pdfs,nombre_archivo'],
-            'ruta' => ['required', 'string']
+            'ruta' => ['required', 'file', 'mimes:pdf', 'max:2048']
         ]);
 
-
-        //S se ha subido un archivo pdf, se guarda en la carpeta
-        // Al ser requerido, si no sube nada da error de validacion
-        $pdf = ($request->ruta) ? $request->ruta->store('pdfs') : ' ';
+        // Almacenar el archivo PDF
+        if ($request->hasFile('ruta')) {
+            $path = $request->file('ruta')->store('pdfs', 'public'); // Almacena en el disco 'public'
+        }
 
         Pdf::create([
             'nombre_archivo' => $request->nombre_archivo,
-            'ruta' => $pdf,
-            'user_id' => auth()->user()->id,
-
+            'ruta' => $path,
+            'user_id' => auth()->id(), // Asignar al usuario autenticado
         ]);
+
         return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf creado correctamente');
     }
 
@@ -53,7 +64,7 @@ class PdfController extends Controller
      */
     public function show(Pdf $pdf)
     {
-        //
+        // Implementación de visualización de PDF
     }
 
     /**
@@ -70,28 +81,27 @@ class PdfController extends Controller
     public function update(Request $request, Pdf $pdf)
     {
         $request->validate([
-            'nombre_archivo' => ['required', 'string', 'min:5', 'unique:pdfs,nombre_archivo'],
-            'ruta' => ['required', 'string']
+            'nombre_archivo' => ['required', 'string', 'min:5', 'unique:pdfs,nombre_archivo,' . $pdf->id],
+            'ruta' => ['nullable', 'file', 'mimes:pdf', 'max:2048']
         ]);
 
-
-        //S se ha subido un archivo pdf, se guarda en la carpeta
-        // Al ser requerido, si no sube nada da error de validacion
-        $pdf = ($request->ruta);
-
-        if ($request->ruta) {
-            if (basename($pdf) != "") {
-                Storage::delete($pdf);
+        // Almacenar el nuevo archivo PDF si se ha subido
+        if ($request->hasFile('ruta')) {
+            if ($pdf->ruta) {
+                Storage::disk('public')->delete($pdf->ruta); // Eliminar el archivo anterior
             }
-            $pdf = $request->ruta->store('pdfs');
+            $path = $request->file('ruta')->store('pdfs', 'public'); // Almacenar el nuevo archivo
+        } else {
+            $path = $pdf->ruta; // Mantener el archivo anterior si no se ha subido uno nuevo
         }
+
         $pdf->update([
             'nombre_archivo' => $request->nombre_archivo,
-            'ruta' => $pdf,
-            'user_id' => auth()->user()->id,
-
+            'ruta' => $path,
+            'user_id' => auth()->id(),
         ]);
-        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf creado correctamente');
+
+        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf actualizado correctamente');
     }
 
     /**
@@ -99,6 +109,6 @@ class PdfController extends Controller
      */
     public function destroy(Pdf $pdf)
     {
-        //
+        // Implementación de eliminación de PDF
     }
 }

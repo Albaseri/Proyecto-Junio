@@ -51,6 +51,21 @@ class PrincipalTrainingCard extends Component
         // Elimino trainingCard
         $trainingCard->delete();
 
+        flash()->success('Training Card eliminada correctamente');
         $this->dispatch('mensaje', 'Training Card eliminada');
+    }
+
+    public function incrementRepeticiones($trainingCardId)
+    {
+        $card = TrainingCard::findOrFail($trainingCardId);
+        $card->increment('n_repeticiones');
+    }
+
+    public function decrementRepeticiones($trainingCardId)
+    {
+        $card = TrainingCard::findOrFail($trainingCardId);
+        if ($card->n_repeticiones > 0) {
+            $card->decrement('n_repeticiones');
+        }
     }
 }

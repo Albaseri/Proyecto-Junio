@@ -1,4 +1,14 @@
     <x-propios.principal>
+
+        <a href="{{ route('dashboard') }}"
+            class="text-blue-500 hover:text-blue-700 text-bold flex items-center space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
+            </svg>
+            <span>Volver</span>
+        </a>
+
         <h1 class="text-black font-bold text-center text-2xl my-4">Gestionar Posts del Blog</h1>
 
         <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4">

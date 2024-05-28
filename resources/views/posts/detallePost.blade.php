@@ -1,46 +1,85 @@
 <x-app-layout>
     <x-propios.principal>
+        <!-- Main -->
+        <main class="mt-10">
+            <div class="mb-4 md:mb-0 w-full mx-auto relative">
+                <div class="px-4 lg:px-0">
+                    <h2 class="text-4xl font-semibold text-white leading-tight">
+                        {{ $post->titulo }}
+                    </h2>
+                    <div class="py-2 text-black">
+                        <span>{{ $post->category->nombre }}</span>
+                    </div>
+                </div>
+                <img src="{{ Storage::url($post->imagen) }}" class="w-full object-cover lg:rounded"
+                    style="height: 28em;" />
+            </div>
 
-        <header>
-            <div class="w-full bg-cover bg-center h-32 rounded-2xl"
-                style="height:32rem; background-image: url({{ Storage::url($post->imagen) }});">
-                <div class="flex items-center justify-center h-full w-full bg-opacity-50">
-                    <div class="text-center">
-                        <h1 class="text-white text-2xl font-semibold uppercase md:text-3xl mb-2">{{ $post->titulo }}</h1>
+            <div class="flex flex-col lg:flex-row lg:space-x-12 mt-12">
+                <div class="px-4 lg:px-0 text-gray-700 text-lg leading-relaxed w-full lg:w-3/4">
+                    <div class="prose max-w-none">
+                        {!! $post->contenido !!}
+                    </div>
 
-                        <p
-                            class="text-black py-1 bg-cyan-100  rounded-lg hover:bg-gray-300 hover:text-gray-800 transition duration-300 border">
-                            {{ $post->category->nombre }}
+                    <div class="border-l-4 border-gray-500 pl-4 mb-6 italic rounded">
+                        <p class="italic">Texo que quiero destacar</p>
+                    </div>
+
+                </div>
+
+                <div class="w-full lg:w-1/4 m-auto mt-12 max-w-screen-sm">
+                    <div class="p-4 border-t border-b md:border md:rounded">
+                        <div class="flex py-2">
+                            <img src="https://randomuser.me/api/portraits/men/97.jpg"
+                                class="h-10 w-10 rounded-full mr-2 object-cover" />
+                            <div>
+                                <p class="font-semibold text-gray-700 text-sm">Entrenador Personal</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 py-3">
+                            Describo autor...
                         </p>
+                        <button
+                            class="px-2 py-1 text-gray-100 bg-green-700 flex w-full items-center justify-center rounded">
+                            Seguir
+                            <i class='bx bx-user-plus ml-2'></i>
+                        </button>
                     </div>
                 </div>
             </div>
-        </header>
 
-        <div class="p-6 sm:container xs:container md:w-2/3 md:max-w-4xl mx-auto text-gray-800 text-lg">
-            <h2>Section</h2>
-            <div class="post-content">
-                {{ $post->contenido }}
+            <!-- Sección de Artículos relacionados -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-8">Artículos relacionados</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    @foreach ($postRelacionados as $postRelacionado)
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="{{ Storage::url($postRelacionado->imagen) }}" class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-800">{{ $postRelacionado->titulo }}</h3>
+                                <p class="text-gray-600">
+                                    {{ \Illuminate\Support\Str::limit(strip_tags($postRelacionado->contenido), 100, '...') }}
+                                </p>
+                                <a href="{{ route('detallePost', $postRelacionado->id) }}"
+                                    class="text-blue-500 hover:underline mt-2 block">Leer en{{ rand(2, 15) }}
+                                    minutos</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            <p>
-                <span class="font-bold">Categoría:</span> {{ $post->category->nombre }}
-            </p>
-            <p>
-                <span class="font-bold">Publicado:</span> {{ $post->publicado ? 'Sí' : 'No' }}
-            </p>
-            <p>
-                <span class="font-bold">Fecha de creación:</span> {{ $post->created_at->format('d/m/Y h:i:s') }}
-            </p>
-            <p>
-                <span class="font-bold">Última modificación de creación:</span>
-                {{ $post->updated_at->format('d/m/Y h:i:s') }}
-            </p>
-            <a href="{{ route('posts.index') }}"
-                class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><i
-                    class="fas fa-home"></i>
-                Inicio
-            </a>
-        </div>
 
+            <!-- Sección Newsletter  -->
+            <div class="mt-16 bg-gray-100 p-8 rounded-lg">
+                <h2 class="text-2xl font-semibold text-gray-800">Suscríbete a la revista r</h2>
+                <p class="text-gray-600 mt-2"> Mantente al día de las últimas novedades sobre ejercicio, nutrición,
+                    hábitos de vida saludable y mucho más.</p>
+                <form class="mt-4 flex">
+                    <input type="email" placeholder="Enter your email"
+                        class="w-full p-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-r-lg">Subscríbete</button>
+                </form>
+            </div>
+        </main>
     </x-propios.principal>
 </x-app-layout>

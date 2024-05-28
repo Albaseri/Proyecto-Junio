@@ -1,10 +1,19 @@
 <x-propios.principal>
-    <h1 class="text-black font-bold text-center text-2xl  my-4">Gestionar Cards de Entrenamiento</h1>
 
-    <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4">
+    <a href="{{ route('dashboard') }}" class="text-blue-500 hover:text-blue-700 text-bold flex items-center space-x-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+            </path>
+        </svg>
+        <span>Volver</span>
+    </a>
+
+    <h1 class="text-black font-bold text-center text-2xl my-4">Gestionar Cards de Entrenamiento</h1>
+
+    <div class="flex items-center justify-between flex-col md:flex-row space-y-4 md:space-y-0 pb-4">
         <label for="table-search" class="sr-only">Buscar</label>
         <div class="relative">
-            <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500 dark:text-violet-600" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -12,7 +21,7 @@
                 </svg>
             </div>
             <input type="text" id="table-search-users" wire:model.live="buscar"
-                class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-300  dark:placeholder-gray-700 dark:text-cyan-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-300  dark:placeholder-gray-700 dark:text-cyan-700 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Buscar por título, estado...">
         </div>
 
@@ -35,102 +44,113 @@
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         @if (count($trainingCards))
-
             <table
                 class="w-full text-sm text-left rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
-                <thead class=" text-white bg-cyan-600 dark:text-white">
+                <thead class="text-white bg-cyan-600 dark:text-white text-center">
                     <tr>
-
-                        <th scope="col" class="px-4 py-3">
-                            <span class="sr-only">IMAGEN</span>
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            TÍTULO
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            DESCRIPCIÓN
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            NÚMERO REPETICIONES
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            NÚMERO SERIES
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            ESTADO
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            ENLACE A YOUTUBE
-                        </th>
-                        <th scope="col" class="px-4 py-3">
-                            ACCIONES
-                        </th>
-
+                        <th scope="col" class="px-4 py-3"><span class="sr-only">IMAGEN</span></th>
+                        <th scope="col" class="px-4 py-3">TÍTULO</th>
+                        <th scope="col" class="px-4 py-3">DESCRIPCIÓN</th>
+                        <th scope="col" class="px-4 py-3">NÚMERO REPETICIONES</th>
+                        <th scope="col" class="px-4 py-3">NÚMERO SERIES</th>
+                        <th scope="col" class="px-4 py-3">ESTADO</th>
+                        <th scope="col" class="px-4 py-3">ENLACE A YOUTUBE</th>
+                        <th scope="col" class="px-4 py-3">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="border-cyan-500 border-b">
                     @foreach ($trainingCards as $item)
                         <tr class="bg-white border-b hover:bg-cyan-50">
                             <td class="p-4">
-                                <div class="w-32 h-auto max-w-full max-h-full">
+                                <div class="w-20 h-auto max-w-full max-h-full">
                                     <img src="{{ Storage::url($item->imagen) }}"
                                         class="object-cover w-full h-full rounded-lg" alt="">
                                 </div>
                             </td>
-
                             <th scope="row" class="px-2 py-2 text-black whitespace-nowrap dark:text-white-100">
                                 {{ $item->titulo }}
                             </th>
-
-                            <td class="px-2 py-2 text-justify">
-                                {{ $item->descripcion }}
-
+                            <td class="px-2 py-2 text-justify"> {!! \Illuminate\Support\Str::limit(strip_tags($item->descripcion), 50, '...') !!}
                             </td>
-
-                            <td class="px-1 text-center">
-                                {{ $item->n_repeticiones }}
-
+                            <td class="px-2 py-2 text-center">
+                                <div class="flex items-center justify-center space-x-2">
+                                    <button id="decrement-btn"
+                                        class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-300 hover:bg-gray-500"
+                                        wire:click="decrementRepeticiones({{ $item->id }})">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M20 12H4"></path>
+                                        </svg>
+                                    </button>
+                                    <span id="counter" class="text-md font-bold">{{ $item->n_repeticiones }}</span>
+                                    <button id="increment-btn"
+                                        class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-400 hover:bg-indigo-600"
+                                        wire:click="incrementRepeticiones({{ $item->id }})">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v12M6 12h12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </td>
-                            <td class="px-2 text-center">
-                                {{ $item->n_series }}
-
-                            </td>
-                            <td class="px-2 text-center">
-                                <div class="flex items-center">
-                                    <div @class([
-                                        'h-2.5 w-2.5 rounded-full',
-                                        'bg-green-500 me-2' => $item->estado == 'VISIBLE',
-                                        'bg-red-500 me-2' => $item->estado == 'NO VISIBLE',
-                                    ])></div> {{ $item->estado }}
+                            <td class="px-2 py-2 text-center">
+                                <div class="flex items-center justify-center space-x-2">
+                                    <button id="decrement-btn-series"
+                                        class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-300 hover:bg-gray-500"
+                                        wire:click="decrementSeries({{ $item->id }})">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M20 12H4"></path>
+                                        </svg>
+                                    </button>
+                                    <span id="counter-series" class="text-md font-bold">{{ $item->n_series }}</span>
+                                    <button id="increment-btn-series"
+                                        class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-400 hover:bg-indigo-600"
+                                        wire:click="incrementSeries({{ $item->id }})">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 6v12M6 12h12"></path>
+                                        </svg>
+                                    </button>
                                 </div>
                             </td>
 
+                            <td class="px-2 text-center">
+                                <div class="flex items-center">
+                                    <div
+                                        class="h-2.5 w-2.5 rounded-full {{ $item->estado == 'VISIBLE' ? 'bg-green-500' : 'bg-red-500' }} mr-2">
+                                    </div>
+                                    {{ $item->estado }}
+                                </div>
+                            </td>
                             <td class="px-2 text-justify text-blue-500">
                                 <a href="{{ $item->url_youtube }}">{{ $item->url_youtube }}</a>
-
                             </td>
-                            <td class="px-6 py-4 text-center ">
-                                <a href="{{ route('trainingCards.edit', $item->id) }}">
-                                    <i class="fas fa-pencil text-pink-500 hover:text-xl mr-2"></i>
+                            <td class="px-6 py-4 text-center">
+                                <a href="{{ route('trainingCards.edit', $item->id) }}"
+                                    class="text-pink-500 hover:text-pink-600 mr-2">
+                                    <i class="fas fa-pencil-alt"></i>
                                 </a>
-
-                                <button wire:click="confirmarDeleteCard({{ $item->id }})">
-                                    <i class="fas fa-trash text-teal-500 hover:text-xl"></i>
+                                <button wire:click="delete({{ $item->id }})"
+                                    class="text-teal-500 hover:text-teal-600">
+                                    <i class="fas fa-trash-alt"></i>
                                 </button>
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
+        @else
+            <p class="text-red-500"><i class="fas solid fa-triangle-exclamation mr-2"></i>
+                No se encontró ninguna card o no ha sido creada aún
+            </p>
+        @endif
     </div>
-
     <div class="py-12">
         {{ $trainingCards->links() }}
     </div>
-    {{-- Párrafo cuando no existe card o no se encuentra --}}
-@else
-    <p class="text-red-500"><i class="fas solid fa-triangle-exclamation mr-2"></i>
-        No se encontró ninguna card o no ha sido creada aún</p>
-    @endif
 </x-propios.principal>

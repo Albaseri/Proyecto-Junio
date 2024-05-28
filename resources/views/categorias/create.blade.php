@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-gradient-to-br from-cyan-200 to-blue-600 min-h-screen">
+    <div class=" bg-gradient-to-br from-cyan-200 to-blue-800 min-h-screen opacity-80">
         <x-propios.principal>
             <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-white bg-opacity-60 dark:text-gray-200 mt-5">
                    <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">

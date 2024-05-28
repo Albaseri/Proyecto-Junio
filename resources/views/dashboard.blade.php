@@ -6,27 +6,28 @@
             <!-- Logo -->
             <a href="#" class="text-3xl font-semibold text-white flex items-center space-x-2 px-4">
                 <svg class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <!-- Your logo SVG here -->
+                    <!--  logo SVG -->
                 </svg>
                 <span>Panel</span>
             </a>
 
-            <!-- Navigation Links -->
-            <nav>
-                <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+            <!-- Links de Navegación -->
+            <nav class="space-y-4">
+                <a href="{{ route('dashboard') }}" class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
                     <svg class="h-5 w-5 text-white mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M12 14l9-5-9-5-9 5 9 5zM12 14V3"></path>
                     </svg>
                     Dashboard
                 </a>
+
                 <a href="{{ route('categoriesLiv.index') }}"
-                    class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
                     <i class="fa-solid fa-tag text-xl me-2" style="color: #c2c2c2;"></i>
 
                     Categorías
                 </a>
-                <a href="{{ route('postsLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                <a href="{{ route('postsLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
                     <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                         <path
@@ -35,7 +36,7 @@
                     Posts
                 </a>
                 <a href="{{ route('trainingCardsLiv.index') }}"
-                    class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                    class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
                     <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path d="M18 0H6a2 2 0 0 0-2 2h14v12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Z" />
@@ -44,26 +45,24 @@
                     </svg>
                     TrainingCards
                 </a>
-                <a href="{{ route('usersLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                <a href="{{ route('usersLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
                     <i class="fa-solid fa-users  text-xl me-2" style="color: #c2c2c2;"></i>
 
                     Usuarios
                 </a>
-                <a href="{{ route('pdfsLiv.index') }}" class="flex items-center py-2 px-4 text-sm hover:bg-blue-700">
+                <a href="{{ route('pdfsLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
                     <i class="fa-regular fa-file-pdf text-xl me-2" style="color: #c2c2c2; "></i>
 
                     PDFs
                 </a>
-                <!-- Add more navigation links as needed -->
             </nav>
         </div>
 
-        <!-- Content Area -->
         <div class="flex-1">
             <!-- Header -->
             <header class="bg-white shadow-md py-4 px-6">
                 <div class="flex justify-between items-center">
-                    <!-- Mobile Menu Button -->
+                    <!-- Menu Móvil Button -->
                     <button class="text-gray-500 focus:outline-none md:hidden">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -71,10 +70,10 @@
                         </svg>
                     </button>
 
-                    <!-- Page Title -->
+                    <!-- Título de la página -->
                     <h2 class="text-xl font-semibold text-gray-800">Gestión administrativa</h2>
 
-                    <!-- User Menu -->
+                    <!-- Menú Usuario-->
                     <div class="relative">
                         <button class="flex items-center focus:outline-none">
                             <span class="mr-2">Admin</span>
@@ -84,7 +83,7 @@
                             </svg>
                         </button>
 
-                        <!-- Dropdown Menu -->
+                        <!-- Menú Dropdown  -->
                         <div
                             class="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md overflow-hidden z-10 hidden">
                             <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200">Perfil</a>
@@ -101,50 +100,53 @@
             </header>
 
 
-            <!-- Main Content -->
-            <main class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Main -->
+            <main class="p-6 text-center border-t-2   border-cyan-600  shadow-xl grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Categorías -->
                 <a href="{{ route('categoriesLiv.index') }}"
-                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white align-content-center shadow-blue-200  shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Categorías</h3>
-                        <!-- Agrega aquí el contenido relacionado con las categorías -->
                     </div>
                 </a>
 
                 <!-- Posts -->
                 <a href="{{ route('postsLiv.index') }}"
-                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Posts</h3>
-                        <!-- Agrega aquí el contenido relacionado con los posts -->
                     </div>
                 </a>
 
                 <!-- TrainingCards -->
                 <a href="{{ route('trainingCardsLiv.index') }}"
-                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">TrainingCards</h3>
-                        <!-- Agrega aquí el contenido relacionado con las TrainingCards -->
                     </div>
                 </a>
 
                 <!-- Usuarios -->
                 <a href="{{ route('usersLiv.index') }}"
-                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Usuarios</h3>
-                        <!-- Agrega aquí el contenido relacionado con los usuarios -->
                     </div>
                 </a>
 
                 <!-- PDFs -->
                 <a href="{{ route('pdfsLiv.index') }}"
-                    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">PDFs</h3>
-                        <!-- Agrega aquí el contenido relacionado con los PDFs -->
+                    </div>
+                </a>
+
+                <!-- Entrenamiento del Usuario -->
+                <a href="{{ route('entrenamientoUser.index') }}"
+                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4">Entrenamiento</h3>
                     </div>
                 </a>
             </main>

@@ -60,10 +60,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $posts = Post::with('category')->get();
-        $categorias = Category::all();
+        $postRelacionados = Post::where('category_id', $post->category_id)
+        ->where('id', '!=', $post->id)
+        ->take(4)
+        ->get();
 
-        return view('posts.detallePost',compact('post','categorias'));
+    return view('posts.detallePost', compact('post', 'postRelacionados'));
+
     }
 
     /**

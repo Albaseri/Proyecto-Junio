@@ -21,7 +21,6 @@ class CategoryController extends Controller
     public function create()
     {
         return view('categorias.create');
-
     }
 
     /**
@@ -31,11 +30,14 @@ class CategoryController extends Controller
     {
         $request->validate([
             'nombre' => ['required', 'string', 'min:3', 'unique:categories,nombre'],
-            'descripcion' => ['required', 'string','min:5']
+            'descripcion' => ['required', 'string', 'min:5']
         ]);
 
         Category::create($request->all());
-        return redirect()->route('categoriesLiv.index')->with('mensaje', 'Categoría creada correctamente');
+
+        flash()->success('Categoría creada con éxito');
+
+        return redirect()->route('categoriesLiv.index');
     }
 
     /**
@@ -52,7 +54,6 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return view('categorias.update', compact('category'));
-
     }
 
     /**
@@ -64,9 +65,13 @@ class CategoryController extends Controller
             'nombre' => ['required', 'string', 'min:3', 'unique:categories,nombre,' . $category->id],
             'descripcion' => ['required', 'string', 'min:10']
         ]);
-        
+
+
         $category->update($request->all());
-        return redirect()->route('categoriesLiv.index')->with('mensaje', 'Categoría actualizada con éxito');
+        
+        flash()->success('Categoría actualizada con éxito');
+
+        return redirect()->route('categoriesLiv.index');
     }
 
     /**
@@ -75,6 +80,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categoriesLiv.index')->with("mensaje","Categoría eliminada con éxito");
+
+        flash()->success('Categoría eliminada con éxito');
+
+        return redirect()->route('categoriesLiv.index');
     }
 }

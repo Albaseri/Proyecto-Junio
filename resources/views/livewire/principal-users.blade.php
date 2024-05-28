@@ -1,4 +1,14 @@
     <x-propios.principal>
+        
+    <a href="{{ route('dashboard') }}" class="text-blue-500 hover:text-blue-700 text-bold flex items-center space-x-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+            </path>
+        </svg>
+        <span>Volver</span>
+    </a>
+    <h1 class="text-black font-bold text-center text-2xl my-4">Gestionar Usuarios</h1>
+
         <div class="relative overflow-x-auto  sm:rounded-lg">
             <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4">
                 <label for="table-search" class="sr-only">Buscar</label>
@@ -38,7 +48,7 @@
 
                 @if (count($users))
                     <table
-                        class="w-full text-sm text-left rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
+                        class="w-full text-sm text-center rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
                         <thead class="text-md text-white uppercase bg-cyan-600 dark:text-white">
                             <tr>
 
@@ -57,7 +67,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class="border-cyan-500 border-b">
+                        <tbody class="border-cyan-500 border-b text-center">
                             @foreach ($users as $user)
                                 <tr class="bg-white border-b hover:bg-cyan-50">
 
@@ -72,13 +82,18 @@
 
                                     </td>
 
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div @class([
-                                                'h-2.5 w-2.5 rounded-full',
-                                                'bg-cyan-200 me-2' => $user->roles == 'ADMIN',
-                                                'bg-purple-200 me-2' => $user->roles == 'USER',
-                                            ])></div> {{ $user->roles }}
+                                    <td class="px-6 py-4 text-center">
+                                        <div class="flex items-center space-x-2 ">
+                                          
+                                            @php
+                                                $roles = ['ADMIN', 'USER']; // Lista de roles disponibles
+                                            @endphp
+                                            <select wire:model="selectedRole" wire:change="updateRole({{ $user->id }})"
+                                                    class="bg-transparent border-0  cursor-pointer focus:outline-none appearance-none">
+                                                @foreach ($roles as $role)
+                                                    <option value="{{ $role }}" {{ $user->roles === $role ? 'selected' : '' }}>{{ $role }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">
@@ -87,8 +102,7 @@
                                             @method('delete')
                                             <a href="{{ route('users.edit', $user->id) }}"
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                Edit
-                                                user <i class="fas fa-pencil text-pink-500 mr-2"></i>
+                                                <i class="fas fa-pencil text-pink-500 mr-2"></i>
                                             </a>
                                             <button>
                                                 <i class="fas fa-trash text-teal-400 hover:text-2xl mr-2"></i>

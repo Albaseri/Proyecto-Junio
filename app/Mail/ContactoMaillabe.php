@@ -26,7 +26,7 @@ class ContactoMaillabe extends Mailable
     public function build()
     {
         return $this->from($this->correo, $this->nombre)
-                    ->view('correoHTML.correoHTML'); // Asegúrate de tener una vista llamada 'correo.contacto'
+                    ->view('correoHTML.correoHTML'); 
     }
     
 }

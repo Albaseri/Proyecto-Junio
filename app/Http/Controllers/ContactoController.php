@@ -30,7 +30,7 @@ class ContactoController extends Controller
             return redirect()->back()->with('error', 'Error al enviar el correo electrónico.');
         }
 
-        // Redirigir de vuelta con un mensaje de éxito si el correo se envió correctamente
+        // Mensaje de éxito si el correo se envió correctamente
         return redirect()->back()->with('mensaje', 'Correo electrónico enviado correctamente.');
     }
     }

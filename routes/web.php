@@ -20,6 +20,8 @@ use App\Livewire\PrincipalUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+//& Ruta principal
+
 Route::get('/', function () {
     // Verifica si el usuario está autenticado como ADMIN
     if (auth()->check() && auth()->user()->roles === 'ADMIN') {
@@ -30,6 +32,8 @@ Route::get('/', function () {
         return view('welcome');
     }
 })->name('welcome');
+
+//& Grupo de rutas que requieren autenticación
 
 Route::middleware([
     'auth:sanctum',
@@ -53,9 +57,9 @@ Route::middleware([
 
 /////Dashboard admin
 ////Route::get('/admin', [AdminDashboard::class, 'index'])->name('admin-dashboard');
+//& RUTAS PARA ADMINISTRADOR
 Route::middleware([GestionDeAcceso::class])->group(function () {
 
-    //& VISTAS PARA ADMINISTRADOR
     //?Rutas protegidas Controller
     Route::resource('categories', CategoryController::class);
     Route::resource('trainingCards', TrainingCardController::class);
@@ -76,13 +80,19 @@ Route::middleware([GestionDeAcceso::class])->group(function () {
     Route::get('pdfsLiv', PrincipalPdf::class)->name('pdfsLiv.index');
 });
 
+//& Rutas públicas
 
 
 Route::get('/formulario', function () {
     return view('contactoForm.formulario');
 })->name('formulario');
 
-//& USUARIOS VISTAS
+//& Ruta para descargar PDFs
+
+Route::get('/pdfs/download/{id}', [PdfController::class, 'download'])->name('pdfs.download');
+
+//& USUARIOS RUTAS
+
 //Ruta para la vista del usuario y su entrenamiento
 Route::get('entrenamientoUser', PrincipalEntrenamientoUser::class)->name('entrenamientoUser.index');
 //Muestra el detalle del post al pulsar "Leer más" en principal-blog

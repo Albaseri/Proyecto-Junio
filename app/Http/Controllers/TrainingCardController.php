@@ -57,7 +57,8 @@ class TrainingCardController extends Controller
         ]);
 
         //? 3. Volvemos a la página cards y nos creamos una sesión de tipo flas para mostrar mensaje
-        return redirect()->route('trainingCardsLiv.index')->with('mensaje', 'Card de entrenamiento creada correctamente');
+        flash()->success('Card de entrenamiento creada correctamente');
+        return redirect()->route('trainingCardsLiv.index');
     }
 
     /**
@@ -111,7 +112,9 @@ class TrainingCardController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
-        return redirect()->route('trainingCardsLiv.index')->with('mensaje', 'Training Card actualizada correctamente');
+        flash()->success('Training Card actualizada correctamente');
+
+        return redirect()->route('trainingCardsLiv.index');
     }
 
     /**

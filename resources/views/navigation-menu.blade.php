@@ -1,4 +1,3 @@
-{{-- ! He quitado border-b border-gray-100 --}}
 <nav x-data="{ open: false }" class="bg-gradient-to-r from-blue-900 to-cyan-800   ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,9 +19,7 @@
                     <x-nav-link href="{{ route('blogLiv.index') }}" :active="request()->routeIs('blogLiv')">
                         {{ __('Blog') }}
                     </x-nav-link>
-                    {{-- <x-nav-link href="{{ route('adminDashboard.index') }}" :active="request()->routeIs('admin')">
-                        {{ __('ADMIN') }}
-                    </x-nav-link> --}}
+
                     @auth
                         @if (auth()->user()->roles === 'USER')
                             <x-nav-link href="{{ route('entrenamientoUser.index') }}" :active="request()->routeIs('entrenamientoUser')">
@@ -33,18 +30,7 @@
                                 {{ __('Contacto') }}
                             </x-nav-link>
                         @endif
-
-
                     @endauth
-                         {{-- @auth
-                            @if (auth()->user()->roles === 'ADMIN')
-                                <x-nav-link href="{{ route('admin-dashboard') }}" :active="request()->routeIs('admin')">
-                                    {{ __('ADMIN') }}
-
-                                </x-nav-link>
-                            @endif
-                         @endauth    --}}
-                   
 
                 </div>
             </div>
@@ -226,13 +212,7 @@
                         {{ __('Usuarios') }}
                     </x-responsive-nav-link>
                 @endif
-
-
             @endauth
-
-
-
-
         </div>
 
         <!-- Responsive Settings Options -->
