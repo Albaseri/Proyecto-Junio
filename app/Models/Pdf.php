@@ -14,10 +14,4 @@ class Pdf extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function download($id)
-{
-    $pdf = Pdf::findOrFail($id);
-    $path = storage_path('app/public/' . $pdf->ruta);
-    return response()->download($path);
-}
 }

@@ -26,7 +26,8 @@
                                         saludables para mejorar tu bienestar y calidad de vida.
                                     </p>
                                     <div class="mt-6">
-                                        <a href="#"
+                                        <a href="{{ Storage::url('pdfs/em5pQ2wKy5wFdtgNdDadgjw445KD8sy65Ei4Ghub.pdf') }}"
+                                            target="is_blank"
                                             class="inline-block rounded-md bg-white px-5 py-3 text-md font-semibold text-blue-500 hover:shadow-sm hover:shadow-blue-500 bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                                             ¡Lo quiero ya!
                                         </a>

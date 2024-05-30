@@ -87,9 +87,6 @@ Route::get('/formulario', function () {
     return view('contactoForm.formulario');
 })->name('formulario');
 
-//& Ruta para descargar PDFs
-
-Route::get('/pdfs/download/{id}', [PdfController::class, 'download'])->name('pdfs.download');
 
 //& USUARIOS RUTAS
 

@@ -8,18 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PdfController extends Controller
 {
-    public function download($id)
-    {
-        $pdf = Pdf::findOrFail($id);
-        return $pdf->download();
-    }
-
-    public function showWelcomePage()
-    {
-        // Obtener el PDF disponible para descargar
-        $pdf = Pdf::find(1); // Esto es solo un ejemplo, deberías implementar la lógica adecuada aquí
-        return view('welcome', ['pdf' => $pdf]); // Pasar la variable $pdf a la vista
-    }
+   
     /**
      * Display a listing of the resource.
      */
