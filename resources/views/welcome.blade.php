@@ -5,7 +5,7 @@
             <section class="overflow-hidden sm:rounded-lg">
                 <div class="bg-opacity-10 bg-black">
                     <div class="p-6 lg:p-8 text-left">
-                        <h1 class="mt-8 text-7xl text-white font-semibold text-white-800">
+                        <h1 class="mt-8 text-7xl text-white font-semibold text-white-800 "">
                             Construya una forma corporal perfecta para una vida buena y saludable
                         </h1>
                         <p class="mt-6 text-cyan-100 text-2xl leading-relaxed">
@@ -25,7 +25,7 @@
                                         Obtén acceso instantáneo a nuestro PDF gratuito con una serie de consejos
                                         saludables para mejorar tu bienestar y calidad de vida.
                                     </p>
-                                    <div class="mt-6">
+                                    <div class="mt-6 animate__fadeInRight">
                                         <a href="{{ Storage::url('pdfs/em5pQ2wKy5wFdtgNdDadgjw445KD8sy65Ei4Ghub.pdf') }}"
                                             target="is_blank"
                                             class="inline-block rounded-md bg-white px-5 py-3 text-md font-semibold text-blue-500 hover:shadow-sm hover:shadow-blue-500 bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
@@ -41,7 +41,7 @@
                     <h1 class="text-5xl mt-5 p-5 text-white font-bold">Transforma tu <span
                             class="text-cyan-200 text-4xl font-bold">estilo de vida</span>, no sólo tu cuerpo</h1>
 
-                    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
+                    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8 " data-aos="flip-up">
                         <article class="p-6 rounded-lg shadow-md bg-white bg-opacity-20">
                             <div class="flex items-center text-white">
                                 <h2 class="text-2xl font-semibold">🏋🏼‍♀️Ejercicios Personalizados</h2>
@@ -87,136 +87,117 @@
                         </article>
                     </section>
 
-                    <section class="mx-auto pt-10 pb-36 px-8 bg-black bg-opacity-25">
+                    {{-- PLANES --}}
+                    <section class="mx-auto pt-10 pb-36 px-8 bg-gray-100 bg-opacity-70">
                         <div class="max-w-md mx-auto mb-14 text-center">
-                            <h1 class="text-4xl font-semibold mb-6 lg:text-5xl">
-                                <span class="text-indigo-600">Flexible</span> Plans
+                            <h1
+                                class="text-4xl font-semibold text-indigo-600 mb-6 lg:text-5xl animate__animated animate__bounceIn">
+                                Planes de Entrenamiento
                             </h1>
-                            <p class="text-xl text-gray-500 font-medium">
-                                Choose a plan that works best for you and your team.
+                            <p class="text-xl text-gray-700 font-medium" data-aos="fade-up">
+                                Selecciona un plan de entrenamiento para ti
                             </p>
                         </div>
 
-                        <div class="flex flex-col justify-between items-center lg:flex-row lg:items-start">
+                        <div class="flex flex-col justify-between items-center lg:flex-row lg:items-start"
+                            data-aos="fade-up-left">
+                            {{--  Plan Gratuito --}}
                             <div
                                 class="w-full flex-1 mt-8 p-8 order-2 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-1 lg:rounded-r-none">
                                 <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-1.jpg"
-                                        alt="Basic plan" class="rounded-3xl w-20 h-20" />
+                                        alt="Plan Gratuito" class="rounded-3xl w-20 h-20" />
                                     <div class="ml-5">
-                                        <span class="block text-2xl font-semibold">Basic</span>
-                                        <span><span
-                                                class="font-medium text-gray-500 text-xl align-top">$&thinsp;</span><span
-                                                class="text-3xl font-bold">10 </span></span><span
-                                            class="text-gray-500 font-medium">/ user</span>
+                                        <span class="block text-2xl font-semibold text-indigo-600">Gratuito</span>
+                                        <span class="text-gray-500 font-medium">Acceso gratuito</span>
                                     </div>
                                 </div>
                                 <ul class="mb-7 font-medium text-gray-500">
                                     <li class="flex text-lg mb-2">
                                         <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
                                             alt="Check icon" />
-                                        <span class="ml-3">Get started with <span
-                                                class="text-black">messaging</span></span>
-                                    </li>
-                                    <li class="flex text-lg mb-2">
-                                        <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
-                                            alt="Check icon" />
-                                        <span class="ml-3">Flexible <span class="text-black">team
-                                                meetings</span></span>
-                                    </li>
-                                    <li class="flex text-lg">
-                                        <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
-                                            alt="Check icon" />
-                                        <span class="ml-3"><span class="text-black">5 TB</span> cloud storage</span>
+                                        <span class="ml-3">Acceso a <span class="text-black">1 día de
+                                                entrenamiento</span></span>
                                     </li>
                                 </ul>
                                 <a href="#/"
                                     class="flex justify-center items-center bg-indigo-600 rounded-xl py-5 px-4 text-center text-white text-xl">
-                                    Choose Plan
+                                    Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
                                 </a>
                             </div>
 
+                            {{--  Plan Premium  --}}
                             <div
-                                class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-gray-900 text-gray-400 sm:w-96 lg:w-full lg:order-2 lg:mt-0">
-                                <div class="mb-8 pb-8 flex items-center border-b border-gray-600">
+                                class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-indigo-600 text-white sm:w-96 lg:w-full lg:order-2 lg:mt-0">
+                                <div class="mb-8 pb-8 flex items-center border-b border-indigo-400">
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-2.jpg"
-                                        alt="Startup plan" class="rounded-3xl w-20 h-20" />
+                                        alt="Plan Premium" class="rounded-3xl w-20 h-20" />
                                     <div class="ml-5">
-                                        <span class="block text-3xl font-semibold text-white">Startup</span>
+                                        <span class="block text-3xl font-semibold">Premium</span>
                                         <span><span class="font-medium text-xl align-top">$&thinsp;</span><span
-                                                class="text-3xl font-bold text-white">24 </span></span><span
-                                            class="font-medium">/ user</span>
+                                                class="text-3xl font-bold">29 </span></span><span class="font-medium">/
+                                            usuario</span>
                                     </div>
                                 </div>
                                 <ul class="mb-10 font-medium text-xl">
                                     <li class="flex mb-6">
                                         <img src="https://res.cloudinary.com/williamsondesign/check-white.svg"
                                             alt="Check icon" />
-                                        <span class="ml-3">All features in <span
-                                                class="text-white">Basic</span></span>
+                                        <span class="ml-3">Acceso a <span class="text-white">rutina completa de 3
+                                                días</span></span>
                                     </li>
                                     <li class="flex mb-6">
                                         <img src="https://res.cloudinary.com/williamsondesign/check-white.svg"
                                             alt="Check icon" />
-                                        <span class="ml-3"><span class="text-white">Productivity</span> tools</span>
-                                    </li>
-                                    <li class="flex">
-                                        <img src="https://res.cloudinary.com/williamsondesign/check-white.svg"
-                                            alt="Check icon" />
-                                        <span class="ml-3"><span class="text-white">14 TB</span> cloud storage</span>
+                                        <span class="ml-3"><span class="text-white">Soporte personalizado</span> del
+                                            entrenador</span>
                                     </li>
                                 </ul>
                                 <a href="#/"
-                                    class="flex justify-center items-center bg-indigo-500 rounded-xl py-5 px-4 text-center text-white text-xl">
-                                    Choose Plan
+                                    class="flex justify-center items-center bg-white text-indigo-600 rounded-xl py-5 px-4 text-center text-xl">
+                                    Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
                                 </a>
                             </div>
 
+                            {{--  Plan Avanzado  --}}
                             <div
-                                class="w-full flex-1 mt-8 p-8 order-3 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:mt-0 lg:rounded-l-none">
+                                class="w-full flex-1 mt-8 p-8 order-3 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:mt-0 lg:order-3">
                                 <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-3.jpg"
-                                        alt="Enterprise plan" class="rounded-3xl w-20 h-20" />
+                                        alt="Plan Avanzado" class="rounded-3xl w-20 h-20" />
                                     <div class="ml-5">
-                                        <span class="block text-2xl font-semibold">Enterprise</span>
-                                        <span><span
-                                                class="font-medium text-gray-500 text-xl align-top">$&thinsp;</span><span
-                                                class="text-3xl font-bold">35 </span></span><span
-                                            class="text-gray-500 font-medium">/ user</span>
+                                        <span class="block text-2xl font-semibold text-pink-600">Próximamente...</span>
+                                        <span class="text-gray-500 font-medium">Nuevas y emocionantes
+                                            características</span>
                                     </div>
                                 </div>
                                 <ul class="mb-7 font-medium text-gray-500">
                                     <li class="flex text-lg mb-2">
                                         <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
                                             alt="Check icon" />
-                                        <span class="ml-3">All features in <span
-                                                class="text-black">Startup</span></span>
+                                        <span class="ml-3">Mantente atento a nuestras novedades</span>
                                     </li>
                                     <li class="flex text-lg mb-2">
                                         <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
                                             alt="Check icon" />
-                                        <span class="ml-3">Growth <span class="text-black">oriented</span></span>
-                                    </li>
-                                    <li class="flex text-lg">
-                                        <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
-                                            alt="Check icon" />
-                                        <span class="ml-3"><span class="text-black">Unlimited</span> storage</span>
+                                        <span class="ml-3">¡Pronto habrá más sorpresas!</span>
                                     </li>
                                 </ul>
                                 <a href="#/"
-                                    class="flex justify-center items-center bg-indigo-600 rounded-xl py-5 px-4 text-center text-white text-xl">
-                                    Choose Plan
+                                    class="flex justify-center items-center bg-pink-600 rounded-xl py-5 px-4 text-center text-white text-xl">
+                                    Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
                                 </a>
                             </div>
                         </div>
-
                     </section>
+
+
                 </div>
                 <div class="relative bg-black py-20 px-6 font-[sans-serif]">
                     <div class="absolute inset-0 bg-black"></div>
@@ -227,7 +208,7 @@
                         <h2 class="text-4xl font-extrabold text-white mb-6">¿Todavía te lo estás pensando?</h2>
                         <p class="text-lg text-white mb-8">¡No esperes más!</p>
                         <a href="{{ route('contacto.mostrar') }}"
-                            class="bg-white text-indigo-500 hover:bg-indigo-600 hover:text-white py-3 px-8 rounded-full text-lg font-semibold transition duration-300 hover:shadow-lg">
+                            class="bg-white text-indigo-500 hover:bg-indigo-600 hover:text-white py-3 px-8 rounded-full text-lg font-semibold transition duration-300 hover:shadow-lg animate__bounce">
                             ¡Contáctame!
                         </a>
                     </div>

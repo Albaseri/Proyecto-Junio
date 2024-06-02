@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PdfController extends Controller
 {
-   
+
     /**
      * Display a listing of the resource.
      */
@@ -31,12 +31,12 @@ class PdfController extends Controller
     {
         $request->validate([
             'nombre_archivo' => ['required', 'string', 'min:5', 'unique:pdfs,nombre_archivo'],
-            'ruta' => ['required', 'file', 'mimes:pdf', 'max:2048']
+            'ruta' => ['required', 'file', 'mimes:pdf', 'max:5000']
         ]);
 
         // Almacenar el archivo PDF
         if ($request->hasFile('ruta')) {
-            $path = $request->file('ruta')->store('pdfs', 'public'); // Almacena en el disco 'public'
+            $path = $request->file('ruta')->store('pdfs', 'public'); // Almacena en 'public'
         }
 
         Pdf::create([
@@ -45,7 +45,8 @@ class PdfController extends Controller
             'user_id' => auth()->id(), // Asignar al usuario autenticado
         ]);
 
-        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf creado correctamente');
+        flash()->success('Pdf creado correctamente');
+        return redirect()->route('pdfsLiv.index');
     }
 
     /**
@@ -53,7 +54,6 @@ class PdfController extends Controller
      */
     public function show(Pdf $pdf)
     {
-        // Implementación de visualización de PDF
     }
 
     /**
@@ -71,7 +71,7 @@ class PdfController extends Controller
     {
         $request->validate([
             'nombre_archivo' => ['required', 'string', 'min:5', 'unique:pdfs,nombre_archivo,' . $pdf->id],
-            'ruta' => ['nullable', 'file', 'mimes:pdf', 'max:2048']
+            'ruta' => ['nullable', 'file', 'mimes:pdf', 'max:5000']
         ]);
 
         // Almacenar el nuevo archivo PDF si se ha subido
@@ -90,7 +90,9 @@ class PdfController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf actualizado correctamente');
+        flash()->success('Pdf actualizado correctamente');
+
+        return redirect()->route('pdfsLiv.index');
     }
 
     /**
@@ -98,6 +100,11 @@ class PdfController extends Controller
      */
     public function destroy(Pdf $pdf)
     {
-        // Implementación de eliminación de PDF
+        if ($pdf->ruta) {
+            Storage::disk('public')->delete($pdf->ruta); // Eliminar el archivo
+        }
+        $pdf->delete();
+        flash()->success('Pdf eliminado correctamente');
+        return redirect()->route('pdfsLiv.index');
     }
 }

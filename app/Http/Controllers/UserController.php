@@ -34,9 +34,10 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:8'],
             'roles' => ['required', 'in:ADMIN,USER'],
         ]);
-    
+
         User::create($request->all());
-        return redirect()->route('usersLiv.index')->with('mensaje', 'Usuario creado correctamente');
+        flash()->success('Usuario creado correctamente');
+        return redirect()->route('usersLiv.index');
     }
 
     /**
@@ -69,7 +70,8 @@ class UserController extends Controller
         ]);
 
         $user->update($request->all());
-        return redirect()->route('usersLiv.index')->with('mensaje', 'Usuario actualizado correctamente');
+        flash()->success('Usuario actualizado correctamente');
+        return redirect()->route('usersLiv.index');
     }
 
     /**
@@ -78,6 +80,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('usersLiv.index')->with("mensaje", "Usuario eliminado correctamente");
+        flash()->success('Usuario eliminado correctamente');
+        return redirect()->route('usersLiv.index');
     }
 }

@@ -22,8 +22,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categorias = Category::select('id' , 'nombre') -> get();        // Traigo todas las categorías
-        return view('posts.createPost',compact('categorias'));
+        $categorias = Category::select('id', 'nombre')->get();        // Traigo todas las categorías
+        return view('posts.createPost', compact('categorias'));
     }
 
     /**
@@ -46,13 +46,13 @@ class PostController extends Controller
             'titulo' => $request->titulo,
             'contenido' => $request->contenido,
             'imagen' => $ruta,
-            'category_id' => $request -> category_id
+            'category_id' => $request->category_id
 
         ]);
 
-        //? 3. Volvemos a la página posts y nos creamos una sesión de tipo flas para mostrar mensaje
-
-        return redirect()->route('postsLiv.index')->with('mensaje', 'Post creado correctamente');
+        //? 3. Mostramos mensaje y volvemos a la página posts 
+        flash()->success('Post creado correctamente');
+        return redirect()->route('postsLiv.index');
     }
 
     /**
@@ -61,12 +61,12 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $postRelacionados = Post::where('category_id', $post->category_id)
-        ->where('id', '!=', $post->id)
-        ->take(4)
-        ->get();
+            ->where('id', '!=', $post->id)
+            ->take(4)
+            ->get();
 
-    return view('posts.detallePost', compact('post', 'postRelacionados'));
 
+        return view('posts.detallePost', compact('post', 'postRelacionados'));
     }
 
     /**
@@ -74,10 +74,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categorias = Category::select('id' , 'nombre') -> get();        // Traigo todas las categorías
+        $categorias = Category::select('id', 'nombre')->get();        // Traigo todas las categorías
 
-        return view('posts.editPost',compact('post','categorias'));
-
+        return view('posts.editPost', compact('post', 'categorias'));
     }
 
     /**
@@ -108,7 +107,8 @@ class PostController extends Controller
             'category_id' => $request->category_id
         ]);
 
-        return redirect()->route('postsLiv.index')->with('mensaje', 'Post actualizado correctamente');
+        flash()->success('Post editado correctamente');
+        return redirect()->route('postsLiv.index');
     }
 
     /**
@@ -116,6 +116,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        flash()->success('Post eliminado correctamente');
+        return redirect()->route('postsLiv.index');
     }
 }

@@ -10,11 +10,11 @@
                         <h1 class="mb-8 text-2xl font-bold text-center text-gray-900 dark:text-black">NUEVO POST</h1>
                         <label for="titulo" class="block mb-2 text-md text-gray-900 dark:text-black">Título:</label>
                         <input type="text" id="titulo" value="{{ @old('titulo') }}"
-                               class="border-none bg-gray-50 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
-                               placeholder="Titulo..." name="titulo">
+                            class="border-none bg-gray-50 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                            placeholder="Titulo..." name="titulo">
                         <x-input-error for="titulo"></x-input-error>
                     </div>
-                    
+
 
                     <div class="mb-5">
                         <label for="contenido"
@@ -25,8 +25,7 @@
                         <x-input-error for="contenido"></x-input-error>
                     </div>
                     <div class="mb-5">
-                        <label for="categoria"
-                            class="block mb-2 text-mdtext-gray-900 dark:text-black">Seleccione una
+                        <label for="categoria" class="block mb-2 text-mdtext-gray-900 dark:text-black">Seleccione una
                             categoría:</label>
                         <select id="category_id"
                             class="bg-gray-50  text-center border border-blue-200 text-sm text-gray-900  rounded-lg block w-full p-2.5 dark:placeholder-gray-400 dark:text-black"
@@ -42,8 +41,7 @@
 
 
                     <div class="mb-6">
-                        <label for="imagen"
-                            class="block mb-2 text-md text-black dark:text-black">Imagen:</label>
+                        <label for="imagen" class="block mb-2 text-md text-black dark:text-black">Imagen:</label>
                         <input type="file" id="imagen" oninput="img.src=window.URL.createObjectURL(this.files[0])"
                             name="imagen" accept="image/*" class="hidden">
                         <label for="imagen"
@@ -75,7 +73,7 @@
         </x-propios.principal>
     </div>
 
-    <!-- Incluyendo CKEditor 5 desde el CDN -->
+    <!-- Incluyo CKEditor 5 desde el CDN -->
     <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor

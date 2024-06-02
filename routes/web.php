@@ -25,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // Verifica si el usuario está autenticado como ADMIN
     if (auth()->check() && auth()->user()->roles === 'ADMIN') {
-        // Si es ADMIN, redirige a la vista 'dashboard'
+        // Si es ADMIN, redirige a 'dashboard'
         return redirect()->route('dashboard');
     } else {
-        // Si no es ADMIN, muestra la vista 'welcome'
+        // Si no es ADMIN, muestra 'welcome'
         return view('welcome');
     }
 })->name('welcome');
@@ -40,23 +40,22 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    // Dentro de este grupo, todas las rutas requerirán autenticación
+    // Dentro de este grupo, todas las rutas requieren autenticación
 
     Route::get('/dashboard', function () {
-        // Verifica si el usuario está autenticado como ADMIN
+        // Verifico si el usuario está autenticado como ADMIN
         if (auth()->user()->roles === 'ADMIN') {
-            // Si es ADMIN, muestra la vista 'dashboard'
+            // Si es ADMIN, muestra'dashboard'
             return view('dashboard');
         } else {
-            // Si no es ADMIN, redirige a la vista 'welcome'
+            // Si no es ADMIN, redirige a'welcome'
             return redirect()->route('welcome');
         }
     })->name('dashboard');
 });
 
 
-/////Dashboard admin
-////Route::get('/admin', [AdminDashboard::class, 'index'])->name('admin-dashboard');
+
 //& RUTAS PARA ADMINISTRADOR
 Route::middleware([GestionDeAcceso::class])->group(function () {
 

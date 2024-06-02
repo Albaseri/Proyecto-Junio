@@ -22,15 +22,15 @@ class ContactoController extends Controller
             'mensaje' => 'required',
         ]);
 
-        // Enviar el correo electrónico
+        // Enviar el correo a mi cuenta riasedal
         try {
             Mail::to('riasedal@gmail.com')->send(new ContactoMaillabe($request->input('nombre'), $request->input('correo'), $request->input('mensaje')));
         } catch (\Exception $e) {
-            // Manejar cualquier error que ocurra al enviar el correo electrónico
+            // Error al enviar el correo electrónico
             return redirect()->back()->with('error', 'Error al enviar el correo electrónico.');
         }
 
-        // Mensaje de éxito si el correo se envió correctamente
+        // Mensaje de éxito si se envía bien
         return redirect()->back()->with('mensaje', 'Correo electrónico enviado correctamente.');
     }
-    }
+}

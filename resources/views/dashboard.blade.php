@@ -22,12 +22,12 @@
                 </a>
 
                 <a href="{{ route('categoriesLiv.index') }}"
-                    class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
+                    class="flex items-center py-2 px-4 text-xl hover:bg-cyan-500">
                     <i class="fa-solid fa-tag text-xl me-2" style="color: #c2c2c2;"></i>
 
                     Categorías
                 </a>
-                <a href="{{ route('postsLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
+                <a href="{{ route('postsLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-cyan-500">
                     <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                         <path
@@ -36,7 +36,7 @@
                     Posts
                 </a>
                 <a href="{{ route('trainingCardsLiv.index') }}"
-                    class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
+                    class="flex items-center py-2 px-4 text-xl hover:bg-cyan-500">
                     <svg class="mr-2 flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path d="M18 0H6a2 2 0 0 0-2 2h14v12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Z" />
@@ -45,12 +45,12 @@
                     </svg>
                     TrainingCards
                 </a>
-                <a href="{{ route('usersLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
+                <a href="{{ route('usersLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-cyan-500">
                     <i class="fa-solid fa-users  text-xl me-2" style="color: #c2c2c2;"></i>
 
                     Usuarios
                 </a>
-                <a href="{{ route('pdfsLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-blue-700">
+                <a href="{{ route('pdfsLiv.index') }}" class="flex items-center py-2 px-4 text-xl hover:bg-cyan-500">
                     <i class="fa-regular fa-file-pdf text-xl me-2" style="color: #c2c2c2; "></i>
 
                     PDFs
