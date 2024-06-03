@@ -7,6 +7,7 @@
                 <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-5">
+                   
                         <h1 class="mb-8 text-2xl font-bold text-center text-gray-900 dark:text-black">NUEVO POST</h1>
                         <label for="titulo" class="block mb-2 text-md text-gray-900 dark:text-black">Título:</label>
                         <input type="text" id="titulo" value="{{ @old('titulo') }}"

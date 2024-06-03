@@ -18,18 +18,31 @@ class GoogleController extends Controller
     public function callback()
     {
         $googleUser = Socialite::driver('google')->user();
-     
-        $user = User::updateOrCreate([
-            'provider_id' => $googleUser->id,
-        ], [
-            'name' => $googleUser->name,
-            'email' => $googleUser->email,
-            'provider_name' => 'google',
-            'provider_token' => $googleUser->token,
-            'provider_refresh_token' => $googleUser->refreshToken,
-
-        ]);
-        Auth::login($user);
-        return redirect('/dashboard'); //^welcome?
+    
+        // Verifico si el usuario ya existe
+        $user = User::where('email', $googleUser->email)->first();
+    
+        if ($user) {
+            // Si el usuario ya existe, autentico
+            Auth::login($user);
+        } else {
+            // El usuario no existe, crearlo
+            $user = User::create([
+                'name' => $googleUser->name,
+                'email' => $googleUser->email,
+                'provider_id' => $googleUser->id,
+                'provider_name' => 'google',
+                'provider_token' => $googleUser->token,
+                'provider_refresh_token' => $googleUser->refreshToken,
+            ]);
+    
+            // Autentico al nuevo usuario
+            Auth::login($user);
+        }
+    
+        return redirect('/dashboard');
     }
+    
+
+
 }
