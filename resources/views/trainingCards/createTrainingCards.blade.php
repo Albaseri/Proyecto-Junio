@@ -1,16 +1,18 @@
 <x-app-layout>
     <div class="min-h-screen bg-gradient-to-br from-cyan-200 to-blue-800 flex justify-center items-center opacity-80">
         <x-propios.principal>
-            <div
-                class="w-full max-w-lg p-8 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black  mt-5">
-                <form method="POST" action="{{ route('trainingCards.store') }}" enctype="multipart/form-data">
+            <div class="w-full max-w-lg p-0 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black mt-5">
+                <div class="bg-blue-800  w-full p-6 rounded-t-xl">
+                    <h1 class="text-2xl font-bold text-center text-gray-900 dark:text-white">NUEVA TRAINING CARD</h1>
+                </div>
+
+                <form method="POST" action="{{ route('trainingCards.store') }}" enctype="multipart/form-data"
+                    class="p-8">
                     @csrf
                     <div class="mb-5">
-                        <h1 class="mb-8 text-2xl font-bold text-center text-gray-900 dark:text-black">NUEVA TRAINING CARD
-                        </h1>
                         <label for="titulo" class="block mb-2 text-md text-black dark:text-black">Título:</label>
                         <input type="text" id="titulo" value="{{ @old('titulo') }}"
-                            class="bg-gray-50  border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500"
                             placeholder="Titulo..." name="titulo">
                         <x-input-error for="titulo"></x-input-error>
                     </div>
@@ -18,8 +20,8 @@
                     <div class="mb-5">
                         <label for="descripcion" class="block mb-2 text-md text-gray-900 dark:text-black">Descripción:
                         </label>
-                        <input type="descripcion" id="descripcion" value="{{ @old('descripcion') }}"
-                            class="bg-gray-50  border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                        <input type="text" id="descripcion" value="{{ @old('descripcion') }}"
+                            class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500"
                             placeholder="Descripción..." name="descripcion">
                         <x-input-error for="descripcion"></x-input-error>
                     </div>
@@ -29,7 +31,7 @@
                                 Repeticiones:</label>
                             <input type="number" id="n_repeticiones" value="{{ @old('n_repeticiones') }}"
                                 wire:model="n_repeticiones"
-                                class="bg-white text-sm  text-black dark:bg-white dark:text-black focus:ring-cyan-500 focus:outline-none focus:border-cyan-500 rounded-lg px-4 py-2 w-full"
+                                class="bg-white text-sm text-black dark:bg-white dark:text-black focus:ring-cyan-500 focus:outline-none focus:border-cyan-500 rounded-lg px-4 py-2 w-full"
                                 placeholder="Repeticiones..." name="n_repeticiones">
                             <x-input-error for="n_repeticiones" class="mt-1"></x-input-error>
                         </div>
@@ -38,7 +40,7 @@
                             <label for="n_series" class="block mb-2 text-md text-black dark:text-black">Número de
                                 Series:</label>
                             <input type="number" id="n_series" value="{{ @old('n_series') }}" wire:model="n_series"
-                                class="bg-white text-sm border border-gray-300 text-black dark:bg-  dark:text-black focus:ring-cyan-500 focus:outline-none focus:border-cyan-500 rounded-lg px-4 py-2 w-full"
+                                class="bg-white text-sm border border-gray-300 text-black dark:bg-white dark:text-black focus:ring-cyan-500 focus:outline-none focus:border-cyan-500 rounded-lg px-4 py-2 w-full"
                                 placeholder="Series..." name="n_series">
                             <x-input-error for="n_series" class="mt-1"></x-input-error>
                         </div>
@@ -49,7 +51,7 @@
                             YouTube:
                         </label>
                         <input type="url" id="url_youtube" value="{{ @old('url_youtube') }}"
-                            class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500"
                             placeholder="URL de YouTube..." name="url_youtube">
                         <x-input-error for="url_youtube"></x-input-error>
                     </div>
@@ -61,7 +63,7 @@
                             <div>
                                 <input id="VISIBLE" name="estado" type="radio" value="VISIBLE"
                                     class="text-cyan-500 focus:ring-cyan-500 dark:focus:ring-offset-gray-800 form-radio h-4 w-4 dark:text-cyan-500">
-                                <label for="VISIBLE" class="text-md text-black dark:text-balck">Visible</label>
+                                <label for="VISIBLE" class="text-md text-black dark:text-black">Visible</label>
                             </div>
                             <div>
                                 <input id="NO VISIBLE" name="estado" type="radio" value="NO VISIBLE"

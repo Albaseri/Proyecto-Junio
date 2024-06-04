@@ -1,23 +1,27 @@
 <x-app-layout>
-    <x-propios.principal>
-        <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl bg-gray-400 dark:text-gray-200">
-            <form method="POST" action="{{ route('categories.update', $category->id) }}">
+    <div class="min-h-screen bg-gradient-to-br from-cyan-200 to-blue-800 flex justify-center items-center opacity-80">
+        <x-propios.principal>
+            <div class="w-full max-w-lg p-0 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black">
+                <div class="bg-blue-800  w-full p-6 rounded-t-xl">
+                    <h1 class="text-2xl font-bold text-center text-black dark:text-white">ACTUALIZAR CATEGORÍA</h1>
+                </div>
+            <form method="POST" action="{{ route('categories.update', $category->id) }}" class="p-8">
                 @csrf
                 @method('put')
                 <div class="mb-5">
                     <label for="nombre"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+                        class="block mb-2 text-md font-medium text-black dark:text-black">Nombre:</label>
                     <input type="text" id="titulo" value="{{ @old('titulo', $category->nombre) }}"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Nombre..." name="nombre">
                     <x-input-error for="nombre"></x-input-error>
                 </div>
 
                 <div class="mb-5">
                     <label for="descripcion"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción</label>
+                        class="block mb-2 text-md font-medium text-black dark:text-black">Descripción:</label>
                     <textarea id="descripcion"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name="descripcion">{{ @old('descripcion', $category->descripcion) }}
                     </textarea>
                     <x-input-error for="descripcion"></x-input-error>
@@ -41,4 +45,5 @@
             </form>
         </div>
     </x-propios.principal>
+    </div>
 </x-app-layout>

@@ -1,16 +1,17 @@
 <x-app-layout>
+ 
     <div class="min-h-screen bg-gradient-to-br from-cyan-200 to-blue-800 flex justify-center items-center opacity-80">
         <x-propios.principal>
-            <div
-                class="w-full max-w-lg p-8 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black  mt-5">
-
-                <form method="POST" action="{{ route('posts.update', $post) }}" enctype="multipart/form-data">
+            <div class="w-full max-w-lg p-0 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black mt-5">
+                <div class="bg-blue-800  w-full p-6 rounded-t-xl">
+                    <h1 class="text-2xl font-bold text-center text-gray-900 dark:text-white">ACTUALIZAR POST</h1>
+                </div>
+                <form method="POST" action="{{ route('posts.update', $post) }}" enctype="multipart/form-data" class="p-8">
                     @csrf
                     @method('put')
                     <div class="mb-5">
-                        <h1 class="mb-8 text-2xl font-bold text-center text-gray-900 dark:text-black">ACTUALIZAR POST
-                        </h1>
-                        <label for="titulo" class="block mb-2 text-md  text-black dark:text-black">Título:</label>
+                     
+                        <label for="titulo" class="block mb-2 text-md text-black dark:text-black">Título:</label>
                         </label>
                         <input type="text" id="titulo" value="{{ @old('titulo', $post->titulo) }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
@@ -20,18 +21,18 @@
 
                     <div class="mb-5">
                         <label for="contenido"
-                            class="block mb-2 text-md text-gray-900 dark:text-black">Contenido:</label>
+                            class="block mb-2 text-md text-black dark:text-black">Contenido:</label>
                         <textarea id="contenido"
-                            class="bg-gray-50  text-gray-900 text-sm  focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                            class="bg-gray-50  text-black text-sm  focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             name="contenido">{{ @old('contenido', $post->contenido) }}</textarea>
                         <x-input-error for="contenido"></x-input-error>
                     </div>
 
                     <div class="mb-5">
-                        <label for="categoria" class="block mb-2 text-mdtext-gray-900 dark:text-black">Seleccione una
+                        <label for="categoria" class="block mb-2 text-md text-black dark:text-black">Seleccione una
                             categoría:</label>
                         <select id="category_id"
-                            class="bg-gray-50  text-center border border-blue-200 text-sm text-gray-900  rounded-lg block w-full p-2.5 dark:placeholder-gray-400 dark:text-black"
+                            class="bg-gray-50  text-center border border-blue-200 text-sm text-black  rounded-lg block w-full p-2.5 dark:placeholder-gray-400 dark:text-black"
                             name="category_id">
                             @foreach ($categorias as $item)
                                 <option value="{{ $item->id }}"

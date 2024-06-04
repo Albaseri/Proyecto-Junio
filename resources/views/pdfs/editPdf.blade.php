@@ -1,12 +1,14 @@
 <x-app-layout>
-    <div class="bg-gradient-to-br from-cyan-200 to-blue-600 min-h-screen">
+    <div class="min-h-screen bg-gradient-to-br from-cyan-200 to-blue-800 flex justify-center items-center opacity-80">
         <x-propios.principal>
-            <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-white bg-opacity-60 dark:text-black ">
-                <form method="POST" action="{{ route('pdfs.update', $pdf) }}" enctype="multipart/form-data">
+            <div class="w-full max-w-lg p-0 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black mt-5">
+                <div class="bg-blue-800  w-full p-6 rounded-t-xl">
+                    <h1 class="text-2xl font-bold text-center text-gray-900 dark:text-white">ACTUALIZAR PDF</h1>
+                </div>
+                <form method="POST" action="{{ route('pdfs.update', $pdf) }}" enctype="multipart/form-data" class="p-8">
                     @csrf
                     @method('put')
                     <div class="mb-5">
-                        <h1 class="mb-5 text-black text-center font-bold">ACTUALIZAR PDF</h1>
                         <label for="nombre_archivo"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Nombre del
                             archivo:</label>

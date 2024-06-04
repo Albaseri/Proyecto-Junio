@@ -1,11 +1,12 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gradient-to-br from-cyan-200 to-blue-800 flex justify-center items-center opacity-80">        <x-propios.principal>
+    <div class="min-h-screen bg-gradient-to-br from-cyan-200 to-blue-800 flex justify-center items-center opacity-80">
+        <x-propios.principal>
             <div
                 class="w-full max-w-lg p-8 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black  mt-5">
                 <h1 class="mb-8 text-2xl font-bold text-center text-gray-900 dark:text-black">ACTUALIZAR TRAINING CARD
                 </h1>
                 <form method="POST" action="{{ route('trainingCards.update', $trainingCard) }}"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" class="p-8">
                     @csrf
                     @method('put')
 
@@ -83,8 +84,8 @@
                         <input type="file" id="imagen" oninput="img.src=window.URL.createObjectURL(this.files[0])"
                             name="imagen" accept="image/*" class="hidden">
                         <label for="imagen"
-                        class="cursor-pointer inline-block bg-gray-100 text-sm text-gray-900 dark:bg-blue-900 dark:border-gray-600 dark:text-white hover:bg-gray-200 hover:border-gray-400 hover:text-gray-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 rounded-lg px-4 py-2">
-                        <i class="fas fa-upload mr-2"></i> Subir imagen
+                            class="cursor-pointer inline-block bg-gray-100 text-sm text-gray-900 dark:bg-blue-900 dark:border-gray-600 dark:text-white hover:bg-gray-200 hover:border-gray-400 hover:text-gray-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 rounded-lg px-4 py-2">
+                            <i class="fas fa-upload mr-2"></i> Subir imagen
                         </label>
                         <div class="mt-2">
                             <img src="{{ Storage::url($trainingCard->imagen) }}" class="w-full h-auto rounded-lg"

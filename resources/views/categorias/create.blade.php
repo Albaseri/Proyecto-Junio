@@ -1,12 +1,15 @@
 <x-app-layout>
-    <div class=" bg-gradient-to-br from-cyan-200 to-blue-800 min-h-screen opacity-80">
+    <div class="min-h-screen bg-gradient-to-br from-cyan-200 to-blue-800 flex justify-center items-center opacity-80">
         <x-propios.principal>
-            <div class="w-1/2 mx-auto p-6 rounded-xl shadow-xl text-black bg-white bg-opacity-60 dark:text-gray-200 mt-5">
-                   <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
+            <div class="w-full max-w-lg p-0 rounded-xl shadow-xl text-black bg-white bg-opacity-30 dark:text-black">
+                <div class="bg-blue-800  w-full p-6 rounded-t-xl">
+                    <h1 class="text-2xl font-bold text-center text-black dark:text-white">NUEVA CATEGORÍA</h1>
+                </div>
+                <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data" class="p-8">
                     @csrf
                     <div class="mb-5">
-                        <h1 class="mb-5 text-black text-center font-bold">NUEVA CATEGORÍA</h1>
-                        <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Nombre:
+                        <label for="nombre"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Nombre:
                         </label>
                         <input type="text" id="nombre" value="{{ @old('nombre') }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
