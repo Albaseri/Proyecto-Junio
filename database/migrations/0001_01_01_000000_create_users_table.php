@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             //? ROLES
             // Por defecto cuando inicia usuario normal
-            $table->enum('roles', ['ADMIN', 'USER'])->default('USER');
+            $table->enum('roles', ['ADMIN', 'USER', 'PREMIUM'])->default('USER');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             //! Password nullable

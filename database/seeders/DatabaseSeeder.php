@@ -43,9 +43,9 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('pdfs');
         Storage::makeDirectory('pdfs');
 
-        Post::factory(30)->create();
-        TrainingCard::factory(30)->create();
+        Post::factory(10)->create();
+        TrainingCard::factory(10)->create();
 
-        Pdf::factory(5)->create();
+        Pdf::factory(2)->create();
     }
 }

@@ -13,9 +13,9 @@
     background: linear-gradient(to bottom right, #000000, #38387b, #a83271, rgb(255, 192, 74));
     height: 100vh;
 }  
-/* [x-nav-link]{
-    color:white
-} */
+
+
+/* Botornes de sweet alert con confirmación */
 .btn-confirm {
     background-color:rgb(1, 186, 218) !important; /* Color de fondo para el botón de confirmación */
     border: none; /* Elimina el borde */
@@ -41,3 +41,41 @@
     filter: brightness(90%); /* Cambia el brillo al pasar por encima */
 }
 
+
+/* detallePost */
+
+.category-color {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #704ae2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.category-color:hover {
+    transform: scale(1.1);
+    background-color: #357ab8;
+}
+
+
+/* Welcome Whatsapp */
+
+.st0 {
+    fill: #25D366;
+}
+
+.st1 {
+    fill-rule: evenodd;
+    clip-rule: evenodd;
+    fill: #FFFFFF;
+}
+
+/* principalEntrenamiento */
+
+
+.text-neon {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #423289, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+}

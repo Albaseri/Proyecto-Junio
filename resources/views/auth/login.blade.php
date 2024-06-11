@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img src="{{ Storage::url('logo.png') }}" class="object-cover h-30 w-40">
+
         </x-slot>
 
 
@@ -10,6 +11,15 @@
                 {{ $value }}
             </div>
         @endsession
+
+        <a href="{{ route('welcome') }}" class="text-blue-500 hover:text-blue-700 text-bold flex items-center space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
+            </svg>
+            <span>Volver</span>
+        </a>
+
 
         <div class="text-center mb-5">
             <h2 class="mt-6 mb-3 text-3xl font-bold text-gray-900">
@@ -64,23 +74,9 @@
             </div>
             <x-validation-errors class="mb-4" />
 
-            <div class="flex items-center justify-between my-5">
-                <div class="flex items-center">
-                    <input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 border-gray-300 rounded">
-                    <label for="remember_me" class="ml-2 block text-sm text-gray-900">{{ __('Recuérdame') }}</label>
-                </div>
-
-                <div class="text-sm ">
-                    @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}"
-                            class="text-indigo-400 hover:text-indigo-500">{{ __('¿Olvidó su contraseña?') }}</a>
-                    @endif
-                </div>
-            </div>
-
             <div class="mt-5">
                 <button type="submit"
-                    class="w-full flex justify-center bg-gradient-to-r from-cyan-700 to-gray-900 hover:bg-gradient-to-l hover:from-cyan-700 hover:to-gray-900 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Iniciar sesión') }}</button>
+                    class="w-full flex justify-center bg-gradient-to-r from-cyan-700 to-blue-900 hover:bg-gradient-to-l hover:from-cyan-700 hover:to-blue-900 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Iniciar sesión') }}</button>
             </div>
 
             <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">

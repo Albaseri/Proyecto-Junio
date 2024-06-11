@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <img src="{{ Storage::url('logo.png') }}" class="object-cover h-30 w-40 mb-auto">
         </x-slot>
 
         <h2 class=" text-center mb-5 mt-6 text-3xl font-bold text-gray-900">
@@ -75,7 +75,7 @@
 
             <div class="my-5">
                 <button type="submit"
-                    class="w-full flex justify-center bg-gradient-to-r from-cyan-700 to-gray-900 hover:bg-gradient-to-l hover:from-cyan-700 hover:to-gray-900 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Sign in') }}</button>
+                    class="w-full flex justify-center bg-gradient-to-r from-cyan-700 to-blue-700 hover:bg-gradient-to-l hover:from-cyan-700 hover:to-blue-700 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">{{ __('Iniciar sesión') }}</button>
             </div>
 
         </form>

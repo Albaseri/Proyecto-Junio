@@ -96,7 +96,7 @@
                                         <i class="fas fa-pencil text-pink-500 hover:text-xl mr-2"></i>
                                     </a>
 
-                                    <button wire:click="confirmarDelete({{ $item->id }})">
+                                    <button wire:click="delete({{ $item->id }})">
                                         <i class="fas fa-trash text-teal-400 hover:text-xl"></i>
                                     </button>
                                 </td>

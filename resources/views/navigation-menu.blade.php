@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                        {{-- <x-application-mark class="block h-9 w-auto" /> --}}
+                        <img src="{{ Storage::url('logo.png') }}" class="object-cover h-30 w-40">
                     </a>
                 </div>
 
@@ -19,15 +20,14 @@
                     <x-nav-link href="{{ route('blogLiv.index') }}" :active="request()->routeIs('blogLiv')">
                         {{ __('Blog') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('contacto.mostrar') }}" :active="request()->routeIs('contacto.mostrar')">
+                        {{ __('Contacto') }}
+                    </x-nav-link>
 
                     @auth
-                        @if (auth()->user()->roles === 'USER')
+                        @if (auth()->user()->roles === 'USER' || auth()->user()->roles === 'PREMIUM')
                             <x-nav-link href="{{ route('entrenamientoUser.index') }}" :active="request()->routeIs('entrenamientoUser')">
                                 {{ __('Mi entrenamiento') }}
-                            </x-nav-link>
-
-                            <x-nav-link href="{{ route('contacto.mostrar') }}" :active="request()->routeIs('contacto.mostrar')">
-                                {{ __('Contacto') }}
                             </x-nav-link>
                         @endif
                     @endauth

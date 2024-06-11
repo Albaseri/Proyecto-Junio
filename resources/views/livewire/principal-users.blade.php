@@ -85,15 +85,16 @@
                                     <td class="px-6 py-4 text-center">
                                         <div class="flex items-center space-x-2 ">
                                           
-                                            @php
-                                                $roles = ['ADMIN', 'USER']; // Lista de roles disponibles
+                                            {{$user->roles}}
+                                            {{-- @php
+                                                $roles = ['ADMIN', 'USER','PREMIUM'];
                                             @endphp
-                                            <select wire:model="selectedRole" wire:change="updateRole({{ $user->id }})"
+                                            <select
                                                     class="bg-transparent border-0  cursor-pointer focus:outline-none appearance-none">
-                                                @foreach ($roles as $role)
-                                                    <option value="{{ $role }}" {{ $user->roles === $role ? 'selected' : '' }}>{{ $role }}</option>
+                                                @foreach ($roles as $rol)
+                                                    <option value="{{ $rol }}" {{ $user->roles === $rol ? 'selected' : '' }}>{{ $rol }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select> --}}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">

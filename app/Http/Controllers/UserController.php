@@ -32,7 +32,7 @@ class UserController extends Controller
             'name' => ['required', 'string', 'min:3'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
-            'roles' => ['required', 'in:ADMIN,USER'],
+            'roles' => ['required', 'in:ADMIN,USER,PREMIUM'],
         ]);
 
         User::create($request->all());
@@ -53,7 +53,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('usuarios.updateUser', compact('user'));
+        $roles = ['ADMIN', 'USER', 'PREMIUM'];
+
+        return view('usuarios.updateUser', compact('user', 'roles'));
     }
 
     /**
@@ -62,11 +64,10 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            $request->validate([
-                'name' => ['required', 'string', 'min:3'],
-                'email' => ['required', 'email', 'unique:users,email,' . $user->id],
-                'roles' => ['required', 'string'],
-            ])
+            'name' => ['required', 'string', 'min:3'],
+            'email' => ['required', 'email', 'unique:users,email,' . $user->id],
+            'roles' => ['required', 'string', 'in:ADMIN,USER,PREMIUM'],
+
         ]);
 
         $user->update($request->all());

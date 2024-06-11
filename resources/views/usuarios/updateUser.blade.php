@@ -38,12 +38,15 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="roles"
-                            class="block mb-2 text-md font-medium text-black dark:text-black">Rol</label>
+                        <label for="roles" class="block mb-2 text-md font-medium text-black dark:text-black">Rol</label>
                         <select id="roles" name="roles"
                             class="bg-gray-50 border-none text-black text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="ADMIN" {{ $user->isAdmin() ? 'selected' : '' }}>Admin</option>
-                            <option value="USER" {{ !$user->isAdmin() ? 'selected' : '' }}>User</option>
+                            @foreach ($roles as $rol)
+                                <option value="{{ $rol }}"
+                                    {{ old('roles', $user->roles) == $rol ? 'selected' : '' }}>
+                                    {{ ucfirst($rol) }}
+                                </option>
+                            @endforeach
                         </select>
                         <x-input-error for="roles"></x-input-error>
                     </div>

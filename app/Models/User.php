@@ -28,6 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         //! Añadimos campos
+        'roles',
         'provider_name',
         'provider_id',
         'provider_token',

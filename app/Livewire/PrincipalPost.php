@@ -20,6 +20,7 @@ class PrincipalPost extends Component
     {
         $posts = Post::where('titulo', 'like', "%$this->buscar%")
             ->orWhere('contenido', 'like', "%$this->buscar%")
+            ->orWhere('categoria', 'like', "%$this->buscar%")
             ->orderBy('id', 'desc')
             ->paginate(5);
         return view('livewire.principal-post', compact('posts'));
@@ -49,6 +50,8 @@ class PrincipalPost extends Component
         }
         // Elimino post
         $post->delete();
+
+        flash()->success('Post eliminado correctamente');
 
         $this->dispatch('mensaje', 'Post eliminado');
     }

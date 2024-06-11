@@ -116,8 +116,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
-        flash()->success('Post eliminado correctamente');
-        return redirect()->route('postsLiv.index');
+        // $post->delete();
+        // flash()->success('Post eliminado correctamente');
+        // return redirect()->route('postsLiv.index');
     }
 }

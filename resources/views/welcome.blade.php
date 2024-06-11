@@ -6,7 +6,7 @@
                 <div class="bg-opacity-10 bg-black">
                     <div class="p-6 lg:p-8 text-left">
                         <h1 class="mt-8 text-7xl text-white font-semibold text-white-800 "">
-                            Construya una forma corporal perfecta para una vida buena y saludable
+                            Construye una forma corporal perfecta para una vida buena y saludable
                         </h1>
                         <p class="mt-6 text-cyan-100 text-2xl leading-relaxed">
                             ¡Empieza tu viaje hacia una vida más saludable! Aquí encontrarás todo lo que necesitas para
@@ -14,7 +14,7 @@
                         </p>
                     </div>
 
-                    <section class="bg-opacity-40 bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
+                    <section class="bg-opacity-40 bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-20">
                         <div class="container mx-auto px-6 lg:px-8">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                                 <div>
@@ -22,18 +22,18 @@
                                         ¡Descarga estos tips gratuitos ya!
                                     </h2>
                                     <p class="mt-5 text-lg leading-8 text-cyan-100">
-                                        Obtén acceso instantáneo a nuestro PDF gratuito con una serie de consejos
+                                        Obtén acceso instantáneo a mi PDF gratuito con una serie de consejos
                                         saludables para mejorar tu bienestar y calidad de vida.
                                     </p>
                                     <div class="mt-6 animate__fadeInRight">
                                         <a href="{{ Storage::url('pdfs/em5pQ2wKy5wFdtgNdDadgjw445KD8sy65Ei4Ghub.pdf') }}"
                                             target="is_blank"
-                                            class="inline-block rounded-md bg-white px-5 py-3 text-md font-semibold text-blue-500 hover:shadow-sm hover:shadow-blue-500 bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                                            class="inline-block rounded-md bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
                                             ¡Lo quiero ya!
                                         </a>
                                     </div>
                                 </div>
-                                <img src="/storage/fotoprueba.jpeg" class="w-full h-auto" alt="Imagen descriptiva">
+                                <img src="/storage/revista.png" class="w-full h-auto" alt="Imagen Tips">
                             </div>
                         </div>
                     </section>
@@ -88,15 +88,13 @@
                     </section>
 
                     {{-- PLANES --}}
-                    <section class="mx-auto pt-10 pb-36 px-8 bg-gray-100 bg-opacity-70">
+                    <section class="mx-auto pt-10 pb-36 px-8 bg-gray-800 bg-opacity-40">
                         <div class="max-w-md mx-auto mb-14 text-center">
                             <h1
-                                class="text-4xl font-semibold text-indigo-600 mb-6 lg:text-5xl animate__animated animate__bounceIn">
-                                Planes de Entrenamiento
+                                class="text-4xl font-semibold text-white mb-6 lg:text-5xl animate__animated animate__bounceIn">
+                                ¡Planes de Entrenamiento!
                             </h1>
-                            <p class="text-xl text-gray-700 font-medium" data-aos="fade-up">
-                                Selecciona un plan de entrenamiento para ti
-                            </p>
+
                         </div>
 
                         <div class="flex flex-col justify-between items-center lg:flex-row lg:items-start"
@@ -121,7 +119,7 @@
                                     </li>
                                 </ul>
                                 <a href="#/"
-                                    class="flex justify-center items-center bg-indigo-600 rounded-xl py-5 px-4 text-center text-white text-xl">
+                                    class="flex justify-center items-center bg-blue-600 rounded-xl py-5 px-4 text-center text-white text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
@@ -130,13 +128,13 @@
 
                             {{--  Plan Premium  --}}
                             <div
-                                class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-indigo-600 text-white sm:w-96 lg:w-full lg:order-2 lg:mt-0">
-                                <div class="mb-8 pb-8 flex items-center border-b border-indigo-400">
+                                class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-gradient-to-b from-cyan-500 to-blue-500 text-white sm:w-96 lg:w-full lg:order-2 lg:mt-0">
+                                <div class="mb-8 pb-8 flex items-center border-b border-black">
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-2.jpg"
                                         alt="Plan Premium" class="rounded-3xl w-20 h-20" />
                                     <div class="ml-5">
                                         <span class="block text-3xl font-semibold">Premium</span>
-                                        <span><span class="font-medium text-xl align-top">$&thinsp;</span><span
+                                        <span><span class="font-medium text-xl align-top">€&thinsp;</span><span
                                                 class="text-3xl font-bold">29 </span></span><span class="font-medium">/
                                             usuario</span>
                                     </div>
@@ -179,16 +177,13 @@
                                     <li class="flex text-lg mb-2">
                                         <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
                                             alt="Check icon" />
-                                        <span class="ml-3">Mantente atento a nuestras novedades</span>
+                                        <span class="ml-3">Mantente atento a nuestras <span
+                                                class="text-black">novedades</span></span>
                                     </li>
-                                    <li class="flex text-lg mb-2">
-                                        <img src="https://res.cloudinary.com/williamsondesign/check-grey.svg"
-                                            alt="Check icon" />
-                                        <span class="ml-3">¡Pronto habrá más sorpresas!</span>
-                                    </li>
+
                                 </ul>
                                 <a href="#/"
-                                    class="flex justify-center items-center bg-pink-600 rounded-xl py-5 px-4 text-center text-white text-xl">
+                                    class="flex justify-center items-center bg-blue-600 rounded-xl py-5 px-4 text-center text-white text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
@@ -208,7 +203,7 @@
                         <h2 class="text-4xl font-extrabold text-white mb-6">¿Todavía te lo estás pensando?</h2>
                         <p class="text-lg text-white mb-8">¡No esperes más!</p>
                         <a href="{{ route('contacto.mostrar') }}"
-                            class="bg-white text-indigo-500 hover:bg-indigo-600 hover:text-white py-3 px-8 rounded-full text-lg font-semibold transition duration-300 hover:shadow-lg animate__bounce">
+                            class="bg-white text-blue-500 hover:bg-blue-700 hover:text-white py-3 px-8 rounded-full text-lg font-semibold transition duration-300 hover:shadow-lg animate__bounce">
                             ¡Contáctame!
                         </a>
                     </div>
@@ -222,17 +217,7 @@
                 <?xml version="1.0" ?><svg id="Layer_1" style="enable-background:new 0 0 1000 1000;"
                     version="1.1" viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <style type="text/css">
-                        .st0 {
-                            fill: #25D366;
-                        }
 
-                        .st1 {
-                            fill-rule: evenodd;
-                            clip-rule: evenodd;
-                            fill: #FFFFFF;
-                        }
-                    </style>
                     <title />
                     <g>
                         <path class="st0"

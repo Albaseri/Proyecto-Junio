@@ -39,6 +39,7 @@
                             class="bg-gray-50 border textblack text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500">
                             <option value="ADMIN">Admin</option>
                             <option value="USER">User</option>
+                            <option value="PREMIUM">Premium</option>
                         </select>
                         <x-input-error for="roles"></x-input-error>
                     </div>

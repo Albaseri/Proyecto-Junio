@@ -11,18 +11,11 @@ class PrincipalBlog extends Component
     public $selectedCategory;
 
     public function render()
-    {
-        $query = Post::query();
+    { $posts = $this->selectedCategory
+        ? Post::where('category_id', $this->selectedCategory)->get()
+        : Post::all();
 
-        if ($this->selectedCategory) {
-            $query->whereHas('category', function ($query) {
-                $query->where('id', $this->selectedCategory);
-            });
-        }
-
-        $posts = $query->with('category')->get();
-        $categorias = Category::all();
-
+    $categorias = Category::all();
         return view('livewire.principal-blog', compact('categorias', 'posts'));
     }
 
