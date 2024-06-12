@@ -161,12 +161,21 @@
                                             entrenador</span>
                                     </li>
                                 </ul>
-                                <a href="{{ route('contacto.mostrar') }}"
-                                    class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
-                                    Elige Plan
-                                    <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
-                                        class="ml-2" alt="Arrow icon" />
-                                </a>
+                                @if (auth()->check() && (auth()->user()->roles === 'USER'))
+                                    <a href="{{ route('payment.form') }}"
+                                        class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
+                                        Elige Plan
+                                        <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
+                                            class="ml-2" alt="Arrow icon" />
+                                    </a>
+                                @else
+                                    <a href="{{ route('login') }}"
+                                        class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
+                                        Iniciar Sesión
+                                        <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
+                                            class="ml-2" alt="Arrow icon" />
+                                    </a>
+                                @endif
                             </div>
 
                             {{--  Plan Avanzado  --}}

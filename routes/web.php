@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Socialite\GithubController;
@@ -113,5 +114,7 @@ Route::post('/enviar-correo', [ContactoController::class, 'enviarCorreo'])->name
 
 
 //& Rutas Pago Stripe
-// Route::get('/payment', [PayController::class, 'mostrarPaymentForm'])->name('payment.form');
-// Route::post('/payment', [PayController::class, 'procesarPayment'])->name('payment.process');
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/create-checkout-session', [PaymentController::class, 'createCheckoutSession'])->name('checkout.session');
+Route::get('/success', [PaymentController::class, 'success'])->name('checkout.success');
+Route::get('/cancel', [PaymentController::class, 'cancel'])->name('checkout.cancel');
