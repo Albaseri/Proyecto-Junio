@@ -42,7 +42,7 @@
         </a>
     </div>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto shadow-sm sm:rounded-lg">
         @if (count($trainingCards))
             <table
                 class="w-full text-sm text-left rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
@@ -53,7 +53,6 @@
                         <th scope="col" class="px-4 py-3">DESCRIPCIÓN</th>
                         <th scope="col" class="px-4 py-3">NÚMERO REPETICIONES</th>
                         <th scope="col" class="px-4 py-3">NÚMERO SERIES</th>
-                        <th scope="col" class="px-4 py-3">ESTADO</th>
                         <th scope="col" class="px-4 py-3">ENLACE A YOUTUBE</th>
                         <th scope="col" class="px-4 py-3">ACCIONES</th>
                     </tr>
@@ -76,7 +75,7 @@
                                 <div class="flex items-center justify-center space-x-2">
                                     <button id="decrement-btn"
                                         class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-300 hover:bg-gray-500"
-                                        wire:click="decrementRepeticiones({{ $item->id }})">
+                                        wire:click="decrementarRepeticiones({{ $item->id }})">
                                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -86,7 +85,7 @@
                                     <span id="counter" class="text-md font-bold">{{ $item->n_repeticiones }}</span>
                                     <button id="increment-btn"
                                         class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-400 hover:bg-indigo-600"
-                                        wire:click="incrementRepeticiones({{ $item->id }})">
+                                        wire:click="incrementarRepeticiones({{ $item->id }})">
                                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -99,7 +98,7 @@
                                 <div class="flex items-center justify-center space-x-2">
                                     <button id="decrement-btn-series"
                                         class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-300 hover:bg-gray-500"
-                                        wire:click="decrementSeries({{ $item->id }})">
+                                        wire:click="decrementarSeries({{ $item->id }})">
                                         <svg class="w-3 h-3" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -109,7 +108,7 @@
                                     <span id="counter-series" class="text-md font-bold">{{ $item->n_series }}</span>
                                     <button id="increment-btn-series"
                                         class="flex justify-center items-center w-5 h-4 rounded-full text-white focus:outline-none bg-indigo-400 hover:bg-indigo-600"
-                                        wire:click="incrementSeries({{ $item->id }})">
+                                        wire:click="incrementarSeries({{ $item->id }})">
                                         <svg class="w-3 h-3" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -119,15 +118,7 @@
                                 </div>
                             </td>
 
-                            <td class="px-2 text-center">
-                                <div class="flex items-center">
-                                    <div
-                                        class="h-2.5 w-2.5 rounded-full {{ $item->estado == 'VISIBLE' ? 'bg-green-500' : 'bg-red-500' }} mr-2">
-                                    </div>
-                                    {{ $item->estado }}
-                                </div>
-                            </td>
-                            <td class="px-2 text-justify text-blue-500">
+                            <td class="px-2 text-blue-500 text-center">
                                 <a href="{{ $item->url_youtube }}">{{ $item->url_youtube }}</a>
                             </td>
                             <td class="px-6 py-4 text-center">
@@ -145,9 +136,15 @@
                 </tbody>
             </table>
         @else
-            <p class="text-red-500"><i class="fas solid fa-triangle-exclamation mr-2"></i>
-                No se encontró ninguna card o no ha sido creada aún
-            </p>
+            <div class="mt-5 flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-white dark:text-red-400 dark:border-red-500"
+                role="alert">
+                <i class="fas solid fa-triangle-exclamation mr-2"></i>
+                <span class="sr-only">Info</span>
+                <div>
+                    <span class="font-medium"> No se encontró ninguna card o no ha sido creada aún
+                    </span>
+                </div>
+            </div>
         @endif
     </div>
     <div class="py-12">

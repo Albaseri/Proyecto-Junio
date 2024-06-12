@@ -8,35 +8,35 @@
                 <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data" class="p-8">
                     @csrf
                     <div class="mb-5">
-                        <label for="name" class="block mb-2 text-md font-medium text-black dark:text-black">Nombre:
+                        <label for="name" class="block mb-2 text-md font-medium text-black dark:text-black font-bold">Nombre:
                         </label>
                         <input type="text" id="name" value="{{ @old('name') }}"
-                            class="bg-gray-50 border text-black text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border-none text-black text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="Nombre..." name="name">
                         <x-input-error for="name"></x-input-error>
                     </div>
 
                     <div class="mb-5">
-                        <label for="email" class="block mb-2 text-md font-medium text-black dark:text-black">Email: </label>
+                        <label for="email" class="block mb-2 text-md font-medium text-black dark:text-black font-bold">Email: </label>
                         <input type="email" id="email" value="{{ @old('email') }}"
-                            class="bg-gray-50 border text-black text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border-none text-black text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="Email..." name="email">
                         <x-input-error for="email"></x-input-error>
                     </div>
 
                     <div class="mb-5">
-                        <label for="password" class="block mb-2 text-md font-medium text-black dark:text-black">Contraseña:</label>
+                        <label for="password" class="block mb-2 text-md font-medium text-black dark:text-black font-bold">Contraseña:</label>
                         <input type="password" id="password"
-                            class="bg-gray-50 border text-black text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
+                            class="bg-gray-50 border-none text-black text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500"
                             placeholder="Contraseña..." name="password">
                         <x-input-error for="password"></x-input-error>
                     </div>
 
                     <div class="mb-4">
-                        <label for="roles" class="block mb-2 text-md font-medium textblack dark:text-black">Rol:</label>
+                        <label for="roles" class="block mb-2 text-md font-medium textblack dark:text-black font-bold">Rol:</label>
 
                         <select id="roles" name="roles"
-                            class="bg-gray-50 border textblack text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border-none textblack text-sm rounded-lg focus:ring-cyan-500 focus:cyan-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-blue-500">
                             <option value="ADMIN">Admin</option>
                             <option value="USER">User</option>
                             <option value="PREMIUM">Premium</option>

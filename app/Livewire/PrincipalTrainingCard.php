@@ -55,17 +55,30 @@ class PrincipalTrainingCard extends Component
         $this->dispatch('mensaje', 'Training Card eliminada');
     }
 
-    public function incrementRepeticiones($trainingCardId)
+    public function incrementarRepeticiones($trainingCardId)
     {
         $card = TrainingCard::findOrFail($trainingCardId);
         $card->increment('n_repeticiones');
     }
 
-    public function decrementRepeticiones($trainingCardId)
+    public function decrementarRepeticiones($trainingCardId)
     {
         $card = TrainingCard::findOrFail($trainingCardId);
         if ($card->n_repeticiones > 0) {
             $card->decrement('n_repeticiones');
+        }
+    }
+    public function incrementarSeries($trainingCardId)
+    {
+        $card = TrainingCard::findOrFail($trainingCardId);
+        $card->increment('n_series');
+    }
+
+    public function decrementarSeries($trainingCardId)
+    {
+        $card = TrainingCard::findOrFail($trainingCardId);
+        if ($card->n_repeticiones > 0) {
+            $card->decrement('n_series');
         }
     }
 }

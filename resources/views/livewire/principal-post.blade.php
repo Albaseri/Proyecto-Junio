@@ -111,8 +111,15 @@
             {{ $posts->links() }}
         </div>
     @else
-        <p class="text-red-500"><i class="fas solid fa-triangle-exclamation mr-2"></i>
-            No se encontró ningún post o no ha sido creado aún</p>
+        <div class="mt-5 flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-white dark:text-red-400 dark:border-red-500"
+            role="alert">
+            <i class="fas solid fa-triangle-exclamation mr-2"></i>
+            <span class="sr-only">Info</span>
+            <div>
+                <span class="font-medium">No se encontró ningún post o no ha sido creado aún
+                </span>
+            </div>
+        </div>
         @endif
 
     </x-propios.principal>

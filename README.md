@@ -20,10 +20,11 @@ Sigue estos pasos para instalar y configurar el proyecto localmente:
 1. Clona este repositorio en tu máquina local.
 2. Instala las dependencias del proyecto ejecutando `composer install`.
 3. Instala las dependencias de frontend ejecutando `npm install`.
-4. Compila los assets con `npm run dev`.
-5. Copia el archivo `.env.example` a `.env` y configura tu entorno local.
-6. Genera una nueva clave de aplicación ejecutando `php artisan key:generate`.
-7. Ejecuta las migraciones de la base de datos con `php artisan migrate`.
+4. Ejecuta el comando `composer update`.
+5. Compila los assets con `npm run dev`.
+6. Copia el archivo `.env.example` a `.env` y configura tu entorno local.
+7. Genera una nueva clave de aplicación ejecutando `php artisan key:generate`.
+8. Ejecuta las migraciones de la base de datos con `php artisan migrate`.
 
 ## 👩‍💻 Uso
 

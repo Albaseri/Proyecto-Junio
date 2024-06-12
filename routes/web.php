@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Socialite\GithubController;
@@ -109,3 +110,8 @@ Route::get('/oauth/google/callback', [GoogleController::class, 'callback'])->nam
 //? Rutas Contacto
 Route::get('/contacto', [ContactoController::class, 'mostrarFormulario'])->name('contacto.mostrar');
 Route::post('/enviar-correo', [ContactoController::class, 'enviarCorreo'])->name('correo.enviar');
+
+
+//& Rutas Pago Stripe
+// Route::get('/payment', [PayController::class, 'mostrarPaymentForm'])->name('payment.form');
+// Route::post('/payment', [PayController::class, 'procesarPayment'])->name('payment.process');

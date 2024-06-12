@@ -1,17 +1,17 @@
 <x-app-layout>
     <div class="flex h-screen bg-gray-100">
-        <!-- Sidebar -->
+        {{-- Sidebar --}}
         <div
             class="bg-gradient-to-tl from-blue-500 via-cyan-700 to-blue-900 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in">
-         
 
-            <!-- Links de Navegación -->
+
+            {{-- Links de Navegación --}}
             <nav class="space-y-4 mt-5">
-                
+
                 <a href="{{ route('categoriesLiv.index') }}"
                     class="flex items-center py-2 px-4 text-xl hover:bg-cyan-500">
-                    <svg class="mr-5" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    <svg class="mr-5" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-tag">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
@@ -80,10 +80,10 @@
         </div>
 
         <div class="flex-1">
-            <!-- Header -->
+            {{-- Header --}}
             <header class="bg-white shadow-md py-4 px-6">
                 <div class="flex justify-between items-center">
-                    <!-- Menu Móvil Button -->
+                    {{-- Menu Móvil Button --}}
                     <button class="text-gray-500 focus:outline-none md:hidden">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -91,21 +91,20 @@
                         </svg>
                     </button>
 
-                    <!-- Título de la página -->
+                    {{-- Título de la página --}}
                     <h2 class="text-xl font-semibold text-gray-800">Gestión administrativa</h2>
 
-                    <!-- Menú Usuario-->
+                    {{-- Menú de usuario	 --}}
                     <div class="relative">
                         <button class="flex items-center focus:outline-none">
                             <span class="mr-2">Admin</span>
                             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                                 </path>
                             </svg>
                         </button>
 
-                        <!-- Menú Dropdown  -->
+                        {{-- Menú Dropdown --}}
                         <div
                             class="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md overflow-hidden z-10 hidden">
                             <a href="#"
@@ -122,11 +121,9 @@
                 </div>
             </header>
 
-
-            <!-- Main -->
-            <main
-                class="p-6 text-center border-t-2  border-cyan-600  shadow-xl grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Categorías -->
+            {{-- Main GRID --}}
+            <main class="p-6 text-center border-t-2  border-cyan-600  shadow-xl grid grid-cols-1 md:grid-cols-2 gap-6">
+                {{-- Categorías --}}
                 <a href="{{ route('categoriesLiv.index') }}"
                     class="bg-white align-content-center shadow-blue-200  shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
@@ -134,15 +131,14 @@
                     </div>
                 </a>
 
-                <!-- Posts -->
+                {{-- Posts --}}
                 <a href="{{ route('postsLiv.index') }}"
                     class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Posts</h3>
                     </div>
                 </a>
-
-                <!-- TrainingCards -->
+                {{-- TrainingCards --}}
                 <a href="{{ route('trainingCardsLiv.index') }}"
                     class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
@@ -150,7 +146,7 @@
                     </div>
                 </a>
 
-                <!-- Usuarios -->
+                {{-- Usuarios --}}
                 <a href="{{ route('usersLiv.index') }}"
                     class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
@@ -158,7 +154,7 @@
                     </div>
                 </a>
 
-                <!-- PDFs -->
+                {{-- PDFs --}}
                 <a href="{{ route('pdfsLiv.index') }}"
                     class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
@@ -166,7 +162,7 @@
                     </div>
                 </a>
 
-                <!-- Entrenamiento del Usuario -->
+                {{-- Entrenamiento del Usuario --}}
                 <a href="{{ route('entrenamientoUser.index') }}"
                     class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">

@@ -34,15 +34,15 @@ class PdfController extends Controller
             'ruta' => ['required', 'file', 'mimes:pdf', 'max:5000']
         ]);
 
-        // Almacenar el archivo PDF
+        // Almaceno el archivo PDF
         if ($request->hasFile('ruta')) {
-            $path = $request->file('ruta')->store('pdfs', 'public'); // Almacena en 'public'
+            $path = $request->file('ruta')->store('pdfs', 'public'); // Almaceno en 'public'
         }
 
         Pdf::create([
             'nombre_archivo' => $request->nombre_archivo,
             'ruta' => $path,
-            'user_id' => auth()->id(), // Asignar al usuario autenticado
+            'user_id' => auth()->id(), // Asigno al usuario autenticado
         ]);
 
         flash()->success('Pdf creado correctamente');
@@ -74,14 +74,14 @@ class PdfController extends Controller
             'ruta' => ['nullable', 'file', 'mimes:pdf', 'max:5000']
         ]);
 
-        // Almacenar el nuevo archivo PDF si se ha subido
+        // Almaceno el nuevo archivo PDF si se ha subido
         if ($request->hasFile('ruta')) {
             if ($pdf->ruta) {
-                Storage::disk('public')->delete($pdf->ruta); // Eliminar el archivo anterior
+                Storage::disk('public')->delete($pdf->ruta); // Elimino el archivo anterior
             }
-            $path = $request->file('ruta')->store('pdfs', 'public'); // Almacenar el nuevo archivo
+            $path = $request->file('ruta')->store('pdfs', 'public'); // Almaceno el nuevo archivo
         } else {
-            $path = $pdf->ruta; // Mantener el archivo anterior si no se ha subido uno nuevo
+            $path = $pdf->ruta; // Si no se ha subido un archivo nuevo, mantengo el anterior
         }
 
         $pdf->update([
@@ -101,7 +101,7 @@ class PdfController extends Controller
     public function destroy(Pdf $pdf)
     {
         if ($pdf->ruta) {
-            Storage::disk('public')->delete($pdf->ruta); // Eliminar el archivo
+            Storage::disk('public')->delete($pdf->ruta); // Elimino el archivo
         }
         $pdf->delete();
         flash()->success('Pdf eliminado correctamente');

@@ -10,7 +10,7 @@
                     class="p-8">
                     @csrf
                     <div class="mb-5">
-                        <label for="titulo" class="block mb-2 text-md text-black dark:text-black">Título:</label>
+                        <label for="titulo" class="block mb-2 text-md text-black dark:text-black font-bold">Título:</label>
                         <input type="text" id="titulo" value="{{ @old('titulo') }}"
                             class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500"
                             placeholder="Titulo..." name="titulo">
@@ -18,16 +18,16 @@
                     </div>
 
                     <div class="mb-5">
-                        <label for="descripcion" class="block mb-2 text-md text-gray-900 dark:text-black">Descripción:
+                        <label for="descripcion" class="block mb-2 text-md text-gray-900 dark:text-black font-bold">Descripción:
                         </label>
-                        <input type="text" id="descripcion" value="{{ @old('descripcion') }}"
+                        <textarea type="text" id="descripcion"
                             class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-cyan-500 dark:focus:border-cyan-500"
-                            placeholder="Descripción..." name="descripcion">
+                            name="descripcion">{{ @old('descripcion') }}</textarea>
                         <x-input-error for="descripcion"></x-input-error>
                     </div>
                     <div class="flex mb-6">
                         <div class="w-1/2 mr-2">
-                            <label for="n_repeticiones" class="block mb-2 text-md text-black dark:text-black">Número de
+                            <label for="n_repeticiones" class="block mb-2 text-md text-black dark:text-black font-bold">Número de
                                 Repeticiones:</label>
                             <input type="number" id="n_repeticiones" value="{{ @old('n_repeticiones') }}"
                                 wire:model="n_repeticiones"
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="w-1/2 ml-2">
-                            <label for="n_series" class="block mb-2 text-md text-black dark:text-black">Número de
+                            <label for="n_series" class="block mb-2 text-md text-black dark:text-black font-bold">Número de
                                 Series:</label>
                             <input type="number" id="n_series" value="{{ @old('n_series') }}" wire:model="n_series"
                                 class="bg-white text-sm border border-gray-300 text-black dark:bg-white dark:text-black focus:ring-cyan-500 focus:outline-none focus:border-cyan-500 rounded-lg px-4 py-2 w-full"
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="mb-5">
-                        <label for="url_youtube" class="block mb-2 text-md text-gray-900 dark:text-black">URL de
+                        <label for="url_youtube" class="block mb-2 text-md text-gray-900 dark:text-black font-bold">URL de
                             YouTube:
                         </label>
                         <input type="url" id="url_youtube" value="{{ @old('url_youtube') }}"
@@ -55,28 +55,9 @@
                             placeholder="URL de YouTube..." name="url_youtube">
                         <x-input-error for="url_youtube"></x-input-error>
                     </div>
-                    <div class="mb-4">
-                        <label for="estado" class="block mb-2 text-md text-gray-900 dark:text-black">Estado:
-                        </label>
-
-                        <div class="flex items-center space-x-4">
-                            <div>
-                                <input id="VISIBLE" name="estado" type="radio" value="VISIBLE"
-                                    class="text-cyan-500 focus:ring-cyan-500 dark:focus:ring-offset-gray-800 form-radio h-4 w-4 dark:text-cyan-500">
-                                <label for="VISIBLE" class="text-md text-black dark:text-black">Visible</label>
-                            </div>
-                            <div>
-                                <input id="NO VISIBLE" name="estado" type="radio" value="NO VISIBLE"
-                                    class="text-red-500 focus:ring-red-500 dark:focus:ring-offset-gray-800 form-radio h-4 w-4 dark:text-red-500">
-                                <label for="NO VISIBLE" class="text-sm text-black dark:text-black">No
-                                    visible</label>
-                            </div>
-                        </div>
-                        <x-input-error for="estado"></x-input-error>
-                    </div>
 
                     <div class="mb-6">
-                        <label for="imagen" class="block mb-2 text-md text-black dark:text-black">Imagen:</label>
+                        <label for="imagen" class="block mb-2 text-md text-black dark:text-black font-bold">Imagen:</label>
                         <input type="file" id="imagen" oninput="img.src=window.URL.createObjectURL(this.files[0])"
                             name="imagen" accept="image/*" class="hidden">
                         <label for="imagen"

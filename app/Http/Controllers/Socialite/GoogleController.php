@@ -17,16 +17,17 @@ class GoogleController extends Controller
 
     public function callback()
     {
+        // Con el método, rdirigo al usuario a Google para la autenticación
         $googleUser = Socialite::driver('google')->user();
-    
+
         // Verifico si el usuario ya existe
         $user = User::where('email', $googleUser->email)->first();
-    
+
         if ($user) {
             // Si el usuario ya existe, autentico
             Auth::login($user);
         } else {
-            // El usuario no existe, crearlo
+            // Si el usuario no existe, lo creo
             $user = User::create([
                 'name' => $googleUser->name,
                 'email' => $googleUser->email,
@@ -35,14 +36,11 @@ class GoogleController extends Controller
                 'provider_token' => $googleUser->token,
                 'provider_refresh_token' => $googleUser->refreshToken,
             ]);
-    
+
             // Autentico al nuevo usuario
             Auth::login($user);
         }
-    
+
         return redirect('/dashboard');
     }
-    
-
-
 }

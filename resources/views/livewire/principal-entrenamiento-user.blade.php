@@ -9,7 +9,12 @@
 
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-6xl text-center mb-10 py-10 mt-10 text-cyan-600 font-bold">RUTINA DE ENTRENAMIENTO</h1>
+        <h1 class="text-6xl text-center mb-10 py-10 mt-10 text-cyan-600 font-bold rutina">RUTINA DE ENTRENAMIENTO</h1>
+        <div class="contenedor-pasos">
+            <div class="pasos" id="contenedor-pasos">
+
+            </div>
+        </div>
         <div class="flex justify-center mb-8 space-x-6">
             <button onclick="cerrarContenido(1)"
                 class="dia-button bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-white text-lg px-8 py-3">
@@ -45,9 +50,12 @@
                                 </div>
                                 <div class="lg:flex-grow {{ $index % 2 == 0 ? 'lg:order-1' : 'lg:order-2' }}">
                                     <div class="text-4xl font-bold text-black">{{ $item->titulo }}</div>
+                                    <div class="text-2xl text-black my-5">{{ $item->descripcion }}</div>
                                     <div class="text-base text-xl my-5 text-black"><span
                                             class="text-bold text-2xl">{{ $item->n_series }}</span> series -
-                                        {{ $item->n_repeticiones }} repeticiones</div>
+                                        <span class="text-bold text-2xl"> {{ $item->n_repeticiones }}
+                                        </span>repeticiones
+                                    </div>
                                     <button onclick="abrirModal('{{ $item->url_youtube }}')"
                                         class="mt-4 text-white font-medium rounded-lg text-lg px-6 py-3 bg-gradient-to-r from-blue-400 to-cyan-500 hover:from-cyan-600 hover:to-blue-600">
                                         Ver demostración <i class="fas fa-play ml-2"></i>
@@ -70,7 +78,6 @@
             @if (auth()->user()->roles === 'PREMIUM' || auth()->user()->roles === 'ADMIN')
                 @foreach ($trainingCards as $index => $item)
                     @if ($index >= 10 && $index < 20)
-                    
                         {{-- Muestro las siguientes 10 tarjetas para el día 2 --}}
                         <div>
                             <div class="bg-cyan-700 bg-opacity-80 py-4 rounded-t-lg">
@@ -101,8 +108,19 @@
                     @endif
                 @endforeach
             @else
-                <div class="text-center text-3xl text-red-600">
-                    ¡Tienes que ser premium para tener acceso! No lo pienses más y únete.
+                <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-200 dark:bg-yellow-100 dark:text-yellow-500 dark:border-yellow-500"
+                    role="alert">
+                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium">Para ver el contenido debes de ser usuario PREMIUM. <a
+                                href="{{ route('contacto.mostrar') }}"><span class="text-yellow-600"><strong>Solicitar
+                                        suscripción</strong></span></a>.</span>
+                    </div>
                 </div>
             @endif
         </div>
@@ -111,18 +129,17 @@
         <div id="contenido-dia-3" class="hidden flex items-center justify-center mt-5 text-center">
             <div>
                 <h2 class="text-7xl font-bold text-neon text-white">¡PRÓXIMAMENTE!</h2>
-                <p class="text-4xl mt-4 text-black">Nuevas sorpresas y entrenamientos en camino.</p>
             </div>
         </div>
 
 
-        <!-- Modal -->
+        {{-- Modal --}}
         <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" id="videoModal">
-            <div class="bg-white rounded-lg overflow-hidden w-full max-w-4xl h-96 relative">
-                <div class="p-4">
-                    <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
-                        onclick="cerrarModal()">&times;</button>
-                    <div class="aspect-w-16 aspect-h-90">
+            <div class="bg-white py-lg rounded-lg overflow-hidden w-full max-w-4xl h-96 relative z-50">
+                <div class="p-lg-54 ">
+                    <button class="absolute top-2 right-2 text-white z-10 hover:text-2xl"
+                        onclick="cerrarModal()">x</button>
+                    <div class="aspect-w-16 aspect-h-9">
                         <iframe id="videoFrame" class="w-full h-full absolute inset-0" src="" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>

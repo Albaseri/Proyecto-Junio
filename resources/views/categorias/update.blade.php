@@ -5,45 +5,44 @@
                 <div class="bg-blue-800  w-full p-6 rounded-t-xl">
                     <h1 class="text-2xl font-bold text-center text-black dark:text-white">ACTUALIZAR CATEGORÍA</h1>
                 </div>
-            <form method="POST" action="{{ route('categories.update', $category->id) }}" class="p-8">
-                @csrf
-                @method('put')
-                <div class="mb-5">
-                    <label for="nombre"
-                        class="block mb-2 text-md font-medium text-black dark:text-black">Nombre:</label>
-                    <input type="text" id="titulo" value="{{ @old('titulo', $category->nombre) }}"
-                        class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Nombre..." name="nombre">
-                    <x-input-error for="nombre"></x-input-error>
-                </div>
+                <form method="POST" action="{{ route('categories.update', $category->id) }}" class="p-8">
+                    @csrf
+                    @method('put')
+                    <div class="mb-5">
+                        <label for="nombre"
+                            class="block mb-2 text-md font-medium text-black dark:text-black font-bold">Nombre:</label>
+                        <input type="text" id="titulo" value="{{ @old('titulo', $category->nombre) }}"
+                            class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Nombre..." name="nombre">
+                        <x-input-error for="nombre"></x-input-error>
+                    </div>
 
-                <div class="mb-5">
-                    <label for="descripcion"
-                        class="block mb-2 text-md font-medium text-black dark:text-black">Descripción:</label>
-                    <textarea id="descripcion"
-                        class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        name="descripcion">{{ @old('descripcion', $category->descripcion) }}
-                    </textarea>
-                    <x-input-error for="descripcion"></x-input-error>
+                    <div class="mb-5">
+                        <label for="descripcion"
+                            class="block mb-2 text-md font-medium text-black dark:text-black font-bold">Descripción:</label>
+                        <textarea id="descripcion"
+                            class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-32 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="descripcion">{{ @old('descripcion', $category->descripcion) }}</textarea>
+                        <x-input-error for="descripcion"></x-input-error>
 
-                </div>
-                <div class="flex flex-row-reverse">
-                    <button type="submit"
-                        class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                        <i class="fas fa-save"></i> ACTUALIZAR
-                    </button>
+                    </div>
+                    <div class="flex flex-row-reverse">
+                        <button type="submit"
+                            class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            <i class="fas fa-save"></i> ACTUALIZAR
+                        </button>
 
-                    <button type="reset"
-                        class="text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                        <i class="fas fa-paintbrush"></i> LIMPIAR
-                    </button>
+                        <button type="reset"
+                            class="text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            <i class="fas fa-paintbrush"></i> LIMPIAR
+                        </button>
 
-                    <a href="{{ route('postsLiv.index') }}"
-                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                        <i class="fas fa-xmark"></i> CANCELAR</a>
-                </div>
-            </form>
-        </div>
-    </x-propios.principal>
+                        <a href="{{ route('categoriesLiv.index') }}"
+                            class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            <i class="fas fa-xmark"></i> CANCELAR</a>
+                    </div>
+                </form>
+            </div>
+        </x-propios.principal>
     </div>
 </x-app-layout>

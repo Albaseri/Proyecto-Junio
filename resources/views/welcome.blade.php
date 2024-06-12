@@ -1,11 +1,12 @@
 <x-app-layout>
 
-    <main class="py-12 bg-gradient-to-r from-blue-500 via-cyan-600 to-blue-900 bg-opacity-20">
+    <main class="py-12 bg-gradient-to-t from-blue-900  to-blue-400">
         <div class="w-full mx-auto sm:px-6 lg:px-8">
             <section class="overflow-hidden sm:rounded-lg">
                 <div class="bg-opacity-10 bg-black">
                     <div class="p-6 lg:p-8 text-left">
-                        <h1 class="mt-8 text-7xl text-white font-semibold text-white-800 "">
+                        <h1 class="mt-8 text-7xl text-white font-semibold text-white-800 " data-aos="fade-right"
+                            data-aos-offset="300" data-aos-easing="ease-in-sine">
                             Construye una forma corporal perfecta para una vida buena y saludable
                         </h1>
                         <p class="mt-6 text-cyan-100 text-2xl leading-relaxed">
@@ -14,6 +15,7 @@
                         </p>
                     </div>
 
+                    {{-- Sección descarga PDF --}}
                     <section class="bg-opacity-40 bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-20">
                         <div class="container mx-auto px-6 lg:px-8">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -26,25 +28,28 @@
                                         saludables para mejorar tu bienestar y calidad de vida.
                                     </p>
                                     <div class="mt-6 animate__fadeInRight">
-                                        <a href="{{ Storage::url('pdfs/em5pQ2wKy5wFdtgNdDadgjw445KD8sy65Ei4Ghub.pdf') }}"
+                                        <a href="{{ Storage::url('pdfs/cmh3n35brRaS23xUsvERfrA25SweT3HNI9MfZJkb.pdf') }}"
                                             target="is_blank"
-                                            class="inline-block rounded-md bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+                                            class="inline-block rounded-full bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
                                             ¡Lo quiero ya!
                                         </a>
                                     </div>
                                 </div>
-                                <img src="/storage/revista.png" class="w-full h-auto" alt="Imagen Tips">
+                                <img src="/storage/consejos.jpg" data-aos="fade-up-left"
+                                    class="ml-20 rounded-lg shadow-lg shadow-white w-50 h-50" alt="Imagen Tips">
                             </div>
                         </div>
                     </section>
 
+                    {{-- Sección explicación de entretenimiento/asesoramiento --}}
                     <h1 class="text-5xl mt-5 p-5 text-white font-bold">Transforma tu <span
                             class="text-cyan-200 text-4xl font-bold">estilo de vida</span>, no sólo tu cuerpo</h1>
 
                     <section class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8 " data-aos="flip-up">
                         <article class="p-6 rounded-lg shadow-md bg-white bg-opacity-20">
                             <div class="flex items-center text-white">
-                                <h2 class="text-2xl font-semibold">🏋🏼‍♀️Ejercicios Personalizados</h2>
+                                <h2 class="text-2xl font-semibold"><span class="text-4xl">🏋🏼‍♀️</span>Ejercicios
+                                    Personalizados</h2>
                             </div>
                             <p class="mt-4 text-white leading-relaxed">
                                 ¡Descubre una variedad de ejercicios diseñados específicamente para ti y tus objetivos
@@ -55,18 +60,21 @@
 
                         <article class="p-6 rounded-lg shadow-md bg-white bg-opacity-50">
                             <div class="flex items-center text-white">
-                                <h2 class="text-2xl font-semibold">🥑Plan de Nutrición</h2>
+                                <h2 class="text-2xl font-semibold"><span class="text-4xl">📚</span>Blog
+                                </h2>
                             </div>
                             <p class="mt-4 text-white leading-relaxed">
-                                ¡Descubre recetas saludables, consejos de nutrición y planes de comidas diseñados para
-                                complementar tu rutina de ejercicios y ayudarte a alcanzar tus objetivos de fitness más
+                                ¡Descubre recetas saludables, artículos, consejos y experiencias para
+                                complementar tu rutina de ejercicios, aumentar tu motivación y ayudarte a alcanzar tus
+                                objetivos de fitness más
                                 rápido!
                             </p>
                         </article>
 
                         <article class="p-6 rounded-lg shadow-md bg-white bg-opacity-50">
                             <div class="flex items-center text-white">
-                                <h2 class="text-2xl font-semibold">💻Rutinas Personalizadas</h2>
+                                <h2 class="text-2xl font-semibold"><span class="text-4xl">💻</span>Rutinas
+                                    Personalizadas</h2>
                             </div>
                             <p class="mt-4 text-white leading-relaxed">
                                 ¡Explora nuestras rutinas de entrenamiento cuidadosamente diseñadas para todos los
@@ -77,7 +85,8 @@
 
                         <article class="p-6 rounded-lg shadow-md bg-white bg-opacity-40">
                             <div class="flex items-center text-white">
-                                <h2 class="text-2xl font-semibold">🙌🏼Acompañamiento día a día</h2>
+                                <h2 class="text-2xl font-semibold"><span class="text-4xl">🙌🏼</span>Acompañamiento día
+                                    a día</h2>
                             </div>
                             <p class="mt-4 text-white leading-relaxed">
                                 Esta va a ser la clave para adelantarnos a cualquier estancamiento y desmotivación ya
@@ -87,7 +96,7 @@
                         </article>
                     </section>
 
-                    {{-- PLANES --}}
+                    {{-- Sección de PLANES --}}
                     <section class="mx-auto pt-10 pb-36 px-8 bg-gray-800 bg-opacity-40">
                         <div class="max-w-md mx-auto mb-14 text-center">
                             <h1
@@ -101,7 +110,7 @@
                             data-aos="fade-up-left">
                             {{--  Plan Gratuito --}}
                             <div
-                                class="w-full flex-1 mt-8 p-8 order-2 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:order-1 lg:rounded-r-none">
+                                class="w-full flex-1 mt-8 p-8 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:rounded-r-none">
                                 <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-1.jpg"
                                         alt="Plan Gratuito" class="rounded-3xl w-20 h-20" />
@@ -118,8 +127,8 @@
                                                 entrenamiento</span></span>
                                     </li>
                                 </ul>
-                                <a href="#/"
-                                    class="flex justify-center items-center bg-blue-600 rounded-xl py-5 px-4 text-center text-white text-xl">
+                                <a href="{{ route('register') }}"
+                                    class="flex justify-center items-center bg-blue-600 rounded-full py-5 px-4 text-center text-white text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
@@ -128,14 +137,13 @@
 
                             {{--  Plan Premium  --}}
                             <div
-                                class="w-full flex-1 p-8 order-1 shadow-xl rounded-3xl bg-gradient-to-b from-cyan-500 to-blue-500 text-white sm:w-96 lg:w-full lg:order-2 lg:mt-0">
+                                class="w-full flex-1 p-8 shadow-xl rounded-3xl bg-gradient-to-b from-cyan-700 to-blue-500 text-white sm:w-96 lg:w-full lg:mt-0">
                                 <div class="mb-8 pb-8 flex items-center border-b border-black">
-                                    <img src="https://res.cloudinary.com/williamsondesign/abstract-2.jpg"
-                                        alt="Plan Premium" class="rounded-3xl w-20 h-20" />
+
                                     <div class="ml-5">
                                         <span class="block text-3xl font-semibold">Premium</span>
-                                        <span><span class="font-medium text-xl align-top">€&thinsp;</span><span
-                                                class="text-3xl font-bold">29 </span></span><span class="font-medium">/
+                                        <span class="text-3xl font-bold">19 </span><span
+                                            class="font-medium text-xl">€</span><span class="font-medium">/
                                             usuario</span>
                                     </div>
                                 </div>
@@ -153,8 +161,8 @@
                                             entrenador</span>
                                     </li>
                                 </ul>
-                                <a href="#/"
-                                    class="flex justify-center items-center bg-white text-indigo-600 rounded-xl py-5 px-4 text-center text-xl">
+                                <a href="{{ route('contacto.mostrar') }}"
+                                    class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
@@ -162,8 +170,7 @@
                             </div>
 
                             {{--  Plan Avanzado  --}}
-                            <div
-                                class="w-full flex-1 mt-8 p-8 order-3 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full lg:mt-0 lg:order-3">
+                            <div class="w-full flex-1 mt-8 p-8 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full">
                                 <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-3.jpg"
                                         alt="Plan Avanzado" class="rounded-3xl w-20 h-20" />
@@ -183,7 +190,7 @@
 
                                 </ul>
                                 <a href="#/"
-                                    class="flex justify-center items-center bg-blue-600 rounded-xl py-5 px-4 text-center text-white text-xl">
+                                    class="flex justify-center items-center bg-blue-600 rounded-full py-5 px-4 text-center text-white text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
@@ -194,6 +201,8 @@
 
 
                 </div>
+
+                {{-- Sección Contáctame --}}
                 <div class="relative bg-black py-20 px-6 font-[sans-serif]">
                     <div class="absolute inset-0 bg-black"></div>
                     <div class="absolute inset-0 bg-cover bg-center bg-black opacity-50"
@@ -211,8 +220,11 @@
 
         </div>
         </div>
-        <div class="fixed bottom-8 right-8">
+
+        {{-- Icono Whatsapp Contacto --}}
+        <div class="fixed bottom-8 right-8 ">
             <a href="https://api.whatsapp.com/send/?phone=34653412531&text=¡Hola! Estoy interesado/a en saber más sobre tu plan de entrenamiento ¡Necesito ponerme en forma! Muchas gracias de antemano.🏋🏼‍♀️🙌🏼&type=phone_number&app_absent=0"
+                target="_blank"
                 class="flex items-center justify-center w-16 h-16 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition duration-300 ease-in-out">
                 <?xml version="1.0" ?><svg id="Layer_1" style="enable-background:new 0 0 1000 1000;"
                     version="1.1" viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
@@ -236,14 +248,15 @@
         </div>
 
         </div>
-        <footer
-            class=" bg-gradient-to-tr from-blue-950 via-cyan-700 to-blue-900 text-white py-12 px-4 font-sans tracking-wide">
+
+        {{-- Footer --}}
+        <footer class=" bg-gradient-to-b from-blue-950  to-blue-800 text-white py-12 px-4 font-sans tracking-wide">
             <div class="text-center">
                 <h6 class="text-base">Mantente en contacto conmigo:</h6>
 
                 <ul class="flex flex-wrap justify-center gap-x-8 gap-4 my-8">
-                    <li><a href="javascript:void(0)" class="text-xl hover:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-7 h-7" viewBox="0 0 512 512">
+                    <li><a href="https://www.facebook.com/alba.sedenoriado" target="_blank" class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-9 h-9" viewBox="0 0 512 512">
                                 <path fill="#1877f2"
                                     d="M512 256c0 127.78-93.62 233.69-216 252.89V330h59.65L367 256h-71v-48.02c0-20.25 9.92-39.98 41.72-39.98H370v-63s-29.3-5-57.31-5c-58.47 0-96.69 35.44-96.69 99.6V256h-65v74h65v178.89C93.62 489.69 0 383.78 0 256 0 114.62 114.62 0 256 0s256 114.62 256 256z"
                                     data-original="#1877f2" />
@@ -253,8 +266,8 @@
                             </svg>
                         </a></li>
 
-                    <li><a href="javascript:void(0)" class="text-xl hover:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-7 h-7" viewBox="0 0 176 176">
+                    <li><a href="www.linkedin.com/in/alba-sedeño-168895114" target="_blank" class="text-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-9 h-9" viewBox="0 0 176 176">
                                 <g data-name="Layer 2">
                                     <rect width="176" height="176" fill="#0077b5" data-original="#0077b5"
                                         rx="24" />
@@ -265,8 +278,9 @@
                             </svg>
                         </a></li>
 
-                    <li><a href="javascript:void(0)" class="text-xl hover:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-7 h-7" viewBox="0 0 24 24">
+                    <li><a href="https://www.instagram.com/alba.seri/?igsh=MWpiNmd4MnR6OGJjYw%3D%3D" target="_blank"
+                            class="text-xl hover:text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-9 h-9" viewBox="0 0 24 24">
                                 <linearGradient id="a" x1="-37.106" x2="-26.555" y1="-72.705"
                                     y2="-84.047" gradientTransform="matrix(0 -1.982 -1.844 0 -132.522 -51.077)"
                                     gradientUnits="userSpaceOnUse">
@@ -282,19 +296,29 @@
                                     data-original="#ffffff" />
                             </svg></a></li>
 
-                    <li><a href="javascript:void(0)" class="text-xl hover:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="inline w-7 h-7" viewBox="0 0 1227 1227">
-                                <path
-                                    d="M613.5 0C274.685 0 0 274.685 0 613.5S274.685 1227 613.5 1227 1227 952.315 1227 613.5 952.315 0 613.5 0z"
-                                    data-original="#000000" />
-                                <path fill="#fff"
-                                    d="m680.617 557.98 262.632-305.288h-62.235L652.97 517.77 470.833 252.692H260.759l275.427 400.844-275.427 320.142h62.239l240.82-279.931 192.35 279.931h210.074L680.601 557.98zM345.423 299.545h95.595l440.024 629.411h-95.595z"
-                                    data-original="#ffffff" />
-                            </svg></a></li>
                 </ul>
 
-                <p class="text-base">&copy; 2024<a href='https://readymadeui.com/' target='_blank'
-                        class="hover:underline mx-2">Entrenador Personal</a>Todos los derechos reservados</p>
+
+                <p xmlns:cc="http://creativecommons.org/ns#" class="text-sm flex justify-center items-center">
+                    Activa Fitness está bajo la licencia
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                        rel="noopener noreferrer" class="inline-block hover:underline ml-1 flex items-center">
+                        <span class="sr-only">CC BY-NC-ND 4.0</span>
+                        <img class="h-5 mx-1"
+                            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+                            alt="CC icon">
+                        <img class="h-5 mx-1"
+                            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+                            alt="BY icon">
+                        <img class="h-5 mx-1"
+                            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"
+                            alt="NC icon">
+                        <img class="h-5 mx-1"
+                            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"
+                            alt="ND icon">
+                    </a>
+                </p>
+
             </div>
         </footer>
         </section>

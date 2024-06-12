@@ -27,10 +27,10 @@ class ContactoController extends Controller
             Mail::to('riasedal@gmail.com')->send(new ContactoMaillabe($request->input('nombre'), $request->input('correo'), $request->input('mensaje')));
         } catch (\Exception $e) {
             // Error al enviar el correo electrónico
-            return redirect()->back()->with('error', 'Error al enviar el correo electrónico.');
+            return redirect()->route('contacto.mostrar')->with('error', 'Error al enviar el correo electrónico.');
         }
 
         // Mensaje de éxito si se envía bien
-        return redirect()->back()->with('mensaje', 'Correo electrónico enviado correctamente.');
+        return redirect()->route('welcome')->with('mensaje', 'El mensaje ha sido enviado');
     }
 }

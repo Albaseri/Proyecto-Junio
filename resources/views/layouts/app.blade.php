@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Activa Fitness </title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,20 +17,19 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   
+         <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
-
 </head>
 
 <body class="font-sans antialiased">
-
     <x-banner />
 
-    {{-- ! Consigo fondo degradado para botón NUEVA/O y gestionar categorías --}}
     <div>
         @livewire('navigation-menu')
 
@@ -50,17 +49,17 @@
     </div>
 
     @stack('modals')
-
     @livewireScripts
-
 
     @if (session('mensaje'))
         <script>
-            Swal.fire({
-                icon: "success",
-                title: "{{ session('mensaje') }}",
-                showConfirmButton: false,
-                timer: 1500
+            document.addEventListener("DOMContentLoaded", function() {
+                Swal.fire({
+                    icon: "success",
+                    title: "{{ session('mensaje') }}",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             });
         </script>
     @endif
@@ -74,7 +73,6 @@
                 timer: 1500
             });
         });
-
 
         Livewire.on('pedir-permisoCard', idCard => {
             Swal.fire({
@@ -91,6 +89,7 @@
                 }
             });
         });
+
         Livewire.on('pedir-permiso', id => {
             Swal.fire({
                 title: "¿Está seguro?",
@@ -112,7 +111,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>

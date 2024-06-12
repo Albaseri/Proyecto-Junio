@@ -1,16 +1,18 @@
     <x-propios.principal>
-        
-    <a href="{{ route('dashboard') }}" class="text-blue-500 hover:text-blue-700 text-bold flex items-center space-x-2">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
-            </path>
-        </svg>
-        <span>Volver</span>
-    </a>
-    <h1 class="text-black font-bold text-center text-2xl my-4">Gestionar Usuarios</h1>
+
+        <a href="{{ route('dashboard') }}"
+            class="text-blue-500 hover:text-blue-700 text-bold flex items-center space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
+            </svg>
+            <span>Volver</span>
+        </a>
+        <h1 class="text-black font-bold text-center text-2xl my-4">Gestionar Usuarios</h1>
 
         <div class="relative overflow-x-auto  sm:rounded-lg">
-            <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4">
+            <div
+                class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4">
                 <label for="table-search" class="sr-only">Buscar</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -84,8 +86,8 @@
 
                                     <td class="px-6 py-4 text-center">
                                         <div class="flex items-center space-x-2 ">
-                                          
-                                            {{$user->roles}}
+
+                                            {{ $user->roles }}
                                             {{-- @php
                                                 $roles = ['ADMIN', 'USER','PREMIUM'];
                                             @endphp
@@ -119,8 +121,15 @@
         </div>
         {{-- Párrafo cuando no existe usuario-no se encuentra --}}
     @else
-        <p class="text-red-500"><i class="fas solid fa-triangle-exclamation mr-2"></i>
-            No se encontró ningún usuario o no ha sido creado aún</p>
+        <div class="mt-5 flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-white dark:text-red-400 dark:border-red-500"
+            role="alert">
+            <i class="fas solid fa-triangle-exclamation mr-2"></i>
+            <span class="sr-only">Info</span>
+            <div>
+                <span class="font-medium"> No se encontró ningún usuario o no ha sido registrado aún
+                </span>
+            </div>
+        </div>
         @endif
         <div class="mt-2">
             {{ $users->links() }}

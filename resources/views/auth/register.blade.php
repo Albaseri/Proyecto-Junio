@@ -3,6 +3,14 @@
         <x-slot name="logo">
             <img src="{{ Storage::url('logo.png') }}" class="object-cover h-30 w-40 mb-auto">
         </x-slot>
+        
+        <a href="{{ route('welcome') }}" class="text-blue-500 hover:text-blue-700 text-bold flex items-center space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
+            </svg>
+            <span>Volver</span>
+        </a>
 
         <h2 class=" text-center mb-5 mt-6 text-3xl font-bold text-gray-900">
             Crea tu cuenta </h2>

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-propios.principal>
-        <!-- Main -->
+        {{-- Main --}}
         <main class="mt-10">
             <div class="mb-4 md:mb-0 w-full mx-auto relative">
                 <div class="px-4 lg:px-0">
@@ -10,7 +10,7 @@
                     <div class="py-2 my-5 text-black">
                         <span class="category-color">{{ $post->category->nombre }}</span>
                     </div>
-                
+
                     <div class=" text-sm block text-blue-600 flex">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
@@ -25,9 +25,9 @@
                         </svg>
                         <span
                             class="ml-2 text-sm block text-gray-600 mb-2 flex ">{{ $post->created_at->format('d M Y') }}
-                            | <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-blue-600 mr-2"
-                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                stroke-linejoin="round"
+                            | <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                class="text-blue-600 mr-2" fill="none" stroke="currentColor" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round"
                                 class="icon icon-tabler icons-tabler-outline icon-tabler-writing-sign">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path
@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <!-- Sección de Artículos relacionados -->
+            {{-- Seccion de Articulos relacionados --}}
             <div class="mt-16">
                 <h2 class="text-3xl font-semibold text-gray-800 mb-8">Artículos relacionados</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -95,8 +95,8 @@
                 </div>
             </div>
 
-            <!-- Sección Newsletter  -->
-            <div class="mt-16 bg-gray-100 p-8 rounded-lg">
+            {{-- Sección Newsletter --}}
+            {{-- <div class="mt-16 bg-gray-100 p-8 rounded-lg">
                 <h2 class="text-2xl font-semibold text-gray-800">Suscríbete a la revista </h2>
                 <p class="text-gray-600 mt-2"> Mantente al día de las últimas novedades sobre ejercicio, nutrición,
                     hábitos de vida saludable y mucho más.</p>
@@ -106,7 +106,7 @@
                         class="w-full p-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-r-lg">Subscríbete</button>
                 </form>
-            </div>
+            </div> --}}
         </main>
     </x-propios.principal>
 </x-app-layout>
