@@ -33,7 +33,81 @@
     box-shadow: 10px 0px 15px rgba(255, 255, 255, 0.5); /* Sombras */
 }
 
-/*& principalEntrenamiento letras PRÓXIMAMENTE */
+/*& principalEntrenamiento letras PRÓXIMAMENTE,encabezado, card */
+
+/* Estilos para la descripción de los ejercicios */
+.descripcion-ejercicio {
+    background-color: #f3f0f8;
+    border: 1px solid #bfb9ff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.descripcion-ejercicio i {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: #fff;
+    border: 1px solid #d1e3f8;
+    border-radius: 50%;
+    padding: 5px;
+    color: #4f00ce;
+}
+
+/* Estilos para las series y repeticiones */
+.series-repeticiones {
+    background-color: #ede8fc;
+    border: 1px solid #dcd1f8;
+    border-radius: 8px;
+    padding: 0.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.series-repeticiones div {
+    flex: 1;
+}
+
+.series-repeticiones div:first-child {
+    border-right: 1px solid #e3d1f8;
+}
+
+.series-repeticiones span {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4700cc;
+}
+
+.series-repeticiones label {
+    font-size: 0.875rem;
+    color: #555;
+}
+
+  /* Estilo  para el encabezado */
+  .rutina-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #4579b9, #3a4b8a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+
+
+@media (min-width: 768px) {
+    .rutina-header {
+        font-size: 6rem;
+    }
+}
+
 
 .proximamente {
     text-align: center;
@@ -60,6 +134,3 @@
     }
 }
 
-.rutina {
-    text-emphasis-style: circle;
-}

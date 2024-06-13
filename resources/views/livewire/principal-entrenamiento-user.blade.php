@@ -5,63 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutina de Entrenamiento</title>
-    <style>
-        .hidden {
-            display: none;
-        }
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-        /* Mensaje "¡PRÓXIMAMENTE!" */
-        .proximamente {
-            text-align: center;
-            margin-top: 100px;
-            animation: pulse 2s infinite alternate;
-        }
-
-
-        /* Animación */
-        @keyframes pulse {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(1.1);
-            }
-        }
-    </style>
 </head>
 
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 id="titulo-rutina" class="text-6xl text-center mb-10 py-10 mt-10 text-cyan-600 font-bold rutina">RUTINA DE
+        <h1 id="titulo-rutina" class="rutina-header text-center mb-10 py-10 mt-10 ">RUTINA DE
             ENTRENAMIENTO</h1>
-        <div class="contenedor-pasos">
-            <div class="pasos" id="contenedor-pasos">
-            </div>
-        </div>
         <div class="flex justify-center mb-8 mt-10 space-x-6" id="botones-dias">
             <button onclick="cerrarContenido(1)"
-                class="dia-button bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-white text-lg px-8 py-3">
+                class="dia-button bg-gradient-to-br  from-cyan-900 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-white text-lg px-8 py-3">
                 Día 1
             </button>
             <button onclick="cerrarContenido(2)"
-                class="dia-button bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-white text-lg px-8 py-3">
+                class="dia-button bg-gradient-to-br from-purple-900 to-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-white text-lg px-8 py-3">
                 Día 2
             </button>
             <button onclick="cerrarContenido(3)"
-                class="dia-button bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-white text-lg px-8 py-3">
+                class="dia-button bg-gradient-to-br from-blue-500 to-cyan-900 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-white text-lg px-8 py-3">
                 Día 3
             </button>
         </div>
 
-        {{-- DÍA 1  --}}
+        {{-- DÍA 1 --}}
         <div id="contenido-dia-1" class="space-y-6">
             @if (auth()->user()->roles === 'USER' || auth()->user()->roles === 'ADMIN' || auth()->user()->roles === 'PREMIUM')
                 @foreach ($trainingCards as $index => $item)
                     @if ($index < 10)
                         {{-- Muestro Las primeras 10 tarjetas para el día 1 --}}
                         <div>
-                            <div class="py-4 rounded-t-lg  bg-gradient-to-r from-cyan-600 to-blue-800 ">
+                            <div class="py-4 rounded-t-lg bg-gradient-to-r from-cyan-600 to-blue-800">
                                 <h2 class="ml-5 text-3xl font-bold text-white mb-2">Ejercicio {{ $index + 1 }}</h2>
                             </div>
                             <div
@@ -73,14 +48,22 @@
                                 </div>
                                 <div class="lg:flex-grow {{ $index % 2 == 0 ? 'lg:order-1' : 'lg:order-2' }}">
                                     <div class="text-4xl font-bold text-black">{{ $item->titulo }}</div>
-                                    <div class="text-2xl text-black my-5">{{ $item->descripcion }}</div>
-                                    <div class="text-base text-xl my-5 text-black"><span
-                                            class="text-bold text-2xl">{{ $item->n_series }}</span> series -
-                                        <span class="text-bold text-2xl"> {{ $item->n_repeticiones }}
-                                        </span> repeticiones
+                                    <div class="descripcion-ejercicio">
+                                        <i class="fas fa-info-circle"></i>
+                                        <div class="text-2xl text-black my-5 italic">{{ $item->descripcion }}</div>
+                                    </div>
+                                    <div class="series-repeticiones">
+                                        <div>
+                                            <span>{{ $item->n_series }}</span>
+                                            <label>Series</label>
+                                        </div>
+                                        <div>
+                                            <span>{{ $item->n_repeticiones }}</span>
+                                            <label>Repeticiones</label>
+                                        </div>
                                     </div>
                                     <button onclick="abrirModal('{{ $item->url_youtube }}')"
-                                        class="mt-4 text-white font-medium rounded-lg text-lg px-6 py-3 bg-gradient-to-r from-blue-400 to-cyan-500 hover:from-cyan-600 hover:to-blue-600">
+                                        class="mt-4 text-white font-medium rounded-full text-lg px-6 py-3 bg-gradient-to-r from-blue-400 to-cyan-900 hover:from-cyan-600 hover:to-blue-600">
                                         Ver demostración <i class="fas fa-play ml-2"></i>
                                     </button>
                                 </div>
@@ -114,10 +97,22 @@
                                 </div>
                                 <div class="lg:flex-grow {{ $index % 2 == 0 ? 'lg:order-1' : 'lg:order-2' }}">
                                     <div class="text-4xl font-bold text-gray-800">{{ $item->titulo }}</div>
-                                    <div class="text-base text-2xl my-5 text-gray-600">{{ $item->n_series }} series -
-                                        {{ $item->n_repeticiones }} repeticiones</div>
+                                    <div class="descripcion-ejercicio">
+                                        <i class="fas fa-info-circle"></i>
+                                        <div class="text-2xl text-black my-5 italic">{{ $item->descripcion }}</div>
+                                    </div>
+                                    <div class="series-repeticiones">
+                                        <div>
+                                            <span>{{ $item->n_series }}</span>
+                                            <label>Series</label>
+                                        </div>
+                                        <div>
+                                            <span>{{ $item->n_repeticiones }}</span>
+                                            <label>Repeticiones</label>
+                                        </div>
+                                    </div>
                                     <button onclick="abrirModal('{{ $item->url_youtube }}')"
-                                        class="mt-4 text-white font-medium rounded-lg text-lg px-6 py-3 bg-gradient-to-r from-blue-400 to-cyan-200 hover:from-cyan-600 hover:to-blue-600">
+                                        class="mt-4 text-white font-medium rounded-full text-lg px-6 py-3 bg-gradient-to-r from-blue-400 to-cyan-900 hover:from-cyan-600 hover:to-blue-600">
                                         Ver demostración <i class="fas fa-play ml-2"></i>
                                     </button>
                                 </div>
