@@ -87,16 +87,23 @@
         <div></div>
         <div></div>
     </div>
+
+    
     <div class="contenedor mx-auto p-4 flex justify-center items-center h-screen" data-aos="fade-up">
         <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full text-center">
             <h2 class="text-4xl font-bold mb-6 text-blue-400">Pago Exitoso</h2>
-            <p class="text-lg text-indigo-700">¡Disfruta de las ventajas de ser PREMIUM🌟!</p>
+            <p class="text-lg text-indigo-700 mb-8">¡Disfruta de las ventajas de ser PREMIUM🌟!</p>
+            <a href="{{route('welcome')}}" class=" text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Volver a Inicio</a>
+
         </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
+
+
+    
 </body>
 
 </html>

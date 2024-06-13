@@ -17,7 +17,7 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .container {
+        .contenedor {
             background-color: #ffffff;
             padding: 30px;
             border-radius: 10px;
@@ -26,39 +26,24 @@
             text-align: center;
         }
 
-        .container h2 {
+        .contenedor h2 {
             color: #e53e3e;
         }
 
-        .container p {
+        .contenedor p {
             margin-top: 15px;
             color: #4a5568;
         }
 
-        .button {
-            margin-top: 20px;
-            background-color: #e53e3e;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+       
 
-        .button:hover {
-            background-color: #c53030;
-        }
-
-        .icon-container {
+        .icono-contenedor {
             display: flex;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        .icon {
+        .icono {
             width: 50px;
             height: 50px;
             fill: #e53e3e;
@@ -68,16 +53,16 @@
 
 <body>
     <div class="background-gradient">
-        <div class="container">
-            <div class="icon-container">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <div class="contenedor">
+            <div class="icono-contenedor">
+                <svg class="icono" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z" />
                 </svg>
             </div>
             <h2 class="text-2xl font-bold mb-6">Pago Cancelado</h2>
-            <p>El pago ha sido cancelado. Inténtelo nuevamente.</p>
-            <a href="/" class="button">Volver al inicio</a>
+            <p class="mb-8">El pago ha sido cancelado. Inténtelo nuevamente.</p>
+            <a href="{{route('welcome')}}" class=" text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Volver a Inicio</a>
         </div>
     </div>
 </body>

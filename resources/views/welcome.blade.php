@@ -27,7 +27,7 @@
                                         Obtén acceso instantáneo a mi PDF gratuito con una serie de consejos saludables para mejorar tu bienestar y calidad de vida.
                                     </p>
                                     <div class="mt-6">
-                                        <a href="{{ Storage::url('pdfs/cmh3n35brRaS23xUsvERfrA25SweT3HNI9MfZJkb.pdf') }}"
+                                        <a href="{{ Storage::url('pdfs/GuíaSaludableCONenlaces.pdf') }}"
                                             target="_blank"
                                             class="inline-block rounded-full bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
                                             ¡Lo quiero ya!
