@@ -5,17 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutina de Entrenamiento</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        /* Mensaje "¡PRÓXIMAMENTE!" */
+        .proximamente {
+            text-align: center;
+            margin-top: 100px;
+            animation: pulse 2s infinite alternate;
+        }
+
+
+        /* Animación */
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-6xl text-center mb-10 py-10 mt-10 text-cyan-600 font-bold rutina">RUTINA DE ENTRENAMIENTO</h1>
+        <h1 id="titulo-rutina" class="text-6xl text-center mb-10 py-10 mt-10 text-cyan-600 font-bold rutina">RUTINA DE
+            ENTRENAMIENTO</h1>
         <div class="contenedor-pasos">
             <div class="pasos" id="contenedor-pasos">
-
             </div>
         </div>
-        <div class="flex justify-center mb-8 space-x-6">
+        <div class="flex justify-center mb-8 mt-10 space-x-6" id="botones-dias">
             <button onclick="cerrarContenido(1)"
                 class="dia-button bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-white text-lg px-8 py-3">
                 Día 1
@@ -24,7 +48,6 @@
                 class="dia-button bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-white text-lg px-8 py-3">
                 Día 2
             </button>
-
             <button onclick="cerrarContenido(3)"
                 class="dia-button bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-white text-lg px-8 py-3">
                 Día 3
@@ -54,7 +77,7 @@
                                     <div class="text-base text-xl my-5 text-black"><span
                                             class="text-bold text-2xl">{{ $item->n_series }}</span> series -
                                         <span class="text-bold text-2xl"> {{ $item->n_repeticiones }}
-                                        </span>repeticiones
+                                        </span> repeticiones
                                     </div>
                                     <button onclick="abrirModal('{{ $item->url_youtube }}')"
                                         class="mt-4 text-white font-medium rounded-lg text-lg px-6 py-3 bg-gradient-to-r from-blue-400 to-cyan-500 hover:from-cyan-600 hover:to-blue-600">
@@ -73,7 +96,6 @@
         </div>
 
         {{-- DÍA 2 --}}
-
         <div id="contenido-dia-2" class="hidden space-y-6">
             @if (auth()->user()->roles === 'PREMIUM' || auth()->user()->roles === 'ADMIN')
                 @foreach ($trainingCards as $index => $item)
@@ -127,16 +149,13 @@
 
         {{-- DÍA 3 --}}
         <div id="contenido-dia-3" class="hidden flex items-center justify-center mt-5 text-center">
-            <div>
-                <h2 class="text-7xl font-bold text-neon text-white">¡PRÓXIMAMENTE!</h2>
-            </div>
+            <h2 class="text-7xl font-bold  text-white proximamente">¡PRÓXIMAMENTE!</h2>
         </div>
-
 
         {{-- Modal --}}
         <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" id="videoModal">
             <div class="bg-white py-lg rounded-lg overflow-hidden w-full max-w-4xl h-96 relative z-50">
-                <div class="p-lg-54 ">
+                <div class="p-lg-54">
                     <button class="absolute top-2 right-2 text-white z-10 hover:text-2xl"
                         onclick="cerrarModal()">x</button>
                     <div class="aspect-w-16 aspect-h-9">
@@ -147,7 +166,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <script>
@@ -157,7 +175,7 @@
             const videoId = new URL(url).searchParams.get("v");
             // Forma la URL de embebido del video
             const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-            // Establecer la URL del video en el iframe
+            // Establezco la URL del video en el iframe
             document.getElementById('videoFrame').src = embedUrl;
             // Muestro modal
             document.getElementById('videoModal').classList.remove('hidden');
@@ -166,8 +184,7 @@
             document.body.classList.add('modal-active');
         }
 
-        // Función para cerrar el vídeo de youtube
-
+        // Función para cerrar el vídeo 
         function cerrarModal() {
             // Reinicio URL del vídeo
             document.getElementById('videoFrame').src = '';
@@ -178,11 +195,22 @@
             document.body.classList.remove('modal-active');
         }
 
-
+        //Función para cambiar el contenido según el día seleccionado
         function cerrarContenido(dia) {
+            //Con hidden desaparecen los botones de los días, así como el título
             document.getElementById('contenido-dia-1').classList.add('hidden');
             document.getElementById('contenido-dia-2').classList.add('hidden');
             document.getElementById('contenido-dia-3').classList.add('hidden');
+            document.getElementById('titulo-rutina').classList.add('hidden');
+
+            //Con esta condición quiero que cuando sea el día 3 se muestre el mensaje de PRÓXIMAMENTE 
+            //y desaparezcan unos segundos los botones
+            if (dia === 3) {
+                document.getElementById('botones-dias').classList.add('hidden');
+                setTimeout(() => {
+                    document.getElementById('botones-dias').classList.remove('hidden');
+                }, 5000); //aparecen a los 5 sec
+            }
 
             document.getElementById('contenido-dia-' + dia).classList.remove('hidden');
         }

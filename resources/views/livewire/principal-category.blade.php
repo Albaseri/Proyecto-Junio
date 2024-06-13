@@ -42,50 +42,63 @@
         </a>
     </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table
-            class="w-full text-sm text-left rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
-            <thead class="text-md text-white uppercase bg-cyan-600 dark:text-white">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        NOMBRE
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        DESCRIPCIÓN
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Acciones
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="border-cyan-500 border-b">
-                @foreach ($categorias as $item)
-                    <tr class="bg-white border-b hover:bg-cyan-50">
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-white-100">
-                            {{ $item->nombre }}
+        @if (count($categorias))
+            <table
+                class="w-full text-sm text-left rtl:text-right text-black-100 dark:text-white-100 border-cyan-500 border-b">
+                <thead class="text-md text-white uppercase bg-cyan-600 dark:text-white">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            NOMBRE
                         </th>
-
-                        <td class="px-6 py-4">
-                            {{ $item->descripcion }}
-                        </td>
-                        <td class="px-6 py-4 text-center ">
-                            <form action="{{ route('categories.destroy', $item->id) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <a href="{{ route('categories.edit', $item->id) }}">
-                                    <i class="fas fa-pencil text-pink-500 hover:text-xl mr-2"></i>
-                                </a>
-                                <button>
-                                    <i class="fas fa-trash text-teal-400 hover:text-2xl mr-2"></i>
-                                </button>
-                            </form>
-                        </td>
+                        <th scope="col" class="px-6 py-3">
+                            DESCRIPCIÓN
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Acciones
+                        </th>
                     </tr>
-                @endforeach
+                </thead>
+                <tbody class="border-cyan-500 border-b">
+                    @foreach ($categorias as $item)
+                        <tr class="bg-white border-b hover:bg-cyan-50">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-white-100">
+                                {{ $item->nombre }}
+                            </th>
 
-
-            </tbody>
-        </table>
+                            <td class="px-6 py-4">
+                                {{ $item->descripcion }}
+                            </td>
+                            <td class="px-6 py-4 text-center ">
+                                <form action="{{ route('categories.destroy', $item->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <a href="{{ route('categories.edit', $item->id) }}">
+                                        <i class="fas fa-pencil text-pink-500 hover:text-xl mr-2"></i>
+                                    </a>
+                                    <button>
+                                        <i class="fas fa-trash text-teal-400 hover:text-2xl mr-2"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
     </div>
+    <div class="py-12">
+        {{ $categorias->links() }}
+    </div>
+@else
+    <div class="mt-5 flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-white dark:text-red-400 dark:border-red-500"
+        role="alert">
+        <i class="fas solid fa-triangle-exclamation mr-2"></i>
+        <span class="sr-only">Info</span>
+        <div>
+            <span class="font-medium">No se encontró ninguna categoría o no ha sido creada aún
+            </span>
+        </div>
+    </div>
+    @endif
 
 </x-propios.principal>

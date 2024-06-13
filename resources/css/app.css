@@ -6,37 +6,7 @@
 
 @import "aos/dist/aos.css";
 
-/* Botornes de sweet alert con confirmación */
-.btn-confirm {
-    background-color: rgb(
-        1,
-        186,
-        218
-    ) !important; /* Color de fondo para el botón de confirmación */
-    border: none; /* Elimina el borde */
-    font-size: 1rem; /* Tamaño de fuente */
-    padding: 0.625rem 1.25rem; /* Relleno */
-    border-radius: 0.375rem; /* Radio de borde */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: background-color 0.3s ease; /* Transición suave */
-}
-
-.btn-cancel {
-    background-color: #e15353 !important; /* Color de fondo para el botón de cancelación */
-    border: none; /* Elimina el borde */
-    font-size: 1rem; /* Tamaño de fuente */
-    padding: 0.625rem 1.25rem; /* Relleno */
-    border-radius: 0.375rem; /* Radio de borde */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: background-color 0.3s ease; /* Transición suave */
-}
-
-.btn-confirm:hover,
-.btn-cancel:hover {
-    filter: brightness(90%); /* Cambia el brillo al pasar por encima */
-}
-
-/* detallePost categorías */
+/*& detallePost color para las CATEGORÍAS */
 
 .category-color {
     font-weight: bold;
@@ -53,26 +23,43 @@
     background-color: #357ab8;
 }
 
-/* Welcome Whatsapp */
-
-.st0 {
-    fill: #25d366;
+/*& Welcome Imagen tips */
+.img-tips {
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.8)
+    );
+    box-shadow: 10px 0px 15px rgba(255, 255, 255, 0.5); /* Sombras */
 }
 
-.st1 {
-    fill-rule: evenodd;
-    clip-rule: evenodd;
-    fill: #ffffff;
-}
+/*& principalEntrenamiento letras PRÓXIMAMENTE */
 
-/* principalEntrenamiento */
-
-.text-neon {
+.proximamente {
+    text-align: center;
+    margin-top: 100px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
     text-shadow: 0 0 5px #fff, 0 0 10px #423289, 0 0 10px #35478e,
         0 0 10px #2088e9, 0 0 10px #0015ff, 0 0 10px #0095ff, 0 0 15px #0095ff;
+    animation: pulse 2s infinite alternate;
 }
 
-.rutina{
+.hidden {
+    display: none;
+}
+
+/* Animación */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.rutina {
     text-emphasis-style: circle;
 }

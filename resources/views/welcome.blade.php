@@ -16,7 +16,7 @@
                     </div>
 
                     {{-- Sección descarga PDF --}}
-                    <section class="bg-opacity-40 bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-20">
+                    <section class="bg-opacity-40 bg-black relative isolate overflow-hidden py-10 sm:py-24 lg:py-10">
                         <div class="container mx-auto px-6 lg:px-8">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                                 <div>
@@ -24,22 +24,25 @@
                                         ¡Descarga estos tips gratuitos ya!
                                     </h2>
                                     <p class="mt-5 text-lg leading-8 text-cyan-100">
-                                        Obtén acceso instantáneo a mi PDF gratuito con una serie de consejos
-                                        saludables para mejorar tu bienestar y calidad de vida.
+                                        Obtén acceso instantáneo a mi PDF gratuito con una serie de consejos saludables para mejorar tu bienestar y calidad de vida.
                                     </p>
-                                    <div class="mt-6 animate__fadeInRight">
+                                    <div class="mt-6">
                                         <a href="{{ Storage::url('pdfs/cmh3n35brRaS23xUsvERfrA25SweT3HNI9MfZJkb.pdf') }}"
-                                            target="is_blank"
-                                            class="inline-block rounded-full bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+                                            target="_blank"
+                                            class="inline-block rounded-full bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
                                             ¡Lo quiero ya!
                                         </a>
                                     </div>
                                 </div>
-                                <img src="/storage/consejos.jpg" data-aos="fade-up-left"
-                                    class="ml-20 rounded-lg shadow-lg shadow-white w-50 h-50" alt="Imagen Tips">
+                                <div class="relative">
+                                    <div class="absolute top-0 left-0 right-0 bottom-0 "></div>
+                                    <img src="/storage/consejos.jpg" data-aos="fade-up-left"
+                                        class="img-tips ml-20 rounded-lg shadow-lg z-10 w-80 h-auto" alt="Imagen Tips">
+                                </div>
                             </div>
                         </div>
                     </section>
+                    
 
                     {{-- Sección explicación de entretenimiento/asesoramiento --}}
                     <h1 class="text-5xl mt-5 p-5 text-white font-bold">Transforma tu <span
@@ -60,7 +63,7 @@
 
                         <article class="p-6 rounded-lg shadow-md bg-white bg-opacity-50">
                             <div class="flex items-center text-white">
-                                <h2 class="text-2xl font-semibold"><span class="text-4xl">📚</span>Blog
+                                <h2 class="text-2xl font-semibold"><span class="text-4xl">📝</span>Blog
                                 </h2>
                             </div>
                             <p class="mt-4 text-white leading-relaxed">
@@ -128,7 +131,7 @@
                                     </li>
                                 </ul>
                                 <a href="{{ route('register') }}"
-                                    class="flex justify-center items-center bg-blue-600 rounded-full py-5 px-4 text-center text-white text-xl">
+                                    class="flex justify-center items-center bg-blue-800 rounded-full py-5 px-4 text-center text-white text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
@@ -136,47 +139,42 @@
                             </div>
 
                             {{--  Plan Premium  --}}
-                            <div
-                                class="w-full flex-1 p-8 shadow-xl rounded-3xl bg-gradient-to-b from-cyan-700 to-blue-500 text-white sm:w-96 lg:w-full lg:mt-0">
+                            <div class="w-full flex-1 p-8 mt-8 shadow-xl rounded-3xl bg-gradient-to-b from-cyan-700 to-blue-500 text-white sm:w-96 lg:w-full lg:mt-0">
                                 <div class="mb-8 pb-8 flex items-center border-b border-black">
-
-                                    <div class="ml-5">
+                                    <div class="mr-4 icono-corona">
+                                        <i class="fa-solid fa-crown text-yellow-200 text-6xl"></i> <!-- Ajustado tamaño de la corona -->
+                                    </div>
+                                    <div class="ml-4">
                                         <span class="block text-3xl font-semibold">Premium</span>
-                                        <span class="text-3xl font-bold">19 </span><span
-                                            class="font-medium text-xl">€</span><span class="font-medium">/
-                                            usuario</span>
+                                        <span class="text-3xl font-bold">19 </span><span class="font-medium text-xl">€</span><span
+                                            class="font-medium">/ usuario</span>
                                     </div>
                                 </div>
                                 <ul class="mb-10 font-medium text-xl">
                                     <li class="flex mb-6">
-                                        <img src="https://res.cloudinary.com/williamsondesign/check-white.svg"
-                                            alt="Check icon" />
-                                        <span class="ml-3">Acceso a <span class="text-white">rutina completa de 3
-                                                días</span></span>
+                                        <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" alt="Check icon" />
+                                        <span class="ml-3">Acceso a <span class="text-white">rutina completa de 3 días</span></span>
                                     </li>
                                     <li class="flex mb-6">
-                                        <img src="https://res.cloudinary.com/williamsondesign/check-white.svg"
-                                            alt="Check icon" />
-                                        <span class="ml-3"><span class="text-white">Soporte personalizado</span> del
-                                            entrenador</span>
+                                        <img src="https://res.cloudinary.com/williamsondesign/check-white.svg" alt="Check icon" />
+                                        <span class="ml-3"><span class="text-white">Soporte personalizado</span> del entrenador</span>
                                     </li>
                                 </ul>
-                                @if (auth()->check() && (auth()->user()->roles === 'USER'))
-                                    <a href="{{ route('payment.form') }}"
-                                        class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
-                                        Elige Plan
-                                        <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
-                                            class="ml-2" alt="Arrow icon" />
-                                    </a>
+                                @if (auth()->check() && auth()->user()->roles === 'USER')
+                                <a href="{{ route('payment.form') }}"
+                                    class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
+                                    Elige Plan
+                                    <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" alt="Arrow icon" />
+                                </a>
                                 @else
-                                    <a href="{{ route('login') }}"
-                                        class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
-                                        Iniciar Sesión
-                                        <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
-                                            class="ml-2" alt="Arrow icon" />
-                                    </a>
+                                <a href="{{ route('login') }}"
+                                    class="flex justify-center items-center font-bold bg-white hover:bg-blue-800 hover:text-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
+                                    Inicia sesión y elige este plan
+                                    <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" alt="Arrow icon" />
+                                </a>
                                 @endif
                             </div>
+                            
 
                             {{--  Plan Avanzado  --}}
                             <div class="w-full flex-1 mt-8 p-8 bg-white shadow-xl rounded-3xl sm:w-96 lg:w-full">
@@ -184,7 +182,7 @@
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-3.jpg"
                                         alt="Plan Avanzado" class="rounded-3xl w-20 h-20" />
                                     <div class="ml-5">
-                                        <span class="block text-2xl font-semibold text-pink-600">Próximamente...</span>
+                                        <span class="block text-2xl font-semibold text-indigo-600">Próximamente...</span>
                                         <span class="text-gray-500 font-medium">Nuevas y emocionantes
                                             características</span>
                                     </div>
@@ -199,7 +197,7 @@
 
                                 </ul>
                                 <a href="#/"
-                                    class="flex justify-center items-center bg-blue-600 rounded-full py-5 px-4 text-center text-white text-xl">
+                                    class="flex justify-center items-center bg-blue-800 rounded-full py-5 px-4 text-center text-white text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg"
                                         class="ml-2" alt="Arrow icon" />
@@ -235,24 +233,7 @@
             <a href="https://api.whatsapp.com/send/?phone=34653412531&text=¡Hola! Estoy interesado/a en saber más sobre tu plan de entrenamiento ¡Necesito ponerme en forma! Muchas gracias de antemano.🏋🏼‍♀️🙌🏼&type=phone_number&app_absent=0"
                 target="_blank"
                 class="flex items-center justify-center w-16 h-16 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition duration-300 ease-in-out">
-                <?xml version="1.0" ?><svg id="Layer_1" style="enable-background:new 0 0 1000 1000;"
-                    version="1.1" viewBox="0 0 1000 1000" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
-
-                    <title />
-                    <g>
-                        <path class="st0"
-                            d="M500,1000L500,1000C223.9,1000,0,776.1,0,500v0C0,223.9,223.9,0,500,0h0c276.1,0,500,223.9,500,500v0   C1000,776.1,776.1,1000,500,1000z" />
-                        <g>
-                            <g id="WA_Logo">
-                                <g>
-                                    <path class="st1"
-                                        d="M733.9,267.2c-62-62.1-144.6-96.3-232.5-96.4c-181.1,0-328.6,147.4-328.6,328.6c0,57.9,15.1,114.5,43.9,164.3L170.1,834l174.2-45.7c48,26.2,102,40,157,40h0.1c0,0,0,0,0,0c181.1,0,328.5-147.4,328.6-328.6C830.1,411.9,796,329.3,733.9,267.2z M501.5,772.8h-0.1c-49,0-97.1-13.2-139-38.1l-10-5.9L249,755.9l27.6-100.8l-6.5-10.3c-27.3-43.5-41.8-93.7-41.8-145.4c0.1-150.6,122.6-273.1,273.3-273.1c73,0,141.5,28.5,193.1,80.1c51.6,51.6,80,120.3,79.9,193.2      C774.6,650.3,652,772.8,501.5,772.8z M651.3,568.2c-8.2-4.1-48.6-24-56.1-26.7c-7.5-2.7-13-4.1-18.5,4.1c-5.5,8.2-21.2,26.7-26,32.2c-4.8,5.5-9.6,6.2-17.8,2.1c-8.2-4.1-34.7-12.8-66-40.8c-24.4-21.8-40.9-48.7-45.7-56.9c-4.8-8.2-0.5-12.7,3.6-16.8c3.7-3.7,8.2-9.6,12.3-14.4c4.1-4.8,5.5-8.2,8.2-13.7c2.7-5.5,1.4-10.3-0.7-14.4c-2.1-4.1-18.5-44.5-25.3-61c-6.7-16-13.4-13.8-18.5-14.1c-4.8-0.2-10.3-0.3-15.7-0.3c-5.5,0-14.4,2.1-21.9,10.3c-7.5,8.2-28.7,28.1-28.7,68.5c0,40.4,29.4,79.5,33.5,84.9c4.1,5.5,57.9,88.4,140.3,124c19.6,8.5,34.9,13.5,46.8,17.3      c19.7,6.3,37.6,5.4,51.7,3.3c15.8-2.4,48.6-19.9,55.4-39c6.8-19.2,6.8-35.6,4.8-39C665,574.4,659.5,572.4,651.3,568.2z" />
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </svg>
+                <i class="fa-brands fa-whatsapp text-4xl"></i>
             </a>
         </div>
 

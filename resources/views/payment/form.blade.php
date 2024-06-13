@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Pago</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .background-gradient {
             background: linear-gradient(135deg, #1e3a8a 25%, #4fc3f7 100%);
@@ -78,6 +77,35 @@
             position: relative;
             z-index: 10;
         }
+
+        .button-pago {
+            background-color: #4fc3f7;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-pago:hover {
+            background-color: #257dd6;
+        }
+
+        .titulo-efecto {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .titulo-efecto:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #16327e;
+
+        }
     </style>
 </head>
 
@@ -88,20 +116,22 @@
             <div></div>
             <div></div>
         </div>
-    </div>
-    <div class="contenedor mx-auto p-4 flex justify-center items-center h-screen" data-aos="fade-up">
-        <div class="p-8 rounded-lg shadow-lg max-w-md w-full bg-white">
-            <h2 class="text-2xl font-bold text-center mb-6 text-cyan-600">Formulario de Pago</h2>
-            <form action="{{ route('checkout.session') }}" method="POST" class="space-y-4">
-                @csrf
-
-                <button type="submit" class="w-full py-3 bg-cyan-500 hover:bg-cyan-700 text-cyan-600 rounded-lg text-lg transition duration-300">
-                    Realizar pago 19€
-                </button>
-            </form>
+        <div class="contenedor mx-auto p-4 flex justify-center items-center h-screen">
+            <div class="p-8 rounded-lg shadow-lg max-w-md w-full bg-white">
+                <h2 class="text-2xl font-bold text-center mb-6 ">
+                    <span class="titulo-efecto">No lo pienses más, HAZTE PREMIUM</span>
+                </h2>
+                <form action="{{ route('checkout.session') }}" method="POST" class="space-y-4">
+                    @csrf
+                    <div class="flex justify-center">
+                        <button type="submit" class="button-pago">
+                            Realizar pago 19€
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-  
 </body>
 
 </html>

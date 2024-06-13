@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Activa Fitness </title>
+    <link rel="shortcut icon" href="{{ Storage::url('logo.png') }}" type="image/x-icon">
+
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,7 +19,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-         <!-- SweetAlert2 CDN -->
+    <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Scripts -->
@@ -58,59 +60,21 @@
                     icon: "success",
                     title: "{{ session('mensaje') }}",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2000,
+                    customClass: {
+                        popup: 'bg-white rounded-lg shadow-md', //Estilo del contenedor principal
+                        title: 'text-lg font-medium text-gray-800', // Título del cuadro de diálogo
+                        icon: 'text-green-500', // Icono de éxito
+                        content: 'text-base text-gray-600',
+                    },
+                    background: '#f3f4f6', // Color de fondo
+                    padding: '2rem', // Espacio entre el texto y el contenido
+                    timerProgressBar: true, // Barra de progreso
                 });
             });
         </script>
     @endif
 
-    <script>
-        Livewire.on('mensaje', txt => {
-            Swal.fire({
-                icon: "success",
-                title: txt,
-                showConfirmButton: false,
-                timer: 1500
-            });
-        });
-
-        Livewire.on('pedir-permisoCard', idCard => {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Livewire.dispatchTo('principal-training-card', 'deleteConfirmadoCard', idCard)
-                }
-            });
-        });
-
-        Livewire.on('pedir-permiso', id => {
-            Swal.fire({
-                title: "¿Está seguro?",
-                text: "¡No podrá revertir esto!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#10B981",
-                cancelButtonColor: "#EF4444",
-                confirmButtonText: "ELIMINAR",
-                cancelButtonText: "CANCELAR",
-                customClass: {
-                    confirmButton: 'btn-confirm',
-                    cancelButton: 'btn-cancel'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Livewire.dispatchTo('principal-post', 'deleteConfirmado', id)
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

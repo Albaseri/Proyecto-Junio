@@ -55,7 +55,7 @@
 </x-app-layout>
 
 <script>
-    // Script para mostrar el nombre del archivo
+    // Script que me muestra el nombre del archivo
     // El evento'change' se activa cuando se selecciona un archivo usando el input de tipo file cuyo id 'ruta'.
     document.getElementById('ruta').addEventListener('change', function() {
     const fileNombre = this.files[0].name; // devuelve el nombre del archivo

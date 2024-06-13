@@ -86,17 +86,7 @@
 
                                     <td class="px-6 py-4 text-center">
                                         <div class="flex items-center space-x-2 ">
-
                                             {{ $user->roles }}
-                                            {{-- @php
-                                                $roles = ['ADMIN', 'USER','PREMIUM'];
-                                            @endphp
-                                            <select
-                                                    class="bg-transparent border-0  cursor-pointer focus:outline-none appearance-none">
-                                                @foreach ($roles as $rol)
-                                                    <option value="{{ $rol }}" {{ $user->roles === $rol ? 'selected' : '' }}>{{ $rol }}</option>
-                                                @endforeach
-                                            </select> --}}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">

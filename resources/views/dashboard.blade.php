@@ -94,7 +94,7 @@
                     {{-- Título de la página --}}
                     <h2 class="text-xl font-semibold text-gray-800">Gestión administrativa</h2>
 
-                    {{-- Menú de usuario	 --}}
+                    {{-- Menú de usuario --}}
                     <div class="relative">
                         <button class="flex items-center focus:outline-none">
                             <span class="mr-2">Admin</span>
@@ -122,10 +122,10 @@
             </header>
 
             {{-- Main GRID --}}
-            <main class="p-6 text-center border-t-2  border-cyan-600  shadow-xl grid grid-cols-1 md:grid-cols-2 gap-6">
+            <main class="p-6 text-center border-t-2  border-blue-100  shadow-xl grid grid-cols-1 md:grid-cols-2 gap-6">
                 {{-- Categorías --}}
                 <a href="{{ route('categoriesLiv.index') }}"
-                    class="bg-white align-content-center shadow-blue-200  shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white align-content-center shadow-cyan-100  shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Categorías</h3>
                     </div>
@@ -133,14 +133,14 @@
 
                 {{-- Posts --}}
                 <a href="{{ route('postsLiv.index') }}"
-                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-cyan-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Posts</h3>
                     </div>
                 </a>
                 {{-- TrainingCards --}}
                 <a href="{{ route('trainingCardsLiv.index') }}"
-                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-cyan-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">TrainingCards</h3>
                     </div>
@@ -148,7 +148,7 @@
 
                 {{-- Usuarios --}}
                 <a href="{{ route('usersLiv.index') }}"
-                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-cyan-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Usuarios</h3>
                     </div>
@@ -156,7 +156,7 @@
 
                 {{-- PDFs --}}
                 <a href="{{ route('pdfsLiv.index') }}"
-                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-cyan-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">PDFs</h3>
                     </div>
@@ -164,7 +164,7 @@
 
                 {{-- Entrenamiento del Usuario --}}
                 <a href="{{ route('entrenamientoUser.index') }}"
-                    class="bg-white shadow-blue-200 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
+                    class="bg-white shadow-cyan-100 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition duration-300 ease-in">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-4">Entrenamiento</h3>
                     </div>
