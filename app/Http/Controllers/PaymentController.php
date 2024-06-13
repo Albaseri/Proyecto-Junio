@@ -40,6 +40,10 @@ class PaymentController extends Controller
 
     public function success()
     {
+        // Cuando realice el pago USER, será PREMIUM
+        auth()->user()->update([
+            'roles'=> 'PREMIUM'
+        ]);
         return view('payment.success');
     }
 

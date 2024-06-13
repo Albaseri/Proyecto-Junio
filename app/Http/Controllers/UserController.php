@@ -70,7 +70,12 @@ class UserController extends Controller
 
         ]);
 
-        $user->update($request->all());
+        $user->update([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'roles'=>$request->roles,
+            'contraseña'=>$user->contraseña //No se actualizará la contraseña, se mantiene la que hay
+        ]);
         flash()->success('Usuario actualizado correctamente');
         return redirect()->route('usersLiv.index');
     }

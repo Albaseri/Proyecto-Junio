@@ -20,7 +20,7 @@ class PrincipalTrainingCard extends Component
     {
 
         $trainingCards = TrainingCard::where('titulo', 'like', "%$this->buscar%")
-            ->orWhere('estado', 'like', "%$this->buscar%")
+            // ->orWhere('estado', 'like', "%$this->buscar%")
             ->orderBy('id', 'desc')
             ->paginate(5);
         return view('livewire.principal-training-card', compact('trainingCards'));

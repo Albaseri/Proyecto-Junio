@@ -28,14 +28,14 @@
                         <x-input-error for="email"></x-input-error>
                     </div>
 
-                    <div class="mb-5">
+                    <!-- <div class="mb-5">
                         <label for="password"
                             class="block mb-2 text-md font-medium text-black dark:text-black font-bold">Contraseña:</label>
                         <input type="password" id="password"
                             class="disabled bg-gray-50 border border-gray-300 text-black text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Contraseña..." name="password">
                         <x-input-error for="password"></x-input-error>
-                    </div>
+                    </div> -->
 
                     <div class="mb-4">
                         <label for="roles" class="block mb-2 text-md font-medium text-black dark:text-black font-bold">Rol:</label>

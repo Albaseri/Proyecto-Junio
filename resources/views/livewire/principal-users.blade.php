@@ -85,9 +85,7 @@
                                     </td>
 
                                     <td class="px-6 py-4 text-center">
-                                        <div class="flex items-center space-x-2 ">
                                             {{ $user->roles }}
-                                        </div>
                                     </td>
                                     <td class="px-6 py-4">
                                         <form action="{{ route('users.destroy', $user->id) }}" method="post">
