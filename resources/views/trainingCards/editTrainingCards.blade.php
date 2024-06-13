@@ -59,7 +59,25 @@
                             placeholder="URL de YouTube..." name="url_youtube">
                         <x-input-error for="url_youtube" class="mt-1"></x-input-error>
                     </div>
-
+                    <div class="mb-6">
+                        <label class="block mb-2 text-md text-black dark:text-black">Estado:</label>
+                        <div class="flex items-center space-x-4">
+                            <div>
+                                <input id="VISIBLE" name="estado" type="radio" value="VISIBLE"
+                                    @checked($trainingCard->estado == 'VISIBLE')
+                                    class="text-cyan-500 focus:ring-cyan-500 dark:focus:ring-offset-gray-800 form-radio h-4 w-4 dark:text-cyan-500">
+                                <label for="VISIBLE" class="text-sm text-black dark:text-black">Visible</label>
+                            </div>
+                            <div>
+                                <input id="NO VISIBLE" name="estado" type="radio" value="NO VISIBLE"
+                                    @checked($trainingCard->estado == 'NO VISIBLE')
+                                    class="text-red-500 focus:ring-red-500 dark:focus:ring-offset-gray-800 form-radio h-4 w-4 dark:text-red-500">
+                                <label for="NO VISIBLE" class="text-sm text-black dark:text-black">No
+                                    visible</label>
+                            </div>
+                        </div>
+                        <x-input-error for="estado" class="mt-1"></x-input-error>
+                    </div>
                     <div class="mb-6">
                         <label for="imagen" class="block mb-2 text-md text-black dark:text-black font-bold">Imagen:</label>
                         <input type="file" id="imagen" oninput="img.src=window.URL.createObjectURL(this.files[0])"
