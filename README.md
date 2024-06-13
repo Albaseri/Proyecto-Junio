@@ -13,7 +13,7 @@ El proyecto se ha realizado con las siguientes tecnologías:
 -   **Tailwind CSS**: Framework de diseño
 -   **Visual Studio Code**: Entorno de desarrollo
 
-## 🚀 Instalación
+## 💻 Instalación
 
 Sigue estos pasos para instalar y configurar el proyecto localmente:
 
@@ -25,6 +25,10 @@ Sigue estos pasos para instalar y configurar el proyecto localmente:
 6. Copia el archivo `.env.example` a `.env` y configura tu entorno local.
 7. Genera una nueva clave de aplicación ejecutando `php artisan key:generate`.
 8. Ejecuta las migraciones de la base de datos con `php artisan migrate`.
+
+## 🚀 Despliegue
+
+URL del despliegue: `http://ec2-35-153-5-246.compute-1.amazonaws.com/`.
 
 ## 👩‍💻 Uso
 
