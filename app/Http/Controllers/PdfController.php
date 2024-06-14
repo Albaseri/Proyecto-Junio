@@ -45,8 +45,8 @@ class PdfController extends Controller
             'user_id' => auth()->id(), // Asigno al usuario autenticado
         ]);
 
-        //flash()->success('Pdf creado correctamente');
-        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf creado con éxito');
+        flash()->success('Pdf creado con éxito');
+        return redirect()->route('pdfsLiv.index');
     }
 
     /**
@@ -90,9 +90,9 @@ class PdfController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-       // flash()->success('Pdf actualizado correctamente');
+       flash()->success('Pdf actualizado con éxito');
 
-        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf actualizado con éxito');
+        return redirect()->route('pdfsLiv.index');
     }
 
     /**
@@ -104,7 +104,7 @@ class PdfController extends Controller
             Storage::disk('public')->delete($pdf->ruta); // Elimino el archivo
         }
         $pdf->delete();
-        //flash()->success('Pdf eliminado correctamente');
-        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf eliminado con éxito');
+        flash()->success('Pdf eliminado con éxito');
+        return redirect()->route('pdfsLiv.index');
     }
 }

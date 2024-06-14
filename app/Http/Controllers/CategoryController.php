@@ -70,9 +70,9 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        //flash()->success('Categoría actualizada con éxito');
+        flash()->success('Categoría actualizada con éxito');
 
-        return redirect()->route('categoriesLiv.index')->with('mensaje', 'Categoría actualizada con éxito');
+        return redirect()->route('categoriesLiv.index');
     }
 
     /**

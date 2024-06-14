@@ -51,7 +51,7 @@ class PrincipalTrainingCard extends Component
         // Elimino trainingCard
         $trainingCard->delete();
 
-        flash()->success('Training Card eliminada correctamente');
+        flash()->success('Training Card eliminada con éxito');
         $this->dispatch('mensaje', 'Training Card eliminada');
     }
 

@@ -36,8 +36,8 @@ class UserController extends Controller
         ]);
 
         User::create($request->all());
-        //flash()->success('Usuario creado correctamente');
-        return redirect()->route('usersLiv.index')->with('mensaje', 'Usuario creado con éxito');
+        flash()->success('Usuario creado con éxito');
+        return redirect()->route('usersLiv.index');
     }
 
     /**
@@ -76,8 +76,8 @@ class UserController extends Controller
             'roles'=>$request->roles,
             'contraseña'=>$user->contraseña //No se actualizará la contraseña, se mantiene la que hay
         ]);
-        //flash()->success('Usuario actualizado correctamente');
-        return redirect()->route('usersLiv.index')->with('mensaje', 'Usuario actualizado con éxito');
+        flash()->success('Usuario actualizado con éxito');
+        return redirect()->route('usersLiv.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        //flash()->success('Usuario eliminado correctamente');
-        return redirect()->route('usersLiv.index')->with('mensaje', 'Usuario eliminado con éxito');
+        flash()->success('Usuario eliminado con éxito');
+        return redirect()->route('usersLiv.index');
     }
 }

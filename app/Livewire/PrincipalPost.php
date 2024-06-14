@@ -60,7 +60,7 @@ class PrincipalPost extends Component
         // Elimino post
         $post->delete();
 
-        //flash()->success('Post eliminado correctamente');
+        flash()->success('Post eliminado con éxito');
 
         $this->dispatch('mensaje', 'Post eliminado con éxito');
     }

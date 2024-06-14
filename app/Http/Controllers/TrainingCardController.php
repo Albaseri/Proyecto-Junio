@@ -56,8 +56,8 @@ class TrainingCardController extends Controller
 
         ]);
 
-        //flash()->success('Card de entrenamiento creada correctamente');
-        return redirect()->route('trainingCardsLiv.index')->with('mensaje', 'Training Card creada con éxito');
+        flash()->success('Card de entrenamiento creada con éxito');
+        return redirect()->route('trainingCardsLiv.index');
     }
 
     /**
@@ -111,9 +111,9 @@ class TrainingCardController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
-        //flash()->success('Training Card actualizada correctamente');
+        flash()->success('Training Card actualizada con éxito');
 
-        return redirect()->route('trainingCardsLiv.index')->with('mensaje', 'Training Card actualizada con éxito');
+        return redirect()->route('trainingCardsLiv.index');
     }
 
     /**
