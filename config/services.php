@@ -33,12 +33,12 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://ec2-35-153-5-246.compute-1.amazonaws.com/auth/github/callback',
+        'redirect' => 'http://activafitness.ddns.net/auth/github/callback',
     ],
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://ec2-35-153-5-246.compute-1.amazonaws.com/oauth/google/callback',
+        'redirect' => 'http://activafitness.ddns.net/oauth/google/callback',
     ],
 
 ];

@@ -51,8 +51,8 @@ class PostController extends Controller
         ]);
 
         //? 3. Mostramos mensaje y volvemos a la página posts 
-        flash()->success('Post creado correctamente');
-        return redirect()->route('postsLiv.index');
+        //flash()->success('Post creado correctamente');
+        return redirect()->route('postsLiv.index')->with('mensaje', 'Post creado con éxito');
     }
 
     /**
@@ -107,8 +107,8 @@ class PostController extends Controller
             'category_id' => $request->category_id
         ]);
 
-        flash()->success('Post editado correctamente');
-        return redirect()->route('postsLiv.index');
+        //flash()->success('Post editado correctamente');
+        return redirect()->route('postsLiv.index')->with('mensaje', 'Post actualizado con éxito');
     }
 
     /**

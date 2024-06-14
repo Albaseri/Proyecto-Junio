@@ -28,7 +28,7 @@ Sigue estos pasos para instalar y configurar el proyecto localmente:
 
 ## 🚀 Despliegue
 
-URL del despliegue: `http://ec2-35-153-5-246.compute-1.amazonaws.com/`.
+URL del despliegue: `http://activafitness.ddns.net/`.
 
 ## 👩‍💻 Uso
 

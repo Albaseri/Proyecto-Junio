@@ -37,6 +37,7 @@ class CategoryController extends Controller
 
         flash()->success('Categoría creada con éxito');
 
+
         return redirect()->route('categoriesLiv.index');
     }
 
@@ -68,10 +69,10 @@ class CategoryController extends Controller
 
 
         $category->update($request->all());
-        
-        flash()->success('Categoría actualizada con éxito');
 
-        return redirect()->route('categoriesLiv.index');
+        //flash()->success('Categoría actualizada con éxito');
+
+        return redirect()->route('categoriesLiv.index')->with('mensaje', 'Categoría actualizada con éxito');
     }
 
     /**
@@ -82,6 +83,7 @@ class CategoryController extends Controller
         $category->delete();
 
         flash()->success('Categoría eliminada con éxito');
+
 
         return redirect()->route('categoriesLiv.index');
     }

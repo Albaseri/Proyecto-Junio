@@ -31,7 +31,7 @@ class PdfController extends Controller
     {
         $request->validate([
             'nombre_archivo' => ['required', 'string', 'min:5', 'unique:pdfs,nombre_archivo'],
-            'ruta' => ['required', 'file', 'mimes:pdf', 'max:5000']
+            'ruta' => ['nullable', 'file', 'mimes:pdf', 'max:5000']
         ]);
 
         // Almaceno el archivo PDF
@@ -45,8 +45,8 @@ class PdfController extends Controller
             'user_id' => auth()->id(), // Asigno al usuario autenticado
         ]);
 
-        flash()->success('Pdf creado correctamente');
-        return redirect()->route('pdfsLiv.index');
+        //flash()->success('Pdf creado correctamente');
+        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf creado con éxito');
     }
 
     /**
@@ -90,9 +90,9 @@ class PdfController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        flash()->success('Pdf actualizado correctamente');
+       // flash()->success('Pdf actualizado correctamente');
 
-        return redirect()->route('pdfsLiv.index');
+        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf actualizado con éxito');
     }
 
     /**
@@ -104,7 +104,7 @@ class PdfController extends Controller
             Storage::disk('public')->delete($pdf->ruta); // Elimino el archivo
         }
         $pdf->delete();
-        flash()->success('Pdf eliminado correctamente');
-        return redirect()->route('pdfsLiv.index');
+        //flash()->success('Pdf eliminado correctamente');
+        return redirect()->route('pdfsLiv.index')->with('mensaje', 'Pdf eliminado con éxito');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\On;
@@ -18,11 +19,19 @@ class PrincipalPost extends Component
 
     public function render()
     {
-        $posts = Post::where('titulo', 'like', "%$this->buscar%")
-            ->orWhere('contenido', 'like', "%$this->buscar%")
-            ->orWhere('categoria', 'like', "%$this->buscar%")
-            ->orderBy('id', 'desc')
-            ->paginate(5);
+        $categoriaExiste = Category::where('nombre', 'like', "%" . $this->buscar . "%")->first();
+
+
+        if ($this->buscar != '' && $categoriaExiste) {
+            $posts = Post::where('category_id', '=', $categoriaExiste->id)
+                ->orderBy('id', 'desc')
+                ->paginate(5);
+        } else {
+            $posts = Post::where('titulo', 'like', "%$this->buscar%")
+                ->orWhere('contenido', 'like', "%$this->buscar%")
+                ->orderBy('id', 'desc')
+                ->paginate(5);
+        }
         return view('livewire.principal-post', compact('posts'));
     }
 
@@ -51,8 +60,8 @@ class PrincipalPost extends Component
         // Elimino post
         $post->delete();
 
-        flash()->success('Post eliminado correctamente');
+        //flash()->success('Post eliminado correctamente');
 
-        $this->dispatch('mensaje', 'Post eliminado');
+        $this->dispatch('mensaje', 'Post eliminado con éxito');
     }
 }
