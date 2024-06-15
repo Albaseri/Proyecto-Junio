@@ -19,14 +19,14 @@ class PrincipalPost extends Component
 
     public function render()
     {
-        $categoriaExiste = Category::where('nombre', 'like', "%" . $this->buscar . "%")->first();
+        $categoriaExiste = Category::where('nombre', 'like', "%$this->buscar%")->first();
 
 
-        if ($this->buscar != '' && $categoriaExiste) {
-            $posts = Post::where('category_id', '=', $categoriaExiste->id)
+        if ($this->buscar != '' && $categoriaExiste) { //si no está vacío y encuentra categoría
+            $posts = Post::where('category_id', '=', $categoriaExiste->id) //filtro posts que pertencen a esa categoría
                 ->orderBy('id', 'desc')
                 ->paginate(5);
-        } else {
+        } else { //muestro post por titulo y contenido
             $posts = Post::where('titulo', 'like', "%$this->buscar%")
                 ->orWhere('contenido', 'like', "%$this->buscar%")
                 ->orderBy('id', 'desc')

@@ -26,14 +26,15 @@
                                         Obtén acceso instantáneo a mi PDF gratuito con una serie de consejos saludables para mejorar tu bienestar y calidad de vida.
                                     </p>
                                     <div class="mt-6">
-                                        <a href="{{ Storage::url('pdfs/GuíaSaludableCONenlaces.pdf') }}" target="_blank" class="inline-block rounded-full bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
+                                        <a href="{{ Storage::url('pdfs/GuíaSaludableCONenlaces.pdf') }}" target="_blank" class="inline-block rounded-full bg-blue-400 px-5 py-3 text-md font-semibold text-white hover:bg-blue-500 ">
                                             ¡Lo quiero ya!
                                         </a>
                                     </div>
                                 </div>
-                                <div class="relative">
-                                    <div class="absolute top-0 left-0 right-0 bottom-0 "></div>
-                                    <img src="/storage/consejos.jpg" data-aos="fade-up-left" class="img-tips ml-20 rounded-lg shadow-lg z-10 w-80 h-auto" alt="Imagen Tips">
+                                <div class="relative lg:ml-8">
+                                    <div class="absolute 
+                                    "></div>
+                                    <img src="/storage/consejos.jpg" data-aos="fade-up-left" class="img-tips rounded-lg shadow-lg z-10 w-80 h-auto" alt="Imagen Tips">
                                 </div>
                             </div>
                         </div>
@@ -130,7 +131,7 @@
                             <div class="w-full flex-1 p-8 mt-8 shadow-xl rounded-3xl bg-gradient-to-b from-cyan-700 to-blue-500 text-white sm:w-96 lg:w-full lg:mt-0">
                                 <div class="mb-8 pb-8 flex items-center border-b border-black">
                                     <div class="mr-4 icono-corona">
-                                        <i class="fa-solid fa-crown text-yellow-200 text-6xl"></i> <!-- Ajustado tamaño de la corona -->
+                                        <i class="fa-solid fa-crown text-yellow-200 text-6xl"></i>
                                     </div>
                                     <div class="ml-4">
                                         <span class="block text-3xl font-semibold">Premium</span>
@@ -151,6 +152,10 @@
                                 <a href="{{ route('payment.form') }}" class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" alt="Arrow icon" />
+                                </a>
+                                @elseif(auth()->check() && auth()->user()->roles === 'PREMIUM')
+                                <a href="" class="flex justify-center items-center font-bold bg-white  text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
+                                    ¡Ya eres premium!💫
                                 </a>
                                 @else
                                 <a href="{{ route('login') }}" class="flex justify-center items-center font-bold bg-white hover:bg-blue-800 hover:text-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
