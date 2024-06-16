@@ -19,6 +19,7 @@
             overflow: hidden;
         }
 
+        /* Burbujitas */
         .formas-de-fondo {
             position: absolute;
             top: 0;
@@ -82,13 +83,13 @@
 </head>
 
 <body>
+    <!-- Esto son las burbujitas -->
     <div class="formas-de-fondo">
         <div></div>
         <div></div>
         <div></div>
     </div>
-
-    
+    <!-- Con data-aos="fade-up" consigo que el contenedor blanco aparezca de arriba hacia arriba cuando se abre la vista -->
     <div class="contenedor mx-auto p-4 flex justify-center items-center h-screen" data-aos="fade-up">
         <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full text-center">
             <h2 class="text-4xl font-bold mb-6 text-blue-400">Pago Exitoso</h2>
@@ -97,13 +98,15 @@
 
         </div>
     </div>
+
+    <!-- Aquí he metido manualmente la animación de AOS porque si no, no funcionaba -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
 
 
-    
+
 </body>
 
 </html>
