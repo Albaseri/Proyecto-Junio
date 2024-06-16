@@ -60,9 +60,9 @@
                                 {{ __('Administrar cuenta') }}
                             </div>
 
-                            <x-dropdown-link href="{{ route('profile.show') }}">
+                            <!-- <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Perfil') }}
-                            </x-dropdown-link>
+                            </x-dropdown-link> -->
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -144,15 +144,15 @@
                 @endif
 
                 <div>
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-base text-cyan-200">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-blue-500">{{ Auth::user()->email }}</div>
                 </div>
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('profile.show') }}">
+                <!-- <x-responsive-nav-link href="{{ route('profile.show') }}">
                     {{ __('Perfil') }}
-                </x-responsive-nav-link>
+                </x-responsive-nav-link> -->
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                 <x-responsive-nav-link href="{{ route('api-tokens.index') }}">

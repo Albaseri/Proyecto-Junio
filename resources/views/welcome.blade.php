@@ -191,7 +191,7 @@
 
                                 </ul>
                                 <a href="#/" class="flex justify-center items-center bg-blue-800 rounded-full py-5 px-4 text-center text-white text-xl">
-                                    Próximamente
+                                    ¡Próximamente!
                                 </a>
                             </div>
                         </div>
