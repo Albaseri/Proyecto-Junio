@@ -20,7 +20,9 @@
                                     <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
                                     <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
                                 </svg>
-                                <span>+653 41 25 31</span>
+                                <a href="https://api.whatsapp.com/send/?phone=34653412531&text=¡Hola! Estoy interesado/a en saber más sobre tu plan de entrenamiento ¡Necesito ponerme en forma! Muchas gracias de antemano.🏋🏼‍♀️🙌🏼&type=phone_number&app_absent=0" target="_blank">
+                                    <span>+653 41 25 31</span>
+                                </a>
                             </div>
                             <div class="inline-flex space-x-2 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#8CFBFB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
@@ -95,7 +97,12 @@
                     </div>
                 </div>
             </div>
-
+            {{-- Icono Whatsapp Contacto --}}
+            <div class="fixed bottom-8 right-8 ">
+                <a href="https://api.whatsapp.com/send/?phone=34653412531&text=¡Hola! Estoy interesado/a en saber más sobre tu plan de entrenamiento ¡Necesito ponerme en forma! Muchas gracias de antemano.🏋🏼‍♀️🙌🏼&type=phone_number&app_absent=0" target="_blank" class="flex items-center justify-center w-16 h-16 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition duration-300 ease-in-out">
+                    <i class="fa-brands fa-whatsapp text-4xl"></i>
+                </a>
+            </div>
         </x-propios.principal>
     </div>
 </x-app-layout>
