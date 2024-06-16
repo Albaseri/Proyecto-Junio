@@ -72,7 +72,9 @@
                                 @csrf
                                 <div>
                                     <label for="nombre" class="font-bold text-black">Nombre:</label>
-                                    <input type='text' name='nombre' placeholder='Nombre' value="{{ old('nombre') }}" class=" border-none ring-1 ring-gray-300 mt-2 w-full rounded-md px-4 py-2 outline-none " @error('nombre') <span class="text-red-500 text-sm">{{ $message }}</span>
+                                    <input type='text' name='nombre' placeholder='Nombre' value="{{ old('nombre') }}" class=" border-none ring-1 ring-gray-300 mt-2 w-full rounded-md px-4 py-2 outline-none ">
+                                    @error('nombre')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="my-5">
