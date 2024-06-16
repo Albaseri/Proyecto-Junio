@@ -142,14 +142,15 @@
         // Función para abrir el vídeo de youtube
         function abrirModal(url) {
             // Extraigo el ID del video de YouTube desde la URL
+            // v es el identificador único del vídeo, obtengo su valor con get (si tengo https://www.youtube.com/watch?v=dQw4w9WgXcQ, searchParams.get("v") me devuelve dQw4w9WgXcQ.)
             const videoId = new URL(url).searchParams.get("v");
-            // Forma la URL de embebido del video
+            // Formo la URL de embebido del video
             const embedUrl = `https://www.youtube.com/embed/${videoId}`;
             // Establezco la URL del video en el iframe
             document.getElementById('videoFrame').src = embedUrl;
             // Muestro modal
-            document.getElementById('videoModal').classList.remove('hidden');
-            document.getElementById('videoModal').classList.add('flex');
+            document.getElementById('videoModal').classList.remove('hidden'); //remuevo la clase hidden para que sea visible
+            document.getElementById('videoModal').classList.add('flex'); //y aplico estilos flex
             // Clase al body del documento para evitar el desplazamiento
             document.body.classList.add('modal-active');
         }

@@ -1,8 +1,9 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <img src="{{ Storage::url('logo.png') }}" class="object-cover h-30 w-40">
-
+            <a href="{{ route('welcome') }}">
+                <img src="{{ Storage::url('logo.png') }}" class="object-cover h-30 w-40">
+            </a>
         </x-slot>
 
 
