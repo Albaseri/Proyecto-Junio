@@ -2,7 +2,7 @@
 
 ## 📝 Descripción
 
-Este proyecto es una aplicación web desarrollada con el framework Laravel. Proporciona una plataforma para [describir brevemente la funcionalidad principal de tu aplicación].
+Este proyecto es una aplicación web desarrollada con el framework Laravel.Se trata de una plataforma para usuarios que estén interesados en iniciarse en el entrenamiento físico como hábito saludable. En ella, encontrarán un blog con artículos relacionados con el mundo del fitness, así como un plan de entrenamiento con acceso gratuito de forma ilimitada, que podrán complementar con otro día de entrenamiento siempre que sean PREMIUM.
 
 ## 🛠️ Características y Entorno de Desarrollo
 

@@ -121,10 +121,18 @@
                                                 entrenamiento</span></span>
                                     </li>
                                 </ul>
+                                @if (auth()->check() && auth()->user()->roles === 'USER' || auth()->check() && auth()->user()->roles === 'PREMIUM')
+
+                                <a href="{{ route('entrenamientoUser.index') }}" class="flex justify-center items-center bg-blue-800 rounded-full py-5 px-4 text-center text-white text-xl">
+                                    Accede al Entrenamiento
+                                    <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" alt="Arrow icon" />
+                                </a>
+                                @else
                                 <a href="{{ route('register') }}" class="flex justify-center items-center bg-blue-800 rounded-full py-5 px-4 text-center text-white text-xl">
                                     Elige Plan
                                     <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" alt="Arrow icon" />
                                 </a>
+                                @endif
                             </div>
 
                             {{-- Plan Premium  --}}
@@ -149,9 +157,8 @@
                                     </li>
                                 </ul>
                                 @if (auth()->check() && auth()->user()->roles === 'USER')
-                                <a href="{{ route('payment.form') }}" class="flex justify-center items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
+                                <a href="{{ route('payment.form') }}" class="flex justify-center font-bold items-center bg-white text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
                                     Elige Plan
-                                    <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" alt="Arrow icon" />
                                 </a>
                                 @elseif(auth()->check() && auth()->user()->roles === 'PREMIUM')
                                 <a href="" class="flex justify-center items-center font-bold bg-white  text-indigo-600 rounded-full py-5 px-4 text-center text-xl">
@@ -171,7 +178,7 @@
                                 <div class="mb-7 pb-7 flex items-center border-b border-gray-300">
                                     <img src="https://res.cloudinary.com/williamsondesign/abstract-3.jpg" alt="Plan Avanzado" class="rounded-3xl w-20 h-20" />
                                     <div class="ml-5">
-                                        <span class="block text-2xl font-semibold text-indigo-600">Próximamente...</span>
+                                        <span class="block text-2xl font-semibold text-indigo-600">Preparando novedades...</span>
                                         <span class="text-gray-500 font-medium">Nuevas y emocionantes
                                             características</span>
                                     </div>
@@ -184,8 +191,7 @@
 
                                 </ul>
                                 <a href="#/" class="flex justify-center items-center bg-blue-800 rounded-full py-5 px-4 text-center text-white text-xl">
-                                    Elige Plan
-                                    <img src="https://res.cloudinary.com/williamsondesign/arrow-right.svg" class="ml-2" alt="Arrow icon" />
+                                    Próximamente
                                 </a>
                             </div>
                         </div>
