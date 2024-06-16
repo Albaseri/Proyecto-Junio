@@ -17,7 +17,7 @@ El proyecto se ha realizado con las siguientes tecnologías:
 
 Sigue estos pasos para instalar y configurar el proyecto localmente:
 
-1. Clona este repositorio en tu máquina local.
+1. Clona este repositorio en tu máquina local con `git clone` y navega hasta el directorio.
 2. Instala las dependencias del proyecto ejecutando `composer install`.
 3. Instala las dependencias de frontend ejecutando `npm install`.
 4. Ejecuta el comando `composer update`.
@@ -28,11 +28,11 @@ Sigue estos pasos para instalar y configurar el proyecto localmente:
 
 ## 🚀 Despliegue
 
-URL del despliegue: `http://activafitness.ddns.net/`.
+URL del despliegue: [https://activafitness.ddns.net/](https://activafitness.ddns.net).
 
 ## 👩‍💻 Uso
 
-Para iniciar el servidor de desarrollo, ejecuta el siguiente comando: `php artisan serve`
+Para iniciar el servidor de desarrollo, ejecuta el siguiente comando: `php artisan serve`..
 
 ## ✒️ Contribuciones
 
